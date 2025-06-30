@@ -4,6 +4,13 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="false"/>
 		<list key="findhistory">
+			<item value="createFileMenu"/>
+			<item value="categorytree.setcellrenderer"/>
+			<item value="categorytree.add"/>
+			<item value="categorytree"/>
+			<item value="tasktablemodel"/>
+			<item value="sorter"/>
+			<item value="taskrawsorter"/>
 			<item value="categoryTreeModel.update"/>
 			<item value="String clr"/>
 			<item value="createtask"/>
@@ -12,9 +19,6 @@
 			<item value="currentTask"/>
 			<item value="current task"/>
 			<item value="t.setTitle"/>
-			<item value="UUID"/>
-			<item value="addtas"/>
-			<item value="addTask"/>
 		</list>
 	</section>
 </section>

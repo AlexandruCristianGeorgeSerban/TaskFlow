@@ -1,21 +1,32 @@
 package com.taskflow.ui;
 
 import com.taskflow.model.Task;
-
 import javax.swing.table.AbstractTableModel;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class TaskTableModel extends AbstractTableModel {
-	private static final long serialVersionUID = 1L;
-	
-    private List<Task> tasks;
-    private String[] columns = {"Title", "Due Date", "Completed"};
+    private static final long serialVersionUID = 1L;
+
+    private static final String[] COLUMN_NAMES = {
+        "Title", "Description", "Due Date", "Completed"
+    };
+
+    private List<Task> tasks = new ArrayList<>();
 
     public TaskTableModel(List<Task> tasks) {
-        this.tasks = new ArrayList<>(tasks);
+        this.tasks = tasks;
+    }
+
+    @Override
+    public int getColumnCount() {
+        return COLUMN_NAMES.length;
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        return COLUMN_NAMES[column];
     }
 
     @Override
@@ -24,48 +35,30 @@ public class TaskTableModel extends AbstractTableModel {
     }
 
     @Override
-    public int getColumnCount() {
-        return columns.length;
-    }
-
-    @Override
-    public String getColumnName(int column) {
-        return columns[column];
-    }
-
-    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Task task = tasks.get(rowIndex);
+        Task t = tasks.get(rowIndex);
         switch (columnIndex) {
-            case 0:
-                return task.getTitle();
-            case 1:
-                return String.format("%tF", task.getDueDate());
+            case 0: return t.getTitle();
+            case 1: return t.getDescription();
             case 2:
-                return task.isCompleted();
-            default:
-                return null;
+                return new SimpleDateFormat("yyyy-MM-dd")
+                         .format(t.getDueDate().getTime());
+            case 3: return t.isCompleted();
+            default: return null;
         }
     }
 
-    public List<Task> filter(String keyword) {
-        List<Task> result = new ArrayList<>();
-        Iterator<Task> it = tasks.iterator();
-        while (it.hasNext()) {
-            Task t = it.next();
-            StringTokenizer tok = new StringTokenizer(t.getTitle() + " " + t.getDescription());
-            while (tok.hasMoreTokens()) {
-                if (tok.nextToken().equalsIgnoreCase(keyword)) {
-                    result.add(t);
-                    break;
-                }
-            }
+    @Override
+    public Class<?> getColumnClass(int columnIndex) {
+        switch (columnIndex) {
+            case 2: return String.class;
+            case 3: return Boolean.class;
+            default: return String.class;
         }
-        return result;
     }
 
-    public void setTasks(List<Task> newTasks) {
-        this.tasks = new ArrayList<>(newTasks);
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
         fireTableDataChanged();
     }
 }
