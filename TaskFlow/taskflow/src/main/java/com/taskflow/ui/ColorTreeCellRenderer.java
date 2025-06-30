@@ -31,7 +31,7 @@ public class ColorTreeCellRenderer extends DefaultTreeCellRenderer {
             setText(c.getName());
         } else if (obj instanceof Task) {
             Task t = (Task) obj;
-            hex = t.isCompleted() ? "#00A000" : "#A00000";
+            hex = t.getColorHex();
             setText(t.getTitle());
         }
 

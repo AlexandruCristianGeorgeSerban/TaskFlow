@@ -1,0 +1,30 @@
+package com.taskflow.model;
+import java.util.ArrayList;
+import java.util.List;
+
+public class RootGroup {
+    private String name;
+    private String colorHex;
+    private List<Category> categories = new ArrayList<>();
+
+    public RootGroup(String name, String colorHex) {
+        this.name = name;
+        setColorHex(colorHex);
+    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getColorHex() { return colorHex; }
+    public void setColorHex(String colorHex) {
+        if (colorHex == null || colorHex.isBlank()) return;
+        String hex = colorHex.trim();
+        if (!hex.startsWith("#")) {
+            hex = "#" + hex;
+        }
+        if (hex.length() == 7) {
+            this.colorHex = hex;
+        }
+    }
+    public List<Category> getCategories() { return categories; }
+    @Override
+    public String toString() { return name; }
+}

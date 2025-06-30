@@ -1,0 +1,58 @@
+package com.taskflow.model;
+
+import java.util.Calendar;
+import java.util.UUID;
+
+public class Task {
+    private String id;
+    private String title;
+    private String description;
+    private Calendar dueDate;
+    private boolean completed;
++   private String colorHex;        // nou
+
+    public Task() {
+        this.id = UUID.randomUUID().toString();
+        this.dueDate = Calendar.getInstance();
++       this.colorHex = "#A00000"; // default roșu închis
+    }
+
++   public Task(String title, String description, Calendar dueDate, boolean completed, String colorHex) {
++       this();
++       this.title = title;
++       this.description = description;
++       this.dueDate = dueDate;
++       this.completed = completed;
++       this.colorHex = colorHex != null && colorHex.startsWith("#")
++                       ? colorHex : "#" + (colorHex == null ? "A00000" : colorHex);
++   }
+
+    // constructor existent (îl poți suprascrie cu cel de mai sus dacă îl folosești)
+    public Task(String title, String description, Calendar dueDate, boolean completed) {
+        this();
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.completed = completed;
++       // colorHex rămâne default
+    }
+
+    // ... getters/setters pentru celelalte câmpuri ...
+
++   public String getColorHex() {
++       return colorHex;
++   }
++   public void setColorHex(String colorHex) {
++       if (colorHex != null && !colorHex.trim().isEmpty()) {
++           this.colorHex = colorHex.trim().startsWith("#")
++                         ? colorHex.trim()
++                         : "#" + colorHex.trim();
++       }
++   }
+
+    @Override
+    public String toString() {
+        return title + " (due " + new SimpleDateFormat("yyyy-MM-dd").format(dueDate.getTime())
+               + ", " + (completed ? "done" : "pending") + ")";
+    }
+}

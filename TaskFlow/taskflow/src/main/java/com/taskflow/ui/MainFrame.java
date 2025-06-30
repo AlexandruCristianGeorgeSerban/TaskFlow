@@ -142,11 +142,22 @@ public class MainFrame extends JFrame {
         JMenu rootMenu = new JMenu("Root");
         rootMenu.add(new AbstractAction("Add Root") {
             @Override public void actionPerformed(ActionEvent e) {
-                String name = JOptionPane.showInputDialog(MainFrame.this, "Root name:");
+                String name = JOptionPane.showInputDialog(
+                    MainFrame.this, "Root name:");
                 if (name == null || name.trim().isEmpty()) return;
-                String clr = JOptionPane.showInputDialog(MainFrame.this, "Root color (hex):");
-                clr = (clr != null && clr.startsWith("#")) ? clr.trim() : "#000000";
-                allRoots.add(new RootGroup(name.trim(), clr));
+
+                Color chosen = JColorChooser.showDialog(
+                    MainFrame.this, "Choose root color", Color.BLACK);
+                String colorHex = "#000000";
+                if (chosen != null) {
+                    colorHex = String.format(
+                        "#%02x%02x%02x",
+                        chosen.getRed(), chosen.getGreen(), chosen.getBlue()
+                    );
+                }
+
+                RootGroup rg = new RootGroup(name.trim(), colorHex);
+                allRoots.add(rg);
                 refreshTree();
             }
         });
@@ -159,19 +170,43 @@ public class MainFrame extends JFrame {
             @Override public void actionPerformed(ActionEvent e) {
                 TreePath sel = categoryTree.getSelectionPath();
                 if (sel == null) {
-                    JOptionPane.showMessageDialog(MainFrame.this, "Select a root to add a category.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(
+                        MainFrame.this,
+                        "Select a root to add a category.",
+                        "Info",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
                     return;
                 }
-                Object obj = ((DefaultMutableTreeNode) sel.getLastPathComponent()).getUserObject();
+                Object obj = ((DefaultMutableTreeNode) sel.getLastPathComponent())
+                                  .getUserObject();
                 if (!(obj instanceof RootGroup)) {
-                    JOptionPane.showMessageDialog(MainFrame.this, "Please select a root.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(
+                        MainFrame.this,
+                        "Please select a root.",
+                        "Info",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
                     return;
                 }
                 RootGroup rg = (RootGroup) obj;
-                String name = JOptionPane.showInputDialog(MainFrame.this, "Category name:");
+
+                String name = JOptionPane.showInputDialog(
+                    MainFrame.this, "Category name:");
                 if (name == null || name.trim().isEmpty()) return;
-                String color = JOptionPane.showInputDialog(MainFrame.this, "Category color (hex):");
-                rg.getCategories().add(new Category(name.trim(), color != null ? color.trim() : "#000000"));
+
+                Color chosen = JColorChooser.showDialog(
+                    MainFrame.this, "Choose category color", Color.BLUE);
+                String colorHex = "#0000FF";
+                if (chosen != null) {
+                    colorHex = String.format(
+                        "#%02x%02x%02x",
+                        chosen.getRed(), chosen.getGreen(), chosen.getBlue()
+                    );
+                }
+
+                Category cat = new Category(name.trim(), colorHex);
+                rg.getCategories().add(cat);
                 refreshTree();
             }
         });
@@ -182,32 +217,7 @@ public class MainFrame extends JFrame {
         JMenu taskMenu = new JMenu("Task");
         taskMenu.add(new AbstractAction("Add Task") {
             @Override public void actionPerformed(ActionEvent e) {
-                TreePath sel = categoryTree.getSelectionPath();
-                if (sel == null) {
-                    JOptionPane.showMessageDialog(MainFrame.this, "Select a category to add a task.", "Info", JOptionPane.INFORMATION_MESSAGE);
-                    return;
-                }
-                Object obj = ((DefaultMutableTreeNode) sel.getLastPathComponent()).getUserObject();
-                if (!(obj instanceof Category)) {
-                    JOptionPane.showMessageDialog(MainFrame.this, "Please select a category.", "Info", JOptionPane.INFORMATION_MESSAGE);
-                    return;
-                }
-                Category cat = (Category) obj;
-                String title = JOptionPane.showInputDialog(MainFrame.this, "Task title:");
-                if (title == null || title.trim().isEmpty()) return;
-                String desc = JOptionPane.showInputDialog(MainFrame.this, "Task description:");
-                String due = JOptionPane.showInputDialog(MainFrame.this, "Due date (yyyy-MM-dd):");
-                Calendar dueDate;
-                try {
-                    Date d = new SimpleDateFormat("yyyy-MM-dd").parse(due);
-                    dueDate = Calendar.getInstance(); dueDate.setTime(d);
-                } catch (ParseException ex) {
-                    JOptionPane.showMessageDialog(MainFrame.this, "Invalid date format.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-                cat.addTask(new Task(title, desc, dueDate, false));
-                refreshTree();
-                taskTableModel.setTasks(getTasksFromCategory(cat));
+                addTaskDialog();
             }
         });
         return taskMenu;
@@ -224,7 +234,6 @@ public class MainFrame extends JFrame {
                             || t.getDescription().toLowerCase().contains(text))
                     .collect(Collectors.toList());
             taskTableModel.setTasks(filtered);
-
         }
     }
 
@@ -247,6 +256,11 @@ public class MainFrame extends JFrame {
 
     private void refreshTree() {
         categoryTreeModel.updateRoots(allRoots);
+        SwingUtilities.invokeLater(() -> {
+            for (int i = 0; i < categoryTree.getRowCount(); i++) {
+                categoryTree.expandRow(i);
+            }
+        });
     }
 
     private void showTasks(List<Task> tasks) {
@@ -256,5 +270,70 @@ public class MainFrame extends JFrame {
     private void showError(Exception ex) {
         JOptionPane.showMessageDialog(this,
                 ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    private void addTaskDialog() {
+        TreePath sel = categoryTree.getSelectionPath();
+        if (sel == null) {
+            JOptionPane.showMessageDialog(this,
+                "Select a category to add a task.",
+                "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        Object obj = ((DefaultMutableTreeNode) sel.getLastPathComponent()).getUserObject();
+        if (!(obj instanceof Category)) {
+            JOptionPane.showMessageDialog(this,
+                "Please select a category node.",
+                "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        Category cat = (Category) obj;
+
+        String title = JOptionPane.showInputDialog(this, "Task title:");
+        if (title == null || title.trim().isEmpty()) return;
+        String desc = JOptionPane.showInputDialog(this, "Task description:");
+        if (desc == null) desc = "";
+
+        String dueStr = JOptionPane.showInputDialog(this,
+        	    "Due date (yyyy-MM-dd or yyyyMMdd):");
+        	Calendar dueDate;
+        	try {
+        	    Date d;
+        	    if (dueStr.contains("-")) {
+        	        d = new SimpleDateFormat("yyyy-MM-dd").parse(dueStr);
+        	    } else if (dueStr.length() == 8) {
+        	        d = new SimpleDateFormat("yyyyMMdd").parse(dueStr);
+        	    } else {
+        	        throw new ParseException("Format invalid", 0);
+        	    }
+        	    dueDate = Calendar.getInstance();
+        	    dueDate.setTime(d);
+        	} catch (ParseException ex) {
+        	    JOptionPane.showMessageDialog(this,
+        	        "Invalid date format.\nUse yyyy-MM-dd or yyyyMMdd",
+        	        "Error", JOptionPane.ERROR_MESSAGE);
+        	    return;
+        	}
+
+        Color chosen = JColorChooser.showDialog(
+            this, "Choose task color", Color.RED);
+        String colorHex = "#A00000";
+        if (chosen != null) {
+            colorHex = String.format(
+                "#%02x%02x%02x",
+                chosen.getRed(), chosen.getGreen(), chosen.getBlue());
+        }
+
+        Task t = new Task(
+            title.trim(),
+            desc.trim(),
+            dueDate,
+            false,
+            colorHex
+        );
+        cat.addTask(t);
+
+        refreshTree();
+        taskTableModel.setTasks(getTasksFromCategory(cat));
     }
 }

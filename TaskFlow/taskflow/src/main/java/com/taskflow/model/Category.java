@@ -41,9 +41,16 @@ public class Category {
     public String getColor() {
         return color;
     }
-
+    
     public void setColor(String color) {
-        this.color = color;
+        if (color == null || color.isBlank()) return;
+        String hex = color.trim();
+        if (!hex.startsWith("#")) {
+            hex = "#" + hex;
+        }
+        if (hex.length() == 7) {
+            this.color = hex;
+        }
     }
 
     public List<Task> getTasks() {

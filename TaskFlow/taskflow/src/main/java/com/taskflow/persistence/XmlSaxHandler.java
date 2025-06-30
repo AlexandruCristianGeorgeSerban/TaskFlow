@@ -21,8 +21,7 @@ public class XmlSaxHandler extends DefaultHandler {
     private StringBuilder content = new StringBuilder();
 
     public List<Category> loadCategories(File file) throws Exception {
-        SAXParserFactory factory = SAXParserFactory.newInstance();
-        SAXParser parser = factory.newSAXParser();
+        SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
         parser.parse(file, this);
         return categories;
     }
@@ -39,12 +38,10 @@ public class XmlSaxHandler extends DefaultHandler {
                 break;
             case "task":
                 currentTask = new Task();
-                currentTask.setId(UUID.fromString(attributes.getValue("id")));
+                currentTask.setId(attributes.getValue("id"));
                 currentTask.setTitle(attributes.getValue("title"));
                 currentTask.setCompleted(Boolean.parseBoolean(attributes.getValue("completed")));
-                break;
-            case "description":
-            case "dueDate":
+                currentTask.setColorHex(attributes.getValue("color"));
                 break;
         }
     }
@@ -71,7 +68,11 @@ public class XmlSaxHandler extends DefaultHandler {
                 if (currentTask != null) {
                     String[] parts = content.toString().split("-");
                     Calendar cal = Calendar.getInstance();
-                    cal.set(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]) - 1, Integer.parseInt(parts[2]));
+                    cal.set(
+                        Integer.parseInt(parts[0]),
+                        Integer.parseInt(parts[1]) - 1,
+                        Integer.parseInt(parts[2])
+                    );
                     currentTask.setDueDate(cal);
                 }
                 break;

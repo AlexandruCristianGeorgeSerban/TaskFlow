@@ -2,7 +2,18 @@
 <section name="Workbench">
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="false"/>
 		<list key="findhistory">
+			<item value="categoryTreeModel.update"/>
+			<item value="String clr"/>
+			<item value="createtask"/>
+			<item value="color chosen"/>
+			<item value="dialog"/>
+			<item value="currentTask"/>
+			<item value="current task"/>
+			<item value="t.setTitle"/>
+			<item value="UUID"/>
+			<item value="addtas"/>
 			<item value="addTask"/>
 		</list>
 	</section>
