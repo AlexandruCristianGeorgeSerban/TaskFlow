@@ -1,106 +1,72 @@
 package com.taskflow.persistence;
 
+import com.taskflow.model.RootGroup;
 import com.taskflow.model.Category;
 import com.taskflow.model.Task;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-import java.util.UUID;
 
-public class XmlDomHandler {
+public class XmlDomHandler implements RootGroupPersistence {
 
-    public static void saveCategories(List<Category> categories, File file) throws Exception {
-        var factory = DocumentBuilderFactory.newInstance();
-        var builder = factory.newDocumentBuilder();
-        Document doc = builder.newDocument();
+    @Override
+    public List<RootGroup> loadRootGroups(File file) throws Exception {
+        throw new UnsupportedOperationException("DOM import not supported");
+    }
 
-        Element root = doc.createElement("categories");
-        doc.appendChild(root);
+    @Override
+    public void saveRootGroups(List<RootGroup> roots, File file) throws Exception {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder       = factory.newDocumentBuilder();
+        Document doc                  = builder.newDocument();
 
-        for (Category cat : categories) {
-            Element catElem = doc.createElement("category");
-            catElem.setAttribute("id", cat.getId().toString());
-            catElem.setAttribute("name", cat.getName());
-            catElem.setAttribute("color", cat.getColor());
+        Element rootsElem = doc.createElement("roots");
+        doc.appendChild(rootsElem);
 
-            for (Task t : cat.getTasks()) {
-                Element taskElem = doc.createElement("task");
-                taskElem.setAttribute("id", t.getId());
-                taskElem.setAttribute("title", t.getTitle());
-                taskElem.setAttribute("completed", Boolean.toString(t.isCompleted()));
-                taskElem.setAttribute("color", t.getColorHex());
+        SimpleDateFormat dateFmt = new SimpleDateFormat("yyyy-MM-dd");
 
-                Element desc = doc.createElement("description");
-                desc.setTextContent(t.getDescription());
-                taskElem.appendChild(desc);
+        for (RootGroup rg : roots) {
+            Element rootElem = doc.createElement("root");
+            rootElem.setAttribute("name",  rg.getName());
+            rootElem.setAttribute("color", rg.getColorHex());
+            rootsElem.appendChild(rootElem);
 
-                Element due = doc.createElement("dueDate");
-                Calendar cal = t.getDueDate();
-                String dateStr = String.format("%d-%02d-%02d",
-                        cal.get(Calendar.YEAR),
-                        cal.get(Calendar.MONTH) + 1,
-                        cal.get(Calendar.DAY_OF_MONTH));
-                due.setTextContent(dateStr);
-                taskElem.appendChild(due);
+            for (Category c : rg.getCategories()) {
+                Element catElem = doc.createElement("category");
+                catElem.setAttribute("name",  c.getName());
+                catElem.setAttribute("color", c.getColor());
+                rootElem.appendChild(catElem);
 
-                catElem.appendChild(taskElem);
+                for (Task t : c.getTasks()) {
+                    Element taskElem = doc.createElement("task");
+                    taskElem.setAttribute("id",        t.getId());
+                    taskElem.setAttribute("title",     t.getTitle());
+                    taskElem.setAttribute("completed", Boolean.toString(t.isCompleted()));
+                    catElem.appendChild(taskElem);
+
+                    Element desc = doc.createElement("description");
+                    desc.setTextContent(t.getDescription());
+                    taskElem.appendChild(desc);
+
+                    Element due = doc.createElement("dueDate");
+                    Calendar cal = t.getDueDate();
+                    due.setTextContent(dateFmt.format(cal.getTime()));
+                    taskElem.appendChild(due);
+                }
             }
-            root.appendChild(catElem);
         }
 
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.transform(new DOMSource(doc), new StreamResult(file));
-    }
-
-    public static List<Category> loadCategories(File file) throws Exception {
-        List<Category> categories = new java.util.ArrayList<>();
-        var factory = DocumentBuilderFactory.newInstance();
-        var builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(file);
-        Element root = doc.getDocumentElement();
-
-        var catNodes = root.getElementsByTagName("category");
-        for (int i = 0; i < catNodes.getLength(); i++) {
-            var catElem = (Element) catNodes.item(i);
-            Category cat = new Category();
-            cat.setId(UUID.fromString(catElem.getAttribute("id")));
-            cat.setName(catElem.getAttribute("name"));
-            cat.setColor(catElem.getAttribute("color"));
-
-            var taskNodes = catElem.getElementsByTagName("task");
-            for (int j = 0; j < taskNodes.getLength(); j++) {
-                var taskElem = (Element) taskNodes.item(j);
-                Task t = new Task();
-                t.setId(taskElem.getAttribute("id"));
-                t.setColorHex(taskElem.getAttribute("color"));
-                t.setTitle(taskElem.getAttribute("title"));
-                t.setCompleted(Boolean.parseBoolean(taskElem.getAttribute("completed")));
-
-                var descElem = (Element) taskElem.getElementsByTagName("description").item(0);
-                t.setDescription(descElem.getTextContent());
-
-                var dueElem = (Element) taskElem.getElementsByTagName("dueDate").item(0);
-                String[] parts = dueElem.getTextContent().split("-");
-                Calendar cal = Calendar.getInstance();
-                cal.set(
-                    Integer.parseInt(parts[0]),
-                    Integer.parseInt(parts[1]) - 1,
-                    Integer.parseInt(parts[2])
-                );
-                t.setDueDate(cal);
-
-                cat.addTask(t);
-            }
-            categories.add(cat);
-        }
-        return categories;
     }
 }

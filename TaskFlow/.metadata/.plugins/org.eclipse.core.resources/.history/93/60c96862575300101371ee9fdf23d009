@@ -1,0 +1,47 @@
+package com.taskflow.action;
+
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+
+/** Șterge fișiere/directoare cu confirmare */
+public class DeleteFileAction extends AbstractAction {
+    private static final long serialVersionUID = 1L;
+    private final MainFrame frame;
+
+    public DeleteFileAction(MainFrame frame) {
+        super("Delete File/Folder…");
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        if (chooser.showDialog(frame, "Delete") == JFileChooser.APPROVE_OPTION) {
+            File sel = chooser.getSelectedFile();
+            if (!sel.exists()) {
+                JOptionPane.showMessageDialog(frame,
+                    "Path does not exist:\n" + sel.getAbsolutePath(),
+                    "Info", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                int conf = JOptionPane.showConfirmDialog(frame,
+                    "Delete?\n" + sel.getAbsolutePath(),
+                    "Confirm Delete", JOptionPane.YES_NO_OPTION);
+                if (conf == JOptionPane.YES_OPTION) {
+                    if (frame.deleteRecursively(sel)) {
+                        JOptionPane.showMessageDialog(frame,
+                            "Deleted:\n" + sel.getAbsolutePath(),
+                            "Success", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(frame,
+                            "Failed to delete:\n" + sel.getAbsolutePath(),
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        }
+    }
+}

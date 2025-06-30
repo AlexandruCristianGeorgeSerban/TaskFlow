@@ -672,3 +672,448 @@
 2025-06-26 15:19:14,934 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
 2025-06-26 15:19:16,822 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-06-26 15:19:16,823 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:09:41,095 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-06-27 15:11:31,555 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:11:31,566 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:11:37,349 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:11:37,352 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:11:58,235 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:11:58,238 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:12:11,418 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:12:11,421 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:13:51,707 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:13:51,709 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:14:41,759 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:14:41,762 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:15:57,268 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:15:57,269 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:17:21,970 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:17:21,971 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:17:32,426 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:17:32,428 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:17:43,059 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:17:43,060 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:19:04,989 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:19:04,990 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:19:21,978 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:19:21,979 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:19:36,696 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:19:36,699 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:19:50,469 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:19:50,471 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:20:03,718 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:20:03,719 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:20:23,466 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:20:23,468 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:20:46,461 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:20:46,463 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:21:06,210 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:21:06,211 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:21:34,654 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:21:34,655 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:21:47,680 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:21:47,682 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:24:21,070 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:24:21,072 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:24:24,091 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:24:24,092 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:24:37,347 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:24:37,349 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:24:43,038 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:24:43,039 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:26:16,505 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:26:16,506 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:27:49,396 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:27:49,397 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:28:37,867 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:28:37,868 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:28:58,551 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:28:58,552 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:29:22,175 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:29:22,176 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:30:41,641 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:30:41,642 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:31:47,128 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:31:47,129 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:32:01,423 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:32:01,425 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:33:11,010 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:33:11,012 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:33:32,300 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:33:32,301 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:33:47,440 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:33:47,443 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:34:21,816 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:34:21,817 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:34:36,029 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:34:36,030 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:34:51,132 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:34:51,134 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:35:44,323 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:35:44,324 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:37:09,274 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:37:09,275 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:40:28,571 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:40:28,573 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:40:34,768 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:40:34,769 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:40:45,301 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:40:45,303 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:40:50,133 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:40:50,134 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:40:57,840 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:40:57,841 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:41:02,392 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:41:02,393 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:42:39,096 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:42:39,098 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:43:36,271 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:43:36,272 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:43:44,083 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:43:44,084 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:44:02,407 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:44:02,409 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:44:08,036 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:44:08,037 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:44:20,907 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:44:20,909 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:44:25,860 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:44:25,862 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:44:34,872 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:44:34,874 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:44:39,172 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:44:39,174 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:44:48,970 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:44:48,972 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:44:53,528 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:44:53,529 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:45:08,267 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:45:08,268 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:45:12,814 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:45:12,815 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:45:21,958 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:45:21,959 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:45:25,962 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:45:25,963 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:45:34,991 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:45:34,993 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:45:38,530 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:45:38,532 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:45:55,099 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:45:55,102 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:48:45,806 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:48:45,807 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:49:24,773 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:49:24,774 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 15:49:29,927 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 15:49:29,927 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:00:29,755 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:00:29,756 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:02:37,864 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:02:37,866 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:04:48,613 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:04:48,615 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:04:57,548 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:04:57,549 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:05:09,661 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:05:09,662 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:05:22,832 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:05:22,834 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:06:18,971 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:06:18,973 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:06:34,872 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:06:34,873 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:06:45,179 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:06:45,180 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:06:54,113 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:06:54,114 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:07:06,801 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:07:06,803 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:07:09,653 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:07:09,653 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:07:19,616 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:07:19,617 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:07:22,235 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:07:22,236 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:07:28,089 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:07:28,090 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:07:33,770 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:07:33,771 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:09:24,646 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-27 16:09:24,648 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:09:37,547 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-27 16:09:37,549 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:10:50,233 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:10:50,234 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:11:15,347 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:11:15,348 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:11:47,213 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:11:47,214 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:12:04,679 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:12:04,680 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:12:12,408 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:12:12,409 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:12:30,911 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:12:30,912 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:12:40,909 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:12:40,910 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:12:49,952 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:12:49,953 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:13:08,035 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:13:08,036 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:13:22,720 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:13:22,721 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:13:29,490 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:13:29,491 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 16:13:37,882 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 16:13:37,883 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:13:26,379 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-06-27 23:16:06,608 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:16:06,614 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:16:25,699 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:16:25,702 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:16:28,231 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:16:28,233 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:18:40,361 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:18:40,362 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:19:25,060 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:19:25,061 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:19:38,563 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:19:38,566 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:19:53,539 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:19:53,540 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:19:57,390 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:19:57,392 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:20:10,353 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:20:10,355 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:20:26,066 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:20:26,067 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:21:29,199 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:21:29,201 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:26:39,605 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:26:39,607 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:27:08,085 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:27:08,087 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:28:35,227 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:28:35,228 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:29:06,968 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:29:06,970 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:29:48,732 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:29:48,733 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:31:05,988 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:31:05,989 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:34:36,609 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:34:36,610 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:34:48,766 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:34:48,769 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:34:50,565 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:34:50,566 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:39:22,845 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:39:22,848 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:40:03,274 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:40:03,276 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:41:05,620 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-06-27 23:44:42,104 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:44:42,110 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:44:55,937 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:44:55,939 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:45:04,174 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:45:04,175 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:45:36,220 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:45:36,221 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:46:59,807 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:46:59,809 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:47:05,285 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:47:05,287 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:47:08,305 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:47:08,307 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:47:36,425 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:47:36,427 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:48:02,545 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:48:02,546 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:48:09,391 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:48:09,393 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:48:26,196 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:48:26,198 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:49:18,959 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:49:18,960 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:50:13,419 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:50:13,421 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:50:23,870 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:50:23,872 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:52:37,839 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:52:37,841 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:52:56,837 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:52:56,839 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:53:05,407 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:53:05,408 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:53:27,323 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:53:27,324 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:54:10,925 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:54:10,927 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:54:30,219 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:54:30,220 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:55:30,192 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:55:30,194 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:57:34,078 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:57:34,079 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:57:52,811 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:57:52,813 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-27 23:59:26,966 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-27 23:59:26,968 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:00:38,393 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:00:38,395 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:01:42,999 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:01:43,000 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:01:55,512 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:01:55,514 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:02:22,696 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:02:22,697 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:03:18,070 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:03:18,071 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:05:40,153 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:05:40,155 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:06:01,537 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:06:01,538 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:06:13,521 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:06:13,522 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:10:08,559 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:10:08,561 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:15:25,745 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:15:25,746 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:15:37,478 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:15:37,480 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:18:37,850 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:18:37,852 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:19:33,386 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:19:33,387 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 00:20:40,143 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-06-28 00:23:42,162 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-06-28 00:24:44,198 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 00:24:44,214 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:07:36,487 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-06-28 10:09:09,016 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:09:09,032 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:09:15,402 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:09:15,406 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:09:24,687 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:09:24,690 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:12:02,506 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:12:02,508 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:14:37,669 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:14:37,670 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:14:44,327 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:14:44,328 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:33:04,845 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:33:04,846 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:37:55,254 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:37:55,256 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:40:48,818 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:40:48,820 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:45:59,764 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:45:59,766 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:46:02,044 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:46:02,046 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:46:17,393 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:46:17,395 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:47:05,006 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:47:05,007 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:49:18,059 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:49:18,061 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:49:26,140 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:49:26,142 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:49:34,414 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:49:34,415 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:49:41,257 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:49:41,258 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:50:36,418 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:50:36,420 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:50:51,716 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:50:51,718 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:52:14,317 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:52:14,318 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:53:29,153 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:53:29,156 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:54:54,532 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:54:54,534 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:55:10,555 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:55:10,556 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:55:23,032 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:55:23,034 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:55:37,526 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:55:37,526 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:55:46,126 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:55:46,128 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:55:57,192 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:55:57,193 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:57:03,441 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:57:03,443 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:57:18,880 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:57:18,882 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:57:26,907 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:57:26,908 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:58:03,830 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:58:03,832 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:58:14,640 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:58:14,642 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:58:18,355 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:58:18,356 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 10:59:30,213 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 10:59:30,214 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:00:27,817 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:00:27,818 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:00:31,597 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:00:31,598 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:02:54,798 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:02:54,799 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:03:09,423 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:03:09,425 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:05:45,615 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:05:45,617 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:05:57,846 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:05:57,848 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:06:00,576 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:06:00,577 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:07:28,713 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:07:28,714 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:07:36,229 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:07:36,230 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:07:43,394 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:07:43,396 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:16:03,712 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:16:03,713 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 11:17:19,033 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 11:17:19,034 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:16:40,005 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-06-28 17:17:26,578 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:17:26,585 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:18:20,544 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:18:20,546 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:18:25,407 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:18:25,408 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:19:00,652 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:19:00,654 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:20:42,335 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:20:42,339 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:21:06,619 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:21:06,622 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:21:12,685 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:21:12,686 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:22:05,822 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:22:05,824 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:22:11,936 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:22:11,938 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:22:23,107 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:22:23,109 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:22:35,255 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:22:35,257 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:23:00,473 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:23:00,475 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:23:55,587 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:23:55,589 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:24:28,281 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:24:28,283 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:24:34,430 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:24:34,431 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources
+2025-06-28 17:25:00,669 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-28 17:25:00,670 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory P:\Facultate\An2\Practica\TaskFlow\taskflow\src\test\resources

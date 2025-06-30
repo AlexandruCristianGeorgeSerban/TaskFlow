@@ -1,0 +1,613 @@
+package com.taskflow.ui;
+
+import com.taskflow.model.RootGroup;
+import com.taskflow.model.Category;
+import com.taskflow.model.Task;
+import com.taskflow.persistence.XmlDomHandler;
+import com.taskflow.persistence.XmlSaxHandler;
+import com.taskflow.service.TaskService;
+import com.taskflow.service.DefaultTaskService;
+
+import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.TableRowSorter;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * Main application window.
+ */
+@SuppressWarnings("serial")
+public class MainFrame extends JFrame {
+	private final TaskService taskService;
+    private TaskTableModel taskTableModel;
+    private CategoryTreeModel categoryTreeModel;
+    private JTable taskTable;
+    private JTree categoryTree;
+    private JTextField filterField;
+    private List<Task> masterTasks;
+
+    public MainFrame(TaskService service) {
+        super("TaskFlow");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800, 600);
+        setLocationRelativeTo(null);
+
+        this.taskService = service;
+        
+        // Models
+        taskTableModel = new TaskTableModel(getAllTasks());
+        masterTasks = new ArrayList<>(getAllTasks());
+        categoryTreeModel = new CategoryTreeModel(taskService.getAllRoots());
+        
+        // Components
+        taskTable = new JTable(taskTableModel);
+        TableRowSorter<TaskTableModel> sorter = new TableRowSorter<>(taskTableModel);
+        taskTable.setRowSorter(sorter);
+
+        categoryTree = new JTree(categoryTreeModel);
+        categoryTree.setRootVisible(false);      // ascunde nodul-rădăcină invizibil
+        categoryTree.setShowsRootHandles(true);  // afișează însă „mânerele” pentru copii
+        categoryTree.setCellRenderer(new ColorTreeCellRenderer());
+        
+        // == Click simplu: selectăm un RootGroup sau Category și afișăm conținutul ==
+        categoryTree.addTreeSelectionListener(e -> {
+        	TreePath path = e.getNewLeadSelectionPath();
+            if (path == null) return;
+            	Object node = ((DefaultMutableTreeNode)path.getLastPathComponent())
+            			.getUserObject();
+            	if (node instanceof RootGroup) {
+            		showTasks(getTasksFromRoot((RootGroup) node));
+            	} else if (node instanceof Category) {
+            		showTasks(((Category) node).getTasks());
+            	}
+        	});
+        
+        filterField = new JTextField(15);
+
+        // Layout
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
+                new JScrollPane(categoryTree), new JScrollPane(taskTable));
+        splitPane.setDividerLocation(200);
+
+        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        topPanel.add(new JLabel("Filter:"));
+        topPanel.add(filterField);
+
+        add(topPanel, BorderLayout.NORTH);
+        add(splitPane, BorderLayout.CENTER);
+
+        // Menus
+        JMenuBar menuBar = new JMenuBar();
+        menuBar.add(createFileMenu());
+        menuBar.add(createRootMenu());
+        menuBar.add(createCategoryMenu());
+        menuBar.add(createTaskMenu());
+        setJMenuBar(menuBar);
+
+        // Filter listener
+        filterField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override public void insertUpdate(DocumentEvent e) { applyFilter(); }
+            @Override public void removeUpdate(DocumentEvent e) { applyFilter(); }
+            @Override public void changedUpdate(DocumentEvent e) { applyFilter(); }
+        });
+
+        // Double-click listener on tree
+        categoryTree.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    TreePath path = categoryTree.getPathForLocation(e.getX(), e.getY());
+                    if (path != null) {
+                        Object node = ((DefaultMutableTreeNode) path.getLastPathComponent()).getUserObject();
+                        if (node instanceof Task) {
+                        	showTasks(List.of((Task) node));
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    private JMenu createFileMenu() {
+        JMenu fileMenu = new JMenu("File");
+
+        // Import XML
+        fileMenu.add(new AbstractAction("Import XML") {
+            @Override public void actionPerformed(ActionEvent e) {
+                JFileChooser chooser = new JFileChooser();
+                if (chooser.showOpenDialog(MainFrame.this) == JFileChooser.APPROVE_OPTION) {
+                    File file = chooser.getSelectedFile();
+                    try {
+                    	com.taskflow.persistence.CategoryPersistence loader = new XmlSaxHandler();
+                    	List<Category> cats = loader.load(file);
+                        RootGroup imported = new RootGroup("Imported", "#0077CC");
+                        imported.getCategories().addAll(cats);
+                        taskService.getAllRoots().clear();
+                        taskService.addRoot(imported);
+                        refreshTree();
+                    } catch (Exception ex) {
+                        showError(ex);
+                    }
+                }
+            }
+        });
+
+        // Export XML
+        fileMenu.add(new AbstractAction("Export XML") {
+            @Override public void actionPerformed(ActionEvent e) {
+                JFileChooser chooser = new JFileChooser();
+                if (chooser.showSaveDialog(MainFrame.this) == JFileChooser.APPROVE_OPTION) {
+                    File file = chooser.getSelectedFile();
+                    try {
+                    	List<Category> cats = taskService.getAllRoots().stream()
+                            .flatMap(rg -> rg.getCategories().stream())
+                            .toList();
+                        com.taskflow.persistence.CategoryPersistence saver = new XmlDomHandler();
+                        saver.save(cats, file);
+                    } catch (Exception ex) {
+                        showError(ex);
+                    }
+                }
+            }
+        });
+
+        fileMenu.addSeparator();
+
+        // Delete File/Folder…
+        fileMenu.add(new AbstractAction("Delete File/Folder…") {
+            @Override public void actionPerformed(ActionEvent e) {
+                JFileChooser chooser = new JFileChooser();
+                chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+                if (chooser.showDialog(MainFrame.this, "Delete") == JFileChooser.APPROVE_OPTION) {
+                    File sel = chooser.getSelectedFile();
+                    if (!sel.exists()) {
+                        JOptionPane.showMessageDialog(
+                            MainFrame.this,
+                            "Path does not exist:\n" + sel.getAbsolutePath(),
+                            "Info",
+                            JOptionPane.INFORMATION_MESSAGE
+                        );
+                    } else {
+                        int conf = JOptionPane.showConfirmDialog(
+                            MainFrame.this,
+                            "Are you sure you want to delete?\n" + sel.getAbsolutePath(),
+                            "Confirm Delete",
+                            JOptionPane.YES_NO_OPTION
+                        );
+                        if (conf == JOptionPane.YES_OPTION) {
+                            if (deleteRecursively(sel)) {
+                                JOptionPane.showMessageDialog(
+                                    MainFrame.this,
+                                    "Deleted:\n" + sel.getAbsolutePath(),
+                                    "Success",
+                                    JOptionPane.INFORMATION_MESSAGE
+                                );
+                            } else {
+                                JOptionPane.showMessageDialog(
+                                    MainFrame.this,
+                                    "Failed to delete:\n" + sel.getAbsolutePath(),
+                                    "Error",
+                                    JOptionPane.ERROR_MESSAGE
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        return fileMenu;
+    }
+
+    /** Șterge recursiv un fișier sau director. */
+    private boolean deleteRecursively(File f) {
+        if (f.isDirectory()) {
+            File[] children = f.listFiles();
+            if (children != null) {
+                for (File c : children) {
+                    if (!deleteRecursively(c)) return false;
+                }
+            }
+        }
+        return f.delete();
+    }
+
+    private JMenu createRootMenu() {
+        JMenu rootMenu = new JMenu("Root");
+        rootMenu.add(new AbstractAction("Add Root") {
+            @Override public void actionPerformed(ActionEvent e) {
+                // 1. Nume root
+                String name = JOptionPane.showInputDialog(
+                    MainFrame.this, "Root name:");
+                if (name == null || name.trim().isEmpty()) return;
+
+                // 2. Alegere culoare cu ColorChooser
+                Color chosen = JColorChooser.showDialog(
+                    MainFrame.this, "Choose root color", Color.BLACK);
+                String colorHex = "#000000";
+                if (chosen != null) {
+                    colorHex = String.format(
+                        "#%02x%02x%02x",
+                        chosen.getRed(), chosen.getGreen(), chosen.getBlue()
+                    );
+                }
+
+                // 3. Creează și adaugă root-ul
+                RootGroup rg = new RootGroup(name.trim(), colorHex);
+                taskService.addRoot(rg);
+                refreshTree();
+            }
+        });
+        
+        rootMenu.addSeparator();
+        rootMenu.add(new AbstractAction("Edit Root") {
+            @Override public void actionPerformed(ActionEvent e) {
+                TreePath sel = categoryTree.getSelectionPath();
+                if (sel == null) return;
+                Object obj = ((DefaultMutableTreeNode) sel.getLastPathComponent()).getUserObject();
+                if (!(obj instanceof RootGroup)) return;
+                RootGroup rg = (RootGroup) obj;
+
+                // Dialog pentru editarea numelui și culorii
+                String newName = JOptionPane.showInputDialog(
+                    MainFrame.this, "Root name:", rg.getName());
+                if (newName == null || newName.trim().isEmpty()) return;
+                Color chosen = JColorChooser.showDialog(
+                    MainFrame.this, "Choose root color", Color.decode(rg.getColorHex()));
+                String newColor = (chosen == null)
+                    ? rg.getColorHex()
+                    : String.format("#%02x%02x%02x",
+                        chosen.getRed(), chosen.getGreen(), chosen.getBlue());
+
+                rg.setName(newName.trim());
+                rg.setColorHex(newColor);
+                refreshTree();
+            }
+        });
+        return rootMenu;
+    }
+
+    private JMenu createCategoryMenu() {
+        JMenu categoryMenu = new JMenu("Category");
+        categoryMenu.add(new AbstractAction("Add Category") {
+            @Override public void actionPerformed(ActionEvent e) {
+                // 1. Alege root-ul în care adaugi categoria
+                TreePath sel = categoryTree.getSelectionPath();
+                if (sel == null) {
+                    JOptionPane.showMessageDialog(
+                        MainFrame.this,
+                        "Select a root to add a category.",
+                        "Info",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                    return;
+                }
+                Object obj = ((DefaultMutableTreeNode) sel.getLastPathComponent())
+                                  .getUserObject();
+                if (!(obj instanceof RootGroup)) {
+                    JOptionPane.showMessageDialog(
+                        MainFrame.this,
+                        "Please select a root.",
+                        "Info",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                    return;
+                }
+                RootGroup rg = (RootGroup) obj;
+
+                // 2. Nume categorie
+                String name = JOptionPane.showInputDialog(
+                    MainFrame.this, "Category name:");
+                if (name == null || name.trim().isEmpty()) return;
+
+                // 3. Alegere culoare cu ColorChooser
+                Color chosen = JColorChooser.showDialog(
+                    MainFrame.this, "Choose category color", Color.BLUE);
+                String colorHex = "#0000FF";
+                if (chosen != null) {
+                    colorHex = String.format(
+                        "#%02x%02x%02x",
+                        chosen.getRed(), chosen.getGreen(), chosen.getBlue()
+                    );
+                }
+
+                // 4. Creează categoria și o adaugă la root
+                Category cat = new Category(name.trim(), colorHex);
+                rg.getCategories().add(cat);
+                refreshTree();
+            }
+        });
+        
+        categoryMenu.addSeparator();
+        categoryMenu.add(new AbstractAction("Edit Category") {
+            @Override public void actionPerformed(ActionEvent e) {
+                TreePath sel = categoryTree.getSelectionPath();
+                if (sel == null) return;
+                Object obj = ((DefaultMutableTreeNode) sel.getLastPathComponent()).getUserObject();
+                if (!(obj instanceof Category)) return;
+                Category cat = (Category) obj;
+
+                String newName = JOptionPane.showInputDialog(
+                    MainFrame.this, "Category name:", cat.getName());
+                if (newName == null || newName.trim().isEmpty()) return;
+                Color chosen = JColorChooser.showDialog(
+                    MainFrame.this, "Choose category color", Color.decode(cat.getColor()));
+                String newColor = (chosen == null)
+                    ? cat.getColor()
+                    : String.format("#%02x%02x%02x",
+                        chosen.getRed(), chosen.getGreen(), chosen.getBlue());
+
+                cat.setName(newName.trim());
+                cat.setColor(newColor);
+                refreshTree();
+            }
+        });
+        return categoryMenu;
+    }
+
+    private JMenu createTaskMenu() {
+        JMenu taskMenu = new JMenu("Task");
+
+        taskMenu.add(new AbstractAction("Add Task") {
+            @Override public void actionPerformed(ActionEvent e) {
+                addTaskDialog();
+            }
+        });
+
+        taskMenu.add(new AbstractAction("Edit Task") {
+            @Override public void actionPerformed(ActionEvent e) {
+                editTaskDialog();
+            }
+        });
+
+        taskMenu.addSeparator();
+
+        taskMenu.add(new AbstractAction("Toggle Completed") {
+            @Override public void actionPerformed(ActionEvent e) {
+                TreePath sel = categoryTree.getSelectionPath();
+                if (sel == null) {
+                    JOptionPane.showMessageDialog(MainFrame.this,
+                        "Select a task to toggle completion.", "Info",
+                        JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
+                Object obj = ((DefaultMutableTreeNode) sel.getLastPathComponent()).getUserObject();
+                if (!(obj instanceof Task)) {
+                    JOptionPane.showMessageDialog(MainFrame.this,
+                        "Please select a task node.", "Info",
+                        JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
+                Task t = (Task) obj;
+                t.setCompleted(!t.isCompleted());  // inversează
+                // actualizăm UI
+                refreshTree();
+                // dacă vrem să rămânem pe aceeași categorie:
+                Category cat = (Category)((DefaultMutableTreeNode)sel.getParentPath().getLastPathComponent()).getUserObject();
+                taskTableModel.setTasks(getTasksFromCategory(cat));
+            }
+        });
+        taskTable.getTableHeader().setReorderingAllowed(true);
+        
+        taskMenu.addSeparator();
+        taskMenu.add(new AbstractAction("Reset Order") {
+            @Override public void actionPerformed(ActionEvent e) {
+                // 1) resetează sorter-ul de pe tabel
+                TableRowSorter<?> sorter = (TableRowSorter<?>) taskTable.getRowSorter();
+                sorter.setSortKeys(null);
+
+                // 2) afișează din nou masterTasks în ordinea originală
+                taskTableModel.setTasks(new ArrayList<>(masterTasks));
+            }
+        });
+        return taskMenu;
+    }
+
+    private void applyFilter() {
+        String text = filterField.getText().trim().toLowerCase();
+        if (text.isEmpty()) {
+            taskTableModel.setTasks(getAllTasks());
+            refreshTree();
+        } else {
+            List<Task> filtered = getAllTasks().stream()
+                    .filter(t -> t.getTitle().toLowerCase().contains(text)
+                            || t.getDescription().toLowerCase().contains(text))
+                    .collect(Collectors.toList());
+            taskTableModel.setTasks(filtered);
+
+            // filter tree not implemented for brevity
+        }
+    }
+
+    private List<Task> getAllTasks() {
+    	return taskService.getAllRoots().stream()
+                .flatMap(rg -> rg.getCategories().stream())
+                .flatMap(c -> c.getTasks().stream())
+                .toList();
+    }
+
+    private List<Task> getTasksFromRoot(RootGroup rg) {
+        return rg.getCategories().stream()
+                .flatMap(c -> c.getTasks().stream())
+                .toList();
+    }
+
+    private List<Task> getTasksFromCategory(Category cat) {
+        return new ArrayList<>(cat.getTasks());
+    }
+
+    private void refreshTree() {
+        // 1) Reconstruiește modelul
+    	categoryTreeModel.updateRoots(taskService.getAllRoots());
+        // 2) Asigură-te că se execută după actualizarea UI
+        SwingUtilities.invokeLater(() -> {
+            // expandăm toate rândurile noului model
+            for (int i = 0; i < categoryTree.getRowCount(); i++) {
+                categoryTree.expandRow(i);
+            }
+        });
+    }
+
+    private void showTasks(List<Task> tasks) {
+        taskTableModel.setTasks(tasks);
+    }
+
+    private void showError(Exception ex) {
+        JOptionPane.showMessageDialog(this,
+                ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    private void addTaskDialog() {
+        // Verifică selecția unui nod
+        TreePath sel = categoryTree.getSelectionPath();
+        if (sel == null) {
+            JOptionPane.showMessageDialog(this,
+                "Select a category to add a task.",
+                "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        Object obj = ((DefaultMutableTreeNode) sel.getLastPathComponent()).getUserObject();
+        if (!(obj instanceof Category)) {
+            JOptionPane.showMessageDialog(this,
+                "Please select a category node.",
+                "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        Category cat = (Category) obj;
+
+        // Titlu și descriere
+        String title = JOptionPane.showInputDialog(this, "Task title:");
+        if (title == null || title.trim().isEmpty()) return;
+        String desc = JOptionPane.showInputDialog(this, "Task description:");
+        if (desc == null) desc = "";
+
+        // Data-limită
+        String dueStr = JOptionPane.showInputDialog(this,
+        	    "Due date (yyyy-MM-dd or yyyyMMdd):");
+        	Calendar dueDate;
+        	try {
+        	    Date d;
+        	    if (dueStr.contains("-")) {
+        	        d = new SimpleDateFormat("yyyy-MM-dd").parse(dueStr);
+        	    } else if (dueStr.length() == 8) {
+        	        d = new SimpleDateFormat("yyyyMMdd").parse(dueStr);
+        	    } else {
+        	        throw new ParseException("Format invalid", 0);
+        	    }
+        	    dueDate = Calendar.getInstance();
+        	    dueDate.setTime(d);
+        	} catch (ParseException ex) {
+        	    JOptionPane.showMessageDialog(this,
+        	        "Invalid date format.\nUse yyyy-MM-dd or yyyyMMdd",
+        	        "Error", JOptionPane.ERROR_MESSAGE);
+        	    return;
+        	}
+
+        // Alege culoarea cu un Color Chooser
+        Color chosen = JColorChooser.showDialog(
+            this, "Choose task color", Color.RED);
+        // Dacă utilizatorul a apăsat Cancel, folosește default
+        String colorHex = "#A00000";
+        if (chosen != null) {
+            colorHex = String.format(
+                "#%02x%02x%02x",
+                chosen.getRed(), chosen.getGreen(), chosen.getBlue());
+        }
+
+        // Creează și adaugă task-ul
+        Task t = new Task(
+            title.trim(),
+            desc.trim(),
+            dueDate,
+            false,
+            colorHex
+        );
+        cat.addTask(t);
+
+        // Actualizează arborele și tabelul
+        refreshTree();
+        taskTableModel.setTasks(getTasksFromCategory(cat));
+    }
+    
+    private void editTaskDialog() {
+        TreePath sel = categoryTree.getSelectionPath();
+        if (sel == null) {
+            JOptionPane.showMessageDialog(this,
+                "Select a task node to edit.",
+                "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        Object obj = ((DefaultMutableTreeNode) sel.getLastPathComponent()).getUserObject();
+        if (!(obj instanceof Task)) {
+            JOptionPane.showMessageDialog(this,
+                "Please select a task node.",
+                "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        Task t = (Task) obj;
+
+        // 1) Edităm titlul
+        String newTitle = JOptionPane.showInputDialog(
+            this, "Task title:", t.getTitle());
+        if (newTitle == null || newTitle.trim().isEmpty()) return;
+
+        // 2) Edităm descrierea
+        String newDesc = JOptionPane.showInputDialog(
+            this, "Task description:", t.getDescription());
+        if (newDesc == null) newDesc = "";
+
+        // 3) Edităm data-limită (accepți două formate)
+        String dueStr = JOptionPane.showInputDialog(
+            this, "Due date (yyyy-MM-dd or yyyyMMdd):",
+            new SimpleDateFormat("yyyy-MM-dd")
+                .format(t.getDueDate().getTime()));
+        Calendar dueDate;
+        try {
+            Date d;
+            if (dueStr.contains("-")) {
+                d = new SimpleDateFormat("yyyy-MM-dd").parse(dueStr);
+            } else {
+                d = new SimpleDateFormat("yyyyMMdd").parse(dueStr);
+            }
+            dueDate = Calendar.getInstance();
+            dueDate.setTime(d);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,
+                "Invalid date format.\nUse yyyy-MM-dd or yyyyMMdd",
+                "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // 4) Edităm culoarea
+        Color chosen = JColorChooser.showDialog(
+            this, "Choose task color", Color.decode(t.getColorHex()));
+        String newColor = (chosen == null)
+            ? t.getColorHex()
+            : String.format("#%02x%02x%02x",
+                chosen.getRed(), chosen.getGreen(), chosen.getBlue());
+
+        // Aplicăm modificările (starea completed rămâne neschimbată)
+        t.setTitle(newTitle.trim());
+        t.setDescription(newDesc.trim());
+        t.setDueDate(dueDate);
+        t.setColorHex(newColor);
+
+        // Refresh UI
+        refreshTree();
+        Category cat = (Category)
+            ((DefaultMutableTreeNode) sel.getParentPath()
+                 .getLastPathComponent()).getUserObject();
+        taskTableModel.setTasks(getTasksFromCategory(cat));
+    }
+}

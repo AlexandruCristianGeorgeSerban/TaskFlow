@@ -1,0 +1,66 @@
+package com.taskflow.action;
+
+import com.taskflow.model.Category;
+import com.taskflow.model.Task;
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+@SuppressWarnings("serial")
+public class EditTaskAction extends AbstractAction {
+    private final MainFrame frame;
+
+    public EditTaskAction(MainFrame frame) {
+        super("Edit Task");
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Task t = frame.getSelectedTask();
+        if (t == null) return;
+
+        String title = JOptionPane.showInputDialog(frame, "Task title:", t.getTitle());
+        if (title == null || title.isBlank()) return;
+
+        String desc = JOptionPane.showInputDialog(frame, "Task description:", t.getDescription());
+        if (desc == null) desc = "";
+
+        String dueStr = JOptionPane.showInputDialog(
+            frame, "Due date (yyyy-MM-dd or yyyyMMdd):",
+            new SimpleDateFormat("yyyy-MM-dd").format(t.getDueDate().getTime())
+        );
+        Calendar dueDate;
+        try {
+            Date d = dueStr.contains("-")
+                ? new SimpleDateFormat("yyyy-MM-dd").parse(dueStr)
+                : new SimpleDateFormat("yyyyMMdd").parse(dueStr);
+            dueDate = Calendar.getInstance();
+            dueDate.setTime(d);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(frame, "Invalid date format.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Color chosen = JColorChooser.showDialog(frame, "Choose task color", Color.decode(t.getColorHex()));
+        String hex = (chosen == null)
+            ? t.getColorHex()
+            : String.format("#%02x%02x%02x", chosen.getRed(), chosen.getGreen(), chosen.getBlue());
+
+        t.setTitle(title.trim());
+        t.setDescription(desc.trim());
+        t.setDueDate(dueDate);
+        t.setColorHex(hex);
+
+        frame.getTaskService().updateTask(t);
+        // refresh în categoria curentă
+        Category cat = frame.getSelectedCategory();
+        if (cat != null) frame.refreshAfterChange(cat);
+    }
+}

@@ -1,0 +1,73 @@
+package com.taskflow.action;
+
+import com.taskflow.model.Category;
+import com.taskflow.model.RootGroup;
+import com.taskflow.persistence.XmlSaxHandler;
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Când importăm XML, vrem:
+ * 1) să păstrăm rădăcinile curente
+ * 2) să adăugăm un root „Imported” fără copii
+ * 3) apoi să re‐adăugăm (ca și clone) vechile root‐uri, cu categoriile și task‐urile lor
+ */
+@SuppressWarnings("serial")
+public class ImportAction extends AbstractAction {
+    private final MainFrame frame;
+
+    public ImportAction(MainFrame frame) {
+        super("Import XML");
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JFileChooser chooser = new JFileChooser();
+        if (chooser.showOpenDialog(frame) != JFileChooser.APPROVE_OPTION) return;
+        File file = chooser.getSelectedFile();
+
+        try {
+            // Încărcăm categoriile din fișier (lista nu conține root-uri, doar category->task)
+            List<Category> cats = new XmlSaxHandler().load(file);
+
+            // 1) Memorează o copie a vechilor root‐uri
+            List<RootGroup> oldRoots = new ArrayList<>(frame.getTaskService().getAllRoots());
+
+            // 2) Golim complet lista de rădăcini și refacem
+            frame.getTaskService().getAllRoots().clear();
+
+            // 3) Re‐adăugăm root‐urile vechi, așa cum erau
+            for (RootGroup rg : oldRoots) {
+                frame.getTaskService().addRoot(rg);
+            }
+
+            // 4) Adăugăm root‐ul „Imported” gol
+            RootGroup imported = new RootGroup("Imported", "#0077CC");
+            frame.getTaskService().addRoot(imported);
+
+            // 5) Re‐adăugăm clonele vechilor root‐uri după „Imported”
+            for (RootGroup rg : oldRoots) {
+                RootGroup clone = new RootGroup(rg.getName(), rg.getColorHex());
+                // clonăm categoriile și task‐urile
+                for (Category c : rg.getCategories()) {
+                    Category cclone = new Category(c.getName(), c.getColor());
+                    cclone.setId(c.getId());
+                    cclone.getTasks().addAll(c.getTasks()); // presupunem task‐urile sunt deja clone‐safe
+                    clone.getCategories().add(cclone);
+                }
+                frame.getTaskService().addRoot(clone);
+            }
+
+            // 6) Refresh complet și expand all
+            frame.refreshTreeAll();
+        } catch (Exception ex) {
+            frame.showError(ex);
+        }
+    }
+}

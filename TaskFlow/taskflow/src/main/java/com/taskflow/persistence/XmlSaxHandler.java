@@ -1,9 +1,9 @@
 package com.taskflow.persistence;
 
 import com.taskflow.model.Category;
+import com.taskflow.model.RootGroup;
 import com.taskflow.model.Task;
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import javax.xml.parsers.SAXParser;
@@ -12,75 +12,81 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.UUID;
 
-public class XmlSaxHandler extends DefaultHandler {
-    private List<Category> categories = new ArrayList<>();
+public class XmlSaxHandler extends DefaultHandler implements RootGroupPersistence {
+    private final List<RootGroup> roots = new ArrayList<>();
+    private RootGroup currentRoot;
     private Category currentCategory;
     private Task currentTask;
     private StringBuilder content = new StringBuilder();
 
-    public List<Category> loadCategories(File file) throws Exception {
+    @Override
+    public List<RootGroup> loadRootGroups(File file) throws Exception {
         SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
         parser.parse(file, this);
-        return categories;
+        return roots;
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+    public void saveRootGroups(List<RootGroup> roots, File file) throws Exception {
+        throw new UnsupportedOperationException("SAX export not supported");
+    }
+
+    @Override
+    public void startElement(String uri, String localName, String qName, Attributes atts) {
         content.setLength(0);
         switch (qName) {
+            case "root":
+                String rName = atts.getValue("name");
+                String rColor = atts.getValue("color");
+                currentRoot = new RootGroup(rName, rColor);
+                roots.add(currentRoot);
+                break;
             case "category":
-                currentCategory = new Category();
-                currentCategory.setId(UUID.fromString(attributes.getValue("id")));
-                currentCategory.setName(attributes.getValue("name"));
-                currentCategory.setColor(attributes.getValue("color"));
+                String cName = atts.getValue("name");
+                String cColor = atts.getValue("color");
+                currentCategory = new Category(cName, cColor);
+                currentRoot.getCategories().add(currentCategory);
                 break;
             case "task":
-                currentTask = new Task();
-                currentTask.setId(attributes.getValue("id"));
-                currentTask.setTitle(attributes.getValue("title"));
-                currentTask.setCompleted(Boolean.parseBoolean(attributes.getValue("completed")));
-                currentTask.setColorHex(attributes.getValue("color"));
+                String tId      = atts.getValue("id");
+                String tTitle   = atts.getValue("title");
+                boolean tComp   = Boolean.parseBoolean(atts.getValue("completed"));
+                currentTask     = new Task();
+                currentTask.setId(tId);
+                currentTask.setTitle(tTitle);
+                currentTask.setCompleted(tComp);
                 break;
         }
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void characters(char[] ch, int start, int length) {
+        content.append(ch, start, length);
+    }
+
+    @Override
+    public void endElement(String uri, String localName, String qName) {
         switch (qName) {
-            case "category":
-                categories.add(currentCategory);
-                currentCategory = null;
-                break;
-            case "task":
-                if (currentCategory != null) {
-                    currentCategory.addTask(currentTask);
-                }
-                currentTask = null;
-                break;
             case "description":
-                if (currentTask != null) {
-                    currentTask.setDescription(content.toString());
-                }
+                currentTask.setDescription(content.toString().trim());
                 break;
             case "dueDate":
-                if (currentTask != null) {
-                    String[] parts = content.toString().split("-");
-                    Calendar cal = Calendar.getInstance();
-                    cal.set(
-                        Integer.parseInt(parts[0]),
-                        Integer.parseInt(parts[1]) - 1,
-                        Integer.parseInt(parts[2])
-                    );
-                    currentTask.setDueDate(cal);
-                }
+                String[] p = content.toString().trim().split("-");
+                Calendar cal = Calendar.getInstance();
+                cal.set(Integer.parseInt(p[0]), Integer.parseInt(p[1]) - 1, Integer.parseInt(p[2]));
+                currentTask.setDueDate(cal);
+                break;
+            case "task":
+                currentCategory.addTask(currentTask);
+                currentTask = null;
+                break;
+            case "category":
+                currentCategory = null;
+                break;
+            case "root":
+                currentRoot = null;
                 break;
         }
-    }
-
-    @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
-        content.append(ch, start, length);
     }
 }

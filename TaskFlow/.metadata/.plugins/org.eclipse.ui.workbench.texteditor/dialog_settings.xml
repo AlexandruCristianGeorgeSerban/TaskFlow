@@ -4,6 +4,13 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="false"/>
 		<list key="findhistory">
+			<item value="frame.getTaskService().addRoot(imp);"/>
+			<item value="MainFrame"/>
+			<item value="rg"/>
+			<item value="allRoots.add"/>
+			<item value="addRoots"/>
+			<item value="return all"/>
+			<item value="List&lt;RootGroup&gt;"/>
 			<item value="createFileMenu"/>
 			<item value="categorytree.setcellrenderer"/>
 			<item value="categorytree.add"/>
@@ -12,13 +19,6 @@
 			<item value="sorter"/>
 			<item value="taskrawsorter"/>
 			<item value="categoryTreeModel.update"/>
-			<item value="String clr"/>
-			<item value="createtask"/>
-			<item value="color chosen"/>
-			<item value="dialog"/>
-			<item value="currentTask"/>
-			<item value="current task"/>
-			<item value="t.setTitle"/>
 		</list>
 	</section>
 </section>

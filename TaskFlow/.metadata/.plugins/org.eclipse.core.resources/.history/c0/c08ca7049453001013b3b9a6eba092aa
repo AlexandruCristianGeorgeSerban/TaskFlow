@@ -1,0 +1,56 @@
+package com.taskflow.action;
+
+import com.taskflow.model.Category;
+import com.taskflow.model.Task;
+import com.taskflow.service.TaskService;
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+/** Deschide dialogul de adăugare a unui Task. */
+public class AddTaskAction extends AbstractAction {
+	private static final long serialVersionUID = 1L;
+	
+    private final MainFrame frame;
+    private final TaskService service;
+
+    public AddTaskAction(MainFrame frame, TaskService service) {
+        super("Add Task");
+        this.frame = frame;
+        this.service = service;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Category cat = frame.getSelectedCategory();
+        if (cat == null) {
+            JOptionPane.showMessageDialog(frame,
+                "Select a category to add a task.",
+                "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        String title = JOptionPane.showInputDialog(frame, "Task title:");
+        if (title == null || title.trim().isEmpty()) return;
+        String desc = JOptionPane.showInputDialog(frame, "Task description:");
+        String dueStr = JOptionPane.showInputDialog(frame, "Due date (yyyy-MM-dd):");
+        Calendar dueDate;
+        try {
+            Date d = new SimpleDateFormat("yyyy-MM-dd").parse(dueStr);
+            dueDate = Calendar.getInstance(); dueDate.setTime(d);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(frame,
+                "Invalid date format.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Task t = new Task(title.trim(), desc != null ? desc.trim() : "", dueDate, false);
+        service.addTask(cat, t);
+        frame.refreshAfterChange(cat);
+    }
+}

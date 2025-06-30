@@ -1,0 +1,24 @@
+package com.taskflow.persistence;
+
+import com.taskflow.model.Category;
+import java.io.File;
+import java.util.List;
+
+/**
+ * Interfaţă pentru persistenţa listelor de Category.
+ */
+public interface CategoryPersistence {
+    /**
+     * Încarcă categoria din fișier.
+     * @param file fișierul XML
+     * @return lista de Category încărcată
+     */
+    List<Category> load(File file) throws Exception;
+
+    /**
+     * Salvează lista de Category în fișier.
+     * @param categories lista de Category
+     * @param file fișierul XML de ieșire
+     */
+    void save(List<Category> categories, File file) throws Exception;
+}

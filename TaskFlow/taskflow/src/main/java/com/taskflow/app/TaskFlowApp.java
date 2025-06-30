@@ -1,48 +1,48 @@
 package com.taskflow.app;
 
-import com.taskflow.model.Category;
 import com.taskflow.model.RootGroup;
+import com.taskflow.persistence.RootGroupPersistence;
 import com.taskflow.persistence.XmlSaxHandler;
+import com.taskflow.service.DefaultTaskService;
+import com.taskflow.service.TaskService;
 import com.taskflow.ui.MainFrame;
-import com.taskflow.util.PropertiesManager;
 
 import javax.swing.*;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class TaskFlowApp {
     public static void main(String[] args) {
         try {
-            String lafClass = PropertiesManager.get("ui.lookAndFeel",
-                    UIManager.getSystemLookAndFeelClassName());
-            UIManager.setLookAndFeel(lafClass);
-        } catch (Exception e) {
-            System.err.println("Failed to set Look & Feel: " + e.getMessage());
-        }
+            UIManager.setLookAndFeel(
+                UIManager.getSystemLookAndFeelClassName()
+            );
+        } catch (Exception ignored) {}
 
-        List<Category> categories;
-        String dataFilePath = PropertiesManager.get("data.file", "data.xml");
+        TaskService taskService = new DefaultTaskService();
+
+        String dataFilePath = "data.xml";
         File dataFile = new File(dataFilePath);
+        List<RootGroup> roots;
         if (dataFile.exists()) {
             try {
-                categories = new XmlSaxHandler().loadCategories(dataFile);
-            } catch (Exception e) {
-                System.err.println("Failed to load data: " + e.getMessage());
-                categories = Collections.emptyList();
+                RootGroupPersistence loader = new XmlSaxHandler();
+                roots = loader.loadRootGroups(dataFile);
+            } catch (Exception ex) {
+                System.err.println("Failed to load roots: " + ex.getMessage());
+                roots = Collections.emptyList();
             }
         } else {
-            categories = Collections.emptyList();
+            roots = Collections.emptyList();
         }
 
-        RootGroup defaultRoot = new RootGroup("Default", "#000000");
-        defaultRoot.getCategories().addAll(categories);
-        List<RootGroup> initRoots = new ArrayList<>();
-        initRoots.add(defaultRoot);
+        for (RootGroup rg : roots) {
+            taskService.addRoot(rg);
+        }
 
         SwingUtilities.invokeLater(() -> {
-            MainFrame frame = new MainFrame(initRoots);
+            MainFrame frame = new MainFrame(taskService);
             frame.setVisible(true);
         });
     }

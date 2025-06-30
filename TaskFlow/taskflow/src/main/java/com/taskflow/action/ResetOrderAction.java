@@ -1,0 +1,25 @@
+package com.taskflow.action;
+
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import javax.swing.table.TableRowSorter;
+import java.awt.event.ActionEvent;
+
+public class ResetOrderAction extends AbstractAction {
+	private static final long serialVersionUID = 1L;
+	
+    private final MainFrame frame;
+
+    public ResetOrderAction(MainFrame frame) {
+        super("Reset Order");
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        TableRowSorter<?> sorter = (TableRowSorter<?>) frame.getTaskTable().getRowSorter();
+        sorter.setSortKeys(null);
+        frame.getTaskTableModel().setTasks(frame.getMasterTasks());
+    }
+}

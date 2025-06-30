@@ -1,0 +1,56 @@
+package com.taskflow.action;
+
+import com.taskflow.model.Category;
+import com.taskflow.model.RootGroup;
+import com.taskflow.persistence.XmlSaxHandler;
+import com.taskflow.service.TaskService;
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.util.List;
+
+@SuppressWarnings("serial")
+public class ImportAction extends AbstractAction {
+    private final MainFrame frame;
+
+    public ImportAction(MainFrame frame) {
+        super("Import XML");
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JFileChooser chooser = new JFileChooser();
+        if (chooser.showOpenDialog(frame) != JFileChooser.APPROVE_OPTION) return;
+        File file = chooser.getSelectedFile();
+
+        try {
+            // 1) Încărcăm categoriile/task‑urile din XML
+            List<Category> cats = new XmlSaxHandler().load(file);
+
+            // 2) Căutăm în lista de rădăcini un RootGroup „Imported”
+            TaskService svc = frame.getTaskService();
+            RootGroup imported = svc.getAllRoots().stream()
+                .filter(rg -> "Imported".equals(rg.getName()))
+                .findFirst()
+                .orElse(null);
+
+            // 3) Dacă nu există, îl creăm și îl adăugăm la coadă
+            if (imported == null) {
+                imported = new RootGroup("Imported", "#0077CC");
+                svc.addRoot(imported);
+            }
+
+            // 4) Adăugăm categoriile importate sub acest root
+            imported.getCategories().addAll(cats);
+
+            // 5) Refresh complet și expand all
+            frame.refreshTreeAll();
+        } catch (Exception ex) {
+            frame.showError(ex);
+            ex.printStackTrace();
+        }
+    }
+}

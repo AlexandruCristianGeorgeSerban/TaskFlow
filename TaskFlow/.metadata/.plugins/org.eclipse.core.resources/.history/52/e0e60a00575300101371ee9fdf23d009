@@ -1,0 +1,379 @@
+package com.taskflow.ui;
+
+import com.taskflow.model.Category;
+import com.taskflow.model.RootGroup;
+import com.taskflow.model.Task;
+import com.taskflow.persistence.CategoryPersistence;
+import com.taskflow.persistence.XmlDomHandler;
+import com.taskflow.persistence.XmlSaxHandler;
+import com.taskflow.service.TaskService;
+
+import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.TableRowSorter;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * Main application window.
+ */
+@SuppressWarnings("serial")
+public class MainFrame extends JFrame {
+    private final TaskService taskService;
+    private final TaskTableModel taskTableModel;
+    private final CategoryTreeModel categoryTreeModel;
+    private final JTable taskTable;
+    private final JTree categoryTree;
+    private final JTextField filterField;
+
+    public MainFrame(TaskService service) {
+        super("TaskFlow");
+        this.taskService = service;
+
+        // Modele
+        taskTableModel    = new TaskTableModel(getAllTasks());
+        categoryTreeModel = new CategoryTreeModel(taskService.getAllRoots());
+
+        // Componente
+        taskTable = new JTable(taskTableModel);
+        taskTable.setRowSorter(new TableRowSorter<>(taskTableModel));
+        taskTable.getTableHeader().setReorderingAllowed(true);
+
+        categoryTree = new JTree(categoryTreeModel);
+        categoryTree.setRootVisible(false);
+        categoryTree.setShowsRootHandles(true);
+        categoryTree.setCellRenderer(new ColorTreeCellRenderer());
+
+        filterField = new JTextField(15);
+
+        // Layout
+        JSplitPane split = new JSplitPane(
+            JSplitPane.HORIZONTAL_SPLIT,
+            new JScrollPane(categoryTree),
+            new JScrollPane(taskTable)
+        );
+        split.setDividerLocation(200);
+
+        JPanel top = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        top.add(new JLabel("Filter:"));
+        top.add(filterField);
+
+        setLayout(new BorderLayout());
+        add(top, BorderLayout.NORTH);
+        add(split, BorderLayout.CENTER);
+
+        // Meniuri
+        JMenuBar mb = new JMenuBar();
+        mb.add(createFileMenu());
+        mb.add(createRootMenu());
+        mb.add(createCategoryMenu());
+        mb.add(createTaskMenu());
+        setJMenuBar(mb);
+
+        // Listeners
+        filterField.getDocument().addDocumentListener(new DocumentListener(){
+            public void insertUpdate(DocumentEvent e){ applyFilter(); }
+            public void removeUpdate(DocumentEvent e){ applyFilter(); }
+            public void changedUpdate(DocumentEvent e){ applyFilter(); }
+        });
+
+        categoryTree.addTreeSelectionListener(e -> {
+            TreePath p = e.getNewLeadSelectionPath();
+            if (p==null) return;
+            Object o = ((DefaultMutableTreeNode)p.getLastPathComponent()).getUserObject();
+            if (o instanceof RootGroup) {
+                showTasks(getTasksFromRoot((RootGroup)o));
+            } else if (o instanceof Category) {
+                showTasks(((Category)o).getTasks());
+            }
+        });
+
+        categoryTree.addMouseListener(new java.awt.event.MouseAdapter(){
+            public void mouseClicked(java.awt.event.MouseEvent e){
+                if (e.getClickCount()==2){
+                    TreePath p = categoryTree.getPathForLocation(e.getX(), e.getY());
+                    if (p!=null){
+                        Object o = ((DefaultMutableTreeNode)p.getLastPathComponent()).getUserObject();
+                        if (o instanceof Task) showTasks(List.of((Task)o));
+                    }
+                }
+            }
+        });
+
+        // Final UI setup
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(800,600);
+        setLocationRelativeTo(null);
+    }
+
+    private JMenu createFileMenu() {
+        JMenu m = new JMenu("File");
+
+        m.add(new AbstractAction("Import XML") {
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser ch = new JFileChooser();
+                if (ch.showOpenDialog(MainFrame.this)==JFileChooser.APPROVE_OPTION) {
+                    try {
+                        File f = ch.getSelectedFile();
+                        CategoryPersistence loader = new XmlSaxHandler();
+                        var cats = loader.load(f);
+                        taskService.getAllRoots().clear();
+                        taskService.addRoot(new RootGroup("Imported", "#0077CC"));
+                        taskService.getAllRoots().get(0).getCategories().addAll(cats);
+                        refreshTreeAll();
+                    } catch (Exception ex) {
+                        showError(ex);
+                    }
+                }
+            }
+        });
+
+        m.add(new AbstractAction("Export XML") {
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser ch = new JFileChooser();
+                if (ch.showSaveDialog(MainFrame.this)==JFileChooser.APPROVE_OPTION) {
+                    try {
+                        File f = ch.getSelectedFile();
+                        CategoryPersistence saver = new XmlDomHandler();
+                        var cats = taskService.getAllRoots().stream()
+                            .flatMap(rg->rg.getCategories().stream())
+                            .toList();
+                        saver.save(cats, f);
+                    } catch (Exception ex) {
+                        showError(ex);
+                    }
+                }
+            }
+        });
+
+        m.addSeparator();
+
+        m.add(new AbstractAction("Delete File/Folder…") {
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser ch = new JFileChooser();
+                ch.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+                if (ch.showDialog(MainFrame.this,"Delete")==JFileChooser.APPROVE_OPTION){
+                    File f = ch.getSelectedFile();
+                    if (!f.exists()) {
+                        JOptionPane.showMessageDialog(MainFrame.this,"Not found: "+f,"Info",JOptionPane.INFORMATION_MESSAGE);
+                    } else if (JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(
+                            MainFrame.this,"Delete?\n"+f,"Confirm",JOptionPane.YES_NO_OPTION)) {
+                        deleteRecursively(f);
+                    }
+                }
+            }
+        });
+
+        return m;
+    }
+
+    private JMenu createRootMenu() {
+        JMenu m = new JMenu("Root");
+        m.add(new AbstractAction("Add Root") {
+            public void actionPerformed(ActionEvent e) {
+                String name = JOptionPane.showInputDialog(MainFrame.this,"Root name:");
+                if (name==null||name.isBlank()) return;
+                Color c = JColorChooser.showDialog(MainFrame.this,"Choose color",Color.BLACK);
+                String hex = (c==null)?"#000000":String.format("#%02x%02x%02x",c.getRed(),c.getGreen(),c.getBlue());
+                taskService.addRoot(new RootGroup(name, hex));
+                refreshTreeAll();
+            }
+        });
+        m.add(new AbstractAction("Edit Root") {
+            public void actionPerformed(ActionEvent e) {
+                RootGroup rg = getSelectedRoot();
+                if (rg==null) return;
+                String name = JOptionPane.showInputDialog(MainFrame.this,"Root name:",rg.getName());
+                if (name==null||name.isBlank()) return;
+                Color c = JColorChooser.showDialog(MainFrame.this,"Choose color",Color.decode(rg.getColorHex()));
+                String hex = (c==null)?rg.getColorHex():String.format("#%02x%02x%02x",c.getRed(),c.getGreen(),c.getBlue());
+                rg.setName(name); rg.setColorHex(hex);
+                refreshTreeAll();
+            }
+        });
+        return m;
+    }
+
+    private JMenu createCategoryMenu() {
+        JMenu m = new JMenu("Category");
+        m.add(new AbstractAction("Add Category") {
+            public void actionPerformed(ActionEvent e) {
+                RootGroup rg = getSelectedRoot();
+                if (rg==null) { JOptionPane.showMessageDialog(MainFrame.this,"Select a root","Info",JOptionPane.INFORMATION_MESSAGE); return; }
+                String name = JOptionPane.showInputDialog(MainFrame.this,"Category name:");
+                if (name==null||name.isBlank()) return;
+                Color c = JColorChooser.showDialog(MainFrame.this,"Choose color",Color.BLUE);
+                String hex = (c==null)?"#0000FF":String.format("#%02x%02x%02x",c.getRed(),c.getGreen(),c.getBlue());
+                rg.getCategories().add(new Category(name,hex));
+                refreshTreeAll();
+            }
+        });
+        m.add(new AbstractAction("Edit Category") {
+            public void actionPerformed(ActionEvent e) {
+                Category cat = getSelectedCategory();
+                if (cat==null) return;
+                String name = JOptionPane.showInputDialog(MainFrame.this,"Category name:",cat.getName());
+                if (name==null||name.isBlank()) return;
+                Color c = JColorChooser.showDialog(MainFrame.this,"Choose color",Color.decode(cat.getColor()));
+                String hex = (c==null)?cat.getColor():String.format("#%02x%02x%02x",c.getRed(),c.getGreen(),c.getBlue());
+                cat.setName(name); cat.setColor(hex);
+                refreshTreeAll();
+            }
+        });
+        return m;
+    }
+
+    private JMenu createTaskMenu() {
+        JMenu m = new JMenu("Task");
+        m.add(new AbstractAction("Add Task") {
+            public void actionPerformed(ActionEvent e) {
+                addTaskDialog();
+            }
+        });
+        m.add(new AbstractAction("Edit Task") {
+            public void actionPerformed(ActionEvent e) {
+                editTaskDialog();
+            }
+        });
+        m.addSeparator();
+        m.add(new AbstractAction("Toggle Completed") {
+            public void actionPerformed(ActionEvent e) {
+                Task t = getSelectedTask();
+                if (t!=null) t.setCompleted(!t.isCompleted());
+                refreshTreeAll();
+            }
+        });
+        m.addSeparator();
+        m.add(new AbstractAction("Reset Order") {
+            public void actionPerformed(ActionEvent e) {
+                // reset sorter
+                ((TableRowSorter<?>)taskTable.getRowSorter()).setSortKeys(null);
+                taskTableModel.setTasks(getAllTasks());
+            }
+        });
+        return m;
+    }
+
+    // helper methods
+
+    public RootGroup getSelectedRoot() {
+        TreePath p = categoryTree.getSelectionPath();
+        if (p==null) return null;
+        Object o = ((DefaultMutableTreeNode)p.getLastPathComponent()).getUserObject();
+        return o instanceof RootGroup ? (RootGroup)o : null;
+    }
+
+    public Category getSelectedCategory() {
+        TreePath p = categoryTree.getSelectionPath();
+        if (p==null) return null;
+        Object o = ((DefaultMutableTreeNode)p.getLastPathComponent()).getUserObject();
+        return o instanceof Category ? (Category)o : null;
+    }
+
+    public Task getSelectedTask() {
+        TreePath p = categoryTree.getSelectionPath();
+        if (p==null) return null;
+        Object o = ((DefaultMutableTreeNode)p.getLastPathComponent()).getUserObject();
+        return o instanceof Task ? (Task)o : null;
+    }
+
+    private List<Task> getAllTasks() {
+        return taskService.getAllRoots().stream()
+            .flatMap(r->r.getCategories().stream())
+            .flatMap(c->c.getTasks().stream())
+            .toList();
+    }
+
+    private List<Task> getTasksFromRoot(RootGroup rg) {
+        return rg.getCategories().stream()
+            .flatMap(c->c.getTasks().stream())
+            .toList();
+    }
+
+    private void showTasks(List<Task> tasks) {
+        taskTableModel.setTasks(tasks);
+    }
+
+    private void refreshTreeAll() {
+        categoryTreeModel.updateRoots(taskService.getAllRoots());
+        showTasks(getAllTasks());
+    }
+
+    private void applyFilter() {
+        String txt = filterField.getText().trim().toLowerCase();
+        if (txt.isEmpty()) {
+            refreshTreeAll();
+        } else {
+            taskTableModel.setTasks(
+                getAllTasks().stream()
+                    .filter(t->t.getTitle().toLowerCase().contains(txt)
+                             || t.getDescription().toLowerCase().contains(txt))
+                    .toList()
+            );
+        }
+    }
+
+    private void addTaskDialog() {
+        RootGroup rg = getSelectedRoot();
+        if (rg==null) { JOptionPane.showMessageDialog(this,"Select a category","Info",JOptionPane.INFORMATION_MESSAGE); return; }
+        Category cat = getSelectedCategory();
+        if (cat==null) { JOptionPane.showMessageDialog(this,"Select a category","Info",JOptionPane.INFORMATION_MESSAGE); return; }
+
+        String title = JOptionPane.showInputDialog(this,"Task title:");
+        if (title==null||title.isBlank()) return;
+        String desc = JOptionPane.showInputDialog(this,"Task description:");
+        String dueStr = JOptionPane.showInputDialog(this,"Due date (yyyy-MM-dd):");
+        Calendar cal;
+        try {
+            Date d = new SimpleDateFormat("yyyy-MM-dd").parse(dueStr);
+            cal = Calendar.getInstance(); cal.setTime(d);
+        } catch(ParseException ex){
+            JOptionPane.showMessageDialog(this,"Invalid date","Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Task t = new Task(title, desc, cal, false);
+        taskService.addTask(cat, t);
+        refreshTreeAll();
+    }
+
+    private void editTaskDialog() {
+        Task t = getSelectedTask();
+        if (t==null) return;
+        String title = JOptionPane.showInputDialog(this,"Task title:",t.getTitle());
+        if (title==null||title.isBlank()) return;
+        String desc = JOptionPane.showInputDialog(this,"Task description:",t.getDescription());
+        String dueStr = new SimpleDateFormat("yyyy-MM-dd").format(t.getDueDate().getTime());
+        String newDue = JOptionPane.showInputDialog(this,"Due date (yyyy-MM-dd):",dueStr);
+        Calendar cal;
+        try {
+            Date d = new SimpleDateFormat("yyyy-MM-dd").parse(newDue);
+            cal = Calendar.getInstance(); cal.setTime(d);
+        } catch(ParseException ex){
+            JOptionPane.showMessageDialog(this,"Invalid date","Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        t.setTitle(title);
+        t.setDescription(desc);
+        t.setDueDate(cal);
+        taskService.updateTask(t);
+        refreshTreeAll();
+    }
+
+    private void deleteRecursively(File f) {
+        if (f.isDirectory()) for (File c: f.listFiles()) deleteRecursively(c);
+        f.delete();
+    }
+
+    private void showError(Exception ex) {
+        JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}

@@ -1,0 +1,38 @@
+package com.taskflow.action;
+
+import com.taskflow.model.Category;
+import com.taskflow.model.RootGroup;
+import com.taskflow.service.TaskService;
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+/** Adaugă o categorie sub root selectat */
+public class AddCategoryAction extends AbstractAction {
+    private static final long serialVersionUID = 1L;
+    private final MainFrame frame;
+    private final TaskService service;
+
+    public AddCategoryAction(MainFrame frame, TaskService service) {
+        super("Add Category");
+        this.frame = frame;
+        this.service = service;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        RootGroup rg = frame.getSelectedRoot();
+        if (rg==null) {
+            JOptionPane.showMessageDialog(frame,"Select a root.","Info",JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        String name = JOptionPane.showInputDialog(frame,"Category name:");
+        if (name==null||name.trim().isEmpty()) return;
+        Color c = JColorChooser.showDialog(frame,"Choose category color",Color.BLUE);
+        String hex = (c==null)?"#0000FF":String.format("#%02x%02x%02x",c.getRed(),c.getGreen(),c.getBlue());
+        service.addCategory(rg,new Category(name.trim(),hex));
+        frame.refreshTreeAll();
+    }
+}
