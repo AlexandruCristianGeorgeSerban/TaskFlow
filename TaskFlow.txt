@@ -1,0 +1,9 @@
+TaskFlow
+
+Titlu:
+Aplicatie desktop Java Swing pentru gestionarea eficienta a sarcinilor personale si de echipa.
+
+Scurta descriere:
+Functionalitatile implementate: adaugare, editare, stergere si organizare a task-urilor pe categorii; planificare in calendar; export/import in format XML.
+
+Limbaje de programare, tehnologii, unelte folosite: Java, Swing

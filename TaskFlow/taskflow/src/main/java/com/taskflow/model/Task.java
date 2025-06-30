@@ -1,0 +1,74 @@
+package com.taskflow.model;
+
+import java.util.Calendar;
+import java.util.UUID;
+
+public class Task {
+    private UUID id;
+    private String title;
+    private String description;
+    private Calendar dueDate;
+    private boolean completed;
+
+    public Task() {
+        this.id = UUID.randomUUID();
+        this.dueDate = Calendar.getInstance();
+        this.completed = false;
+    }
+
+    public Task(String title, String description, Calendar dueDate, boolean completed) {
+        this.id = UUID.randomUUID();
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.completed = completed;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Calendar getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(Calendar dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+            "Task[id=%s, title='%s', dueDate=%tF, completed=%b]",
+            id, title, dueDate, completed
+        );
+    }
+}

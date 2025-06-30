@@ -1,0 +1,71 @@
+package com.taskflow.ui;
+
+import com.taskflow.model.Task;
+
+import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class TaskTableModel extends AbstractTableModel {
+	private static final long serialVersionUID = 1L;
+	
+    private List<Task> tasks;
+    private String[] columns = {"Title", "Due Date", "Completed"};
+
+    public TaskTableModel(List<Task> tasks) {
+        this.tasks = new ArrayList<>(tasks);
+    }
+
+    @Override
+    public int getRowCount() {
+        return tasks.size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return columns.length;
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        return columns[column];
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        Task task = tasks.get(rowIndex);
+        switch (columnIndex) {
+            case 0:
+                return task.getTitle();
+            case 1:
+                return String.format("%tF", task.getDueDate());
+            case 2:
+                return task.isCompleted();
+            default:
+                return null;
+        }
+    }
+
+    public List<Task> filter(String keyword) {
+        List<Task> result = new ArrayList<>();
+        Iterator<Task> it = tasks.iterator();
+        while (it.hasNext()) {
+            Task t = it.next();
+            StringTokenizer tok = new StringTokenizer(t.getTitle() + " " + t.getDescription());
+            while (tok.hasMoreTokens()) {
+                if (tok.nextToken().equalsIgnoreCase(keyword)) {
+                    result.add(t);
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    public void setTasks(List<Task> newTasks) {
+        this.tasks = new ArrayList<>(newTasks);
+        fireTableDataChanged();
+    }
+}
