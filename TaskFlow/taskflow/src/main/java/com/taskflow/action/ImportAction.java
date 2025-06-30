@@ -32,9 +32,7 @@ public class ImportAction extends AbstractAction {
         	
             RootGroupPersistence loader = new XmlSaxHandler();
             List<RootGroup> importedRoots = loader.loadRootGroups(file);
-
             importedRoots.forEach(frame.getTaskService()::addRoot);
-
             frame.refreshTreeAll();
         } catch (Exception ex) {
             frame.showError(ex);

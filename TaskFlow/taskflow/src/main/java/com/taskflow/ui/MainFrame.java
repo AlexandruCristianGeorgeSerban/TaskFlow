@@ -74,7 +74,6 @@ public class MainFrame extends JFrame {
             if      (o instanceof RootGroup) showTasks(getTasksFromRoot((RootGroup)o));
             else if (o instanceof Category ) showTasks(((Category)o).getTasks());
         });
-
         categoryTree.addMouseListener(new java.awt.event.MouseAdapter(){
             public void mouseClicked(java.awt.event.MouseEvent e){
                 if (e.getClickCount()==2){
@@ -152,18 +151,24 @@ public class MainFrame extends JFrame {
         JMenu m = new JMenu("Root");
         m.add(new AddRootAction(this));
         m.add(new EditRootAction(this));
+        m.addSeparator();
+        m.add(new DeleteRootAction(this, taskService));
         return m;
     }
     private JMenu createCategoryMenu() {
         JMenu m = new JMenu("Category");
         m.add(new AddCategoryAction(this));
         m.add(new EditCategoryAction(this));
+        m.addSeparator();
+        m.add(new DeleteCategoryAction(this, taskService));
         return m;
     }
     private JMenu createTaskMenu() {
         JMenu m = new JMenu("Task");
         m.add(new AddTaskAction(this));
         m.add(new EditTaskAction(this));
+        m.addSeparator();
+        m.add(new DeleteTaskAction(this, taskService));
         m.addSeparator();
         m.add(new ToggleCompletedAction(this));
         m.addSeparator();
@@ -223,5 +228,9 @@ public class MainFrame extends JFrame {
                 categoryTree.expandRow(i);
             }
         });
+    }
+    
+    public JTree getCategoryTree() {
+        return categoryTree;
     }
 }

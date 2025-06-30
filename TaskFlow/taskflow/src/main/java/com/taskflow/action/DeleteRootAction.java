@@ -1,0 +1,46 @@
+package com.taskflow.action;
+
+import com.taskflow.model.RootGroup;
+import com.taskflow.service.TaskService;
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
+import java.awt.event.ActionEvent;
+
+public class DeleteRootAction extends AbstractAction {
+	private static final long serialVersionUID = 1L;
+	
+    private final MainFrame frame;
+    private final TaskService svc;
+
+    public DeleteRootAction(MainFrame frame, TaskService svc) {
+        super("Delete Root");
+        this.frame = frame;
+        this.svc   = svc;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        TreePath sel = frame.getCategoryTree().getSelectionPath();
+        if (sel == null) {
+            JOptionPane.showMessageDialog(frame, "Select a root first.", "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        Object o = ((DefaultMutableTreeNode)sel.getLastPathComponent()).getUserObject();
+        if (!(o instanceof RootGroup)) {
+            JOptionPane.showMessageDialog(frame, "Please select a root.", "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        RootGroup rg = (RootGroup)o;
+        int ans = JOptionPane.showConfirmDialog(
+            frame,
+            "Delete root «" + rg.getName() + "» and all its contents?",
+            "Confirm Delete", JOptionPane.YES_NO_OPTION);
+        if (ans == JOptionPane.YES_OPTION) {
+            svc.removeRoot(rg);
+            frame.refreshTreeAll();
+        }
+    }
+}

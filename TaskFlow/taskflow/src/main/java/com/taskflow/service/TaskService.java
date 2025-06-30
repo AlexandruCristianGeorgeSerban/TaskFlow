@@ -22,4 +22,10 @@ public interface TaskService {
     void addTask(Category category, Task task);
 
     void updateTask(Task task);
+    
+    void removeRoot(RootGroup root);
+    
+    void removeCategory(RootGroup parent, Category cat);
+    
+    void removeTask(Category parent, Task t);
 }

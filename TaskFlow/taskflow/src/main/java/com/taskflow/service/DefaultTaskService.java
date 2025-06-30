@@ -56,4 +56,19 @@ public class DefaultTaskService implements TaskService {
     @Override
     public void updateTask(Task task) {
     }
+    
+    @Override
+    public void removeRoot(RootGroup root) {
+        roots.remove(root);
+    }
+
+    @Override
+    public void removeCategory(RootGroup parent, Category cat) {
+        parent.getCategories().remove(cat);
+    }
+
+    @Override
+    public void removeTask(Category parent, Task t) {
+        parent.getTasks().remove(t);
+    }
 }
