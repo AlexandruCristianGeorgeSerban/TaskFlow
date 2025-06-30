@@ -71,4 +71,14 @@ public class DefaultTaskService implements TaskService {
     public void removeTask(Category parent, Task t) {
         parent.getTasks().remove(t);
     }
+    
+    @Override
+    public void moveRoot(RootGroup root, int toIndex) {
+        int from = roots.indexOf(root);
+        if (from == -1) return;
+        if (toIndex < 0) toIndex = 0;
+        if (toIndex > roots.size()-1) toIndex = roots.size()-1;
+        roots.remove(from);
+        roots.add(toIndex, root);
+    }
 }

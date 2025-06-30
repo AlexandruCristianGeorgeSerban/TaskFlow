@@ -72,7 +72,6 @@ public class AddTaskAction extends AbstractAction {
             hex
         );
         frame.getTaskService().addTask(cat, t);
-
         frame.refreshAfterChange(cat);
     }
 }

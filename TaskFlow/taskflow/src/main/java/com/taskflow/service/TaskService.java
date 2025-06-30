@@ -28,4 +28,6 @@ public interface TaskService {
     void removeCategory(RootGroup parent, Category cat);
     
     void removeTask(Category parent, Task t);
+    
+    void moveRoot(RootGroup root, int toIndex);
 }

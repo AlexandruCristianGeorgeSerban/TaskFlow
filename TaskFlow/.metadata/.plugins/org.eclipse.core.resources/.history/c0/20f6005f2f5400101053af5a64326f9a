@@ -1,0 +1,118 @@
+package com.taskflow.ui;
+
+import com.taskflow.model.RootGroup;
+import com.taskflow.model.Category;
+import com.taskflow.model.Task;
+import com.taskflow.service.TaskService;
+
+import javax.swing.*;
+import javax.swing.tree.*;
+import java.awt.datatransfer.*;
+import java.io.IOException;
+
+/**
+ * TransferHandler pentru drag & drop pe JTree:
+ * mută noduri între același tip de părinte (reordonare)
+ * sau între diferite părinți (mutare categorie/task).
+ */
+public class TreeTransferHandler extends TransferHandler {
+    private final DataFlavor nodeFlavor;
+    private final TaskService svc;
+    private final JTree tree;
+
+    public TreeTransferHandler(JTree tree, TaskService svc) {
+        this.tree = tree;
+        this.svc  = svc;
+        nodeFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType, "TreeNode");
+    }
+
+    @Override
+    public boolean canImport(TransferSupport support) {
+        if (!support.isDrop()) return false;
+        return support.isDataFlavorSupported(nodeFlavor);
+    }
+
+    @Override
+    protected Transferable createTransferable(JComponent c) {
+        TreePath[] paths = tree.getSelectionPaths();
+        return new Transferable() {
+            public DataFlavor[] getTransferDataFlavors() {
+                return new DataFlavor[]{ nodeFlavor };
+            }
+            public boolean isDataFlavorSupported(DataFlavor flavor) {
+                return flavor.equals(nodeFlavor);
+            }
+            public Object getTransferData(DataFlavor flavor) {
+                return paths;
+            }
+        };
+    }
+
+    @Override
+    public int getSourceActions(JComponent c) {
+        return MOVE;
+    }
+
+    @Override
+    public boolean importData(TransferSupport support) {
+        try {
+            TreePath[] draggedPaths = (TreePath[])support.getTransferable()
+                                    .getTransferData(nodeFlavor);
+            TreePath dropPath = ((JTree.DropLocation)support.getDropLocation()).getPath();
+            DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+
+            for (TreePath dragPath : draggedPaths) {
+                DefaultMutableTreeNode draggedNode = (DefaultMutableTreeNode)dragPath.getLastPathComponent();
+                Object draggedObj = draggedNode.getUserObject();
+
+                // scoatem nodul din arbore și din date
+                DefaultMutableTreeNode oldParent = (DefaultMutableTreeNode)draggedNode.getParent();
+                model.removeNodeFromParent(draggedNode);
+
+                // inserăm sub noul părinte sau la același nivel
+                DefaultMutableTreeNode targetNode = (DefaultMutableTreeNode)dropPath.getLastPathComponent();
+                Object targetObj = targetNode.getUserObject();
+
+                // 1) Reordonare la același părinte?
+                if (oldParent == targetNode) {
+                    model.insertNodeInto(draggedNode, oldParent, targetNode.getChildCount());
+                    continue;
+                }
+
+                // 2) Mutare categorie între rooturi
+                if (draggedObj instanceof Category && targetObj instanceof RootGroup) {
+                    RootGroup oldRoot = (RootGroup)oldParent.getUserObject();
+                    RootGroup newRoot = (RootGroup)targetObj;
+                    Category cat = (Category)draggedObj;
+                    // actualizăm modelul de date
+                    svc.removeCategory(oldRoot, cat);
+                    svc.addCategory(newRoot, cat);
+                    // în arbore
+                    model.insertNodeInto(draggedNode, targetNode, targetNode.getChildCount());
+                    continue;
+                }
+
+                // 3) Mutare task între categorii
+                if (draggedObj instanceof Task && targetObj instanceof Category) {
+                    Category oldCat = (Category)oldParent.getUserObject();
+                    Category newCat = (Category)targetObj;
+                    Task t = (Task)draggedObj;
+                    svc.removeTask(oldCat, t);
+                    svc.addTask(newCat, t);
+                    model.insertNodeInto(draggedNode, targetNode, targetNode.getChildCount());
+                    continue;
+                }
+
+                // altfel anulăm
+                model.insertNodeInto(draggedNode, oldParent, oldParent.getIndex(draggedNode));
+            }
+
+            // refresh UI
+            tree.expandPath(dropPath);
+            return true;
+        } catch (UnsupportedFlavorException | IOException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+}

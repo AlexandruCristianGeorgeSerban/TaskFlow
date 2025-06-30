@@ -41,6 +41,10 @@ public class MainFrame extends JFrame {
         categoryTree.setShowsRootHandles(true);
         categoryTree.setCellRenderer(new ColorTreeCellRenderer());
         filterField = new JTextField(15);
+        
+        categoryTree.setDragEnabled(true);
+        categoryTree.setDropMode(DropMode.ON);
+        categoryTree.setTransferHandler(new TreeTransferHandler(this, taskService));
 
         JSplitPane split = new JSplitPane(
             JSplitPane.HORIZONTAL_SPLIT,
