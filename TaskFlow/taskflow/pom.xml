@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.taskflow</groupId>
   <artifactId>taskflow</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1-PROIECT</version>
   <name>TaskFlow</name>
   <description>Aplicatie desktop Java Swing pentru gestionarea eficienta a sarcinilor personale si de echipa.</description>
 

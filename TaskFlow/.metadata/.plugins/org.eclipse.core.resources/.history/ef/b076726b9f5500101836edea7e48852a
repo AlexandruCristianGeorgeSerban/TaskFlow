@@ -1,0 +1,95 @@
+package com.taskflow.model;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+/**
+ * Bean representing a Category of tasks.
+ */
+public class Category {
+    private UUID id;
+    private String name;
+    private String color;
+    private List<Task> tasks;
+
+    /**
+     * Default constructor initializes id and tasks list.
+     */
+    public Category() {
+        this.id = UUID.randomUUID();
+        this.tasks = new ArrayList<>();
+    }
+
+    /**
+     * Constructor with parameters.
+     */
+    public Category(String name, String color) {
+        this.id = UUID.randomUUID();
+        this.name = name;
+        this.color = color;
+        this.tasks = new ArrayList<>();
+    }
+
+    // Getters and setters
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getColor() {
+        return color;
+    }
+    
+    public void setColor(String color) {
+        if (color == null || color.isBlank()) return;
+        String hex = color.trim();
+        if (!hex.startsWith("#")) {
+            hex = "#" + hex;
+        }
+        if (hex.length() == 7) {
+            this.color = hex;
+        }
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    /**
+     * Adds a task to this category.
+     */
+    public void addTask(Task task) {
+        this.tasks.add(task);
+    }
+
+    /**
+     * Removes a task from this category.
+     */
+    public void removeTask(Task task) {
+        this.tasks.remove(task);
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+            "Category[id=%s, name='%s', color='%s', tasks=%d]",
+            id, name, color, tasks.size()
+        );
+    }
+}

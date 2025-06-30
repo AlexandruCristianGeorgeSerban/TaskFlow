@@ -6,20 +6,23 @@ import javax.swing.*;
 import javax.swing.table.TableRowSorter;
 import java.awt.event.ActionEvent;
 
+// Resetează ordinea task-urilor în tabel la cea implicită.
 public class ResetOrderAction extends AbstractAction {
 	private static final long serialVersionUID = 1L;
-	
-    private final MainFrame frame;
+	private final MainFrame frame; // Fereastra principală a aplicației
 
-    public ResetOrderAction(MainFrame frame) {
-        super("Reset Order");
-        this.frame = frame;
-    }
+	public ResetOrderAction(MainFrame frame) {
+		super("Reset Order"); // Text afișat în UI pentru această acțiune
+		this.frame = frame;
+	}
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        TableRowSorter<?> sorter = (TableRowSorter<?>) frame.getTaskTable().getRowSorter();
-        sorter.setSortKeys(null);
-        frame.getTaskTableModel().setTasks(frame.getMasterTasks());
-    }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// 1) Elimină orice sortare aplicată pe tabel
+		TableRowSorter<?> sorter = (TableRowSorter<?>) frame.getTaskTable().getRowSorter();
+		sorter.setSortKeys(null);
+
+		// 2) Reactualizează modelul tabelei cu lista originală de task-uri
+		frame.getTaskTableModel().setTasks(frame.getMasterTasks());
+	}
 }

@@ -6,28 +6,37 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 
+// Șterge fișierul sau folderul selectat printr-un JFileChooser.
 public class DeleteFileAction extends AbstractAction {
 	private static final long serialVersionUID = 1L;
-	
-    private final MainFrame frame;
+	private final MainFrame frame; // Fereastra principală
 
-    public DeleteFileAction(MainFrame frame) {
-        super("Delete File/Folder…");
-        this.frame = frame;
-    }
+	public DeleteFileAction(MainFrame frame) {
+		super("Delete File/Folder…"); // Text afișat în UI pentru această acțiune
+		this.frame = frame;
+	}
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JFileChooser ch = new JFileChooser();
-        ch.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        if (ch.showDialog(frame,"Delete")!=JFileChooser.APPROVE_OPTION) return;
-        File f = ch.getSelectedFile();
-        if (!f.exists()) {
-            JOptionPane.showMessageDialog(frame,"Not found: "+f,"Info",JOptionPane.INFORMATION_MESSAGE);
-        } else if (JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(
-            frame,"Delete?\n"+f,"Confirm",JOptionPane.YES_NO_OPTION)) {
-            frame.deleteRecursively(f);
-            frame.refreshTreeAll();
-        }
-    }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// Deschide dialogul pentru selectarea fișierelor sau directoarelor
+		JFileChooser chooser = new JFileChooser();
+		chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+		// Dacă utilizatorul anulează dialogul, oprim execuția
+		if (chooser.showDialog(frame, "Delete") != JFileChooser.APPROVE_OPTION)
+			return;
+
+		File f = chooser.getSelectedFile(); // Fișierul/directorul selectat
+		if (!f.exists()) {
+			// Afișează mesaj dacă nu există
+			JOptionPane.showMessageDialog(frame, "Not found: " + f, "Info", JOptionPane.INFORMATION_MESSAGE);
+		} else if (JOptionPane.YES_OPTION == JOptionPane.showConfirmDialog(
+			frame,
+			"Delete?\n" + f,
+			"Confirm",
+			JOptionPane.YES_NO_OPTION)) {
+			// Șterge recursiv și reîmprospătează arborele
+			frame.deleteRecursively(f);
+			frame.refreshTreeAll();
+		}
+	}
 }

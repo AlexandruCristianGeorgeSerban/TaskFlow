@@ -10,33 +10,43 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 import java.util.List;
 
+// Importă root‑urile dintr-un fișier XML și le adaugă în aplicație.
 public class ImportAction extends AbstractAction {
 	private static final long serialVersionUID = 1L;
-	
-    private final MainFrame frame;
+	private final MainFrame frame; // Fereastra principală a aplicației
 
-    public ImportAction(MainFrame frame) {
-        super("Import XML");
-        this.frame = frame;
-    }
+	public ImportAction(MainFrame frame) {
+		super("Import XML"); // Text afișat în UI pentru această acțiune
+		this.frame = frame;
+	}
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JFileChooser chooser = new JFileChooser();
-        if (chooser.showOpenDialog(frame) != JFileChooser.APPROVE_OPTION) return;
-        File file = chooser.getSelectedFile();
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// Deschide dialogul pentru selectarea fișierului XML
+		JFileChooser chooser = new JFileChooser();
+		if (chooser.showOpenDialog(frame) != JFileChooser.APPROVE_OPTION)
+			return; // Oprește dacă utilizatorul anulează
 
-        try {
-        	RootGroup imported = new RootGroup("Imported", "#0077CC");
-        	frame.getTaskService().addRoot(imported);
-        	
-            RootGroupPersistence loader = new XmlSaxHandler();
-            List<RootGroup> importedRoots = loader.loadRootGroups(file);
-            importedRoots.forEach(frame.getTaskService()::addRoot);
-            frame.refreshTreeAll();
-        } catch (Exception ex) {
-            frame.showError(ex);
-            ex.printStackTrace();
-        }
-    }
+		File file = chooser.getSelectedFile(); // Fișierul XML selectat
+
+		try {
+			// Creează un root temporar pentru a marca importurile
+			RootGroup imported = new RootGroup("Imported", "#0077CC");
+			frame.getTaskService().addRoot(imported);
+
+			// Încarcă root-urile din XML folosind SAX
+			RootGroupPersistence loader = new XmlSaxHandler();
+			List<RootGroup> importedRoots = loader.loadRootGroups(file);
+
+			// Adaugă fiecare root importat în aplicație
+			importedRoots.forEach(frame.getTaskService()::addRoot);
+
+			// Reîmprospătează și extinde arborele în UI
+			frame.refreshTreeAll();
+		} catch (Exception ex) {
+			// Afișează eroarea și loghează detaliile
+			frame.showError(ex);
+			ex.printStackTrace();
+		}
+	}
 }

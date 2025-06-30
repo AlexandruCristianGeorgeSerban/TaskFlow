@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.taskflow</groupId>
+  <artifactId>taskflow</artifactId>
+  <version>1-PROJECT</version>
+  <name>TaskFlow</name>
+  <description>Aplicatie desktop Java Swing pentru gestionarea eficienta a sarcinilor personale si de echipa.</description>
+
+  <properties>
+    <!-- Encoding UTF-8 pentru sursele Java -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Pentru validarea XML fără să descarce resurse externe -->
+    <maven.wagon.http.ssl.insecure>true</maven.wagon.http.ssl.insecure>
+    <maven.wagon.http.ssl.allowall>true</maven.wagon.http.ssl.allowall>
+  </properties>
+</project>
+	
+  <developers>
+  	<developer>
+    	<name>Numele Tău</name>
+    	<email>email@exemplu.com</email>
+  	</developer>
+  </developers>

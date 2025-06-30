@@ -4,6 +4,9 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="false"/>
 		<list key="findhistory">
+			<item value="dataFilePath"/>
+			<item value="data.xml"/>
+			<item value="data.file"/>
 			<item value="frame.getTaskService().addRoot(imp);"/>
 			<item value="MainFrame"/>
 			<item value="rg"/>
@@ -16,9 +19,6 @@
 			<item value="categorytree.add"/>
 			<item value="categorytree"/>
 			<item value="tasktablemodel"/>
-			<item value="sorter"/>
-			<item value="taskrawsorter"/>
-			<item value="categoryTreeModel.update"/>
 		</list>
 	</section>
 </section>

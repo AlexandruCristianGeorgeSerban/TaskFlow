@@ -16,36 +16,39 @@ import java.awt.*;
 import java.io.File;
 import java.util.List;
 
+// Fereastră principală care expune metodele necesare acțiunilor și afișează UI-ul.
 public class MainFrame extends JFrame {
-	private static final long serialVersionUID = 1L;
-	
-    private final TaskService taskService;
-    private final TaskTableModel taskTableModel;
-    private final CategoryTreeModel categoryTreeModel;
-    private final JTable taskTable;
-    private final JTree categoryTree;
-    private final JTextField filterField;
-    private final List<Task> masterTasks;
+    private static final long serialVersionUID = 1L;
+    private final TaskService taskService; // Serviciu pentru operații pe task-uri
+    private final TaskTableModel taskTableModel; // Modelul tabelei de task-uri
+    private final CategoryTreeModel categoryTreeModel; // Modelul arborelui de categorii
+    private final JTable taskTable; // Tabelul de task-uri
+    private final JTree categoryTree; // Arborele de categorii
+    private final JTextField filterField; // Câmpul de filtrare
+    private final List<Task> masterTasks; // Lista completă de task-uri
 
     public MainFrame(TaskService service) {
-        super("TaskFlow");
+        super("TaskFlow"); // Titlul ferestrei
         this.taskService       = service;
         this.taskTableModel    = new TaskTableModel(getAllTasks());
         this.masterTasks       = List.copyOf(getAllTasks());
         this.categoryTreeModel = new CategoryTreeModel(taskService.getAllRoots());
 
+        // Inițializează componentele
         taskTable = new JTable(taskTableModel);
-        taskTable.setRowSorter(new TableRowSorter<>(taskTableModel));
+        taskTable.setRowSorter(new TableRowSorter<>(taskTableModel)); // Sortare în tabel
         categoryTree = new JTree(categoryTreeModel);
         categoryTree.setRootVisible(false);
         categoryTree.setShowsRootHandles(true);
         categoryTree.setCellRenderer(new ColorTreeCellRenderer());
         filterField = new JTextField(15);
-        
+
+        // Drag & drop în arbore
         categoryTree.setDragEnabled(true);
         categoryTree.setDropMode(DropMode.ON);
         categoryTree.setTransferHandler(new TreeTransferHandler(this, taskService));
 
+        // Layout cu split pane
         JSplitPane split = new JSplitPane(
             JSplitPane.HORIZONTAL_SPLIT,
             new JScrollPane(categoryTree),
@@ -58,6 +61,7 @@ public class MainFrame extends JFrame {
         add(top, BorderLayout.NORTH);
         add(split, BorderLayout.CENTER);
 
+        // Meniuri
         JMenuBar mb = new JMenuBar();
         mb.add(createFileMenu());
         mb.add(createRootMenu());
@@ -65,12 +69,14 @@ public class MainFrame extends JFrame {
         mb.add(createTaskMenu());
         setJMenuBar(mb);
 
+        // Filtrare în timp real
         filterField.getDocument().addDocumentListener(new DocumentListener(){
             public void insertUpdate(DocumentEvent e){ applyFilter(); }
             public void removeUpdate(DocumentEvent e){ applyFilter(); }
             public void changedUpdate(DocumentEvent e){ applyFilter(); }
         });
 
+        // Selectarea din arbore filtrează tabelul
         categoryTree.addTreeSelectionListener(e -> {
             TreePath p = e.getNewLeadSelectionPath();
             if (p==null) return;
@@ -78,6 +84,8 @@ public class MainFrame extends JFrame {
             if      (o instanceof RootGroup) showTasks(getTasksFromRoot((RootGroup)o));
             else if (o instanceof Category ) showTasks(((Category)o).getTasks());
         });
+
+        // Dublu click pe task în arbore
         categoryTree.addMouseListener(new java.awt.event.MouseAdapter(){
             public void mouseClicked(java.awt.event.MouseEvent e){
                 if (e.getClickCount()==2){
@@ -92,9 +100,10 @@ public class MainFrame extends JFrame {
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(800,600);
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null); // Center window
     }
 
+    // Metode expuse acțiunilor:
     public TaskService getTaskService() {
         return taskService;
     }
@@ -110,12 +119,14 @@ public class MainFrame extends JFrame {
     }
 
     public RootGroup createImportedRoot(List<Category> cats) {
+        // Creează root temporar pentru importuri
         RootGroup imp = new RootGroup("Imported", "#0077CC");
         imp.getCategories().addAll(cats);
         return imp;
     }
 
     public boolean deleteRecursively(File f) {
+        // Șterge fișier/director recursiv
         if (f.isDirectory()) {
             File[] ch = f.listFiles();
             if (ch!=null) for (File c: ch) if (!deleteRecursively(c)) return false;
@@ -123,19 +134,17 @@ public class MainFrame extends JFrame {
         return f.delete();
     }
 
+    // Reîmprospătează arborele și tabelul cu toate task-urile
     public void refreshTreeAll() {
         categoryTreeModel.updateRoots(taskService.getAllRoots());
         showTasks(getAllTasks());
         expandAll();
     }
 
+    // Reîmprospătează arborele și afișează task-urile din categoria dată (sau toate)
     public void refreshAfterChange(Category cat) {
         categoryTreeModel.updateRoots(taskService.getAllRoots());
-        if (cat != null) {
-            showTasks(cat.getTasks());
-        } else {
-            showTasks(getAllTasks());
-        }
+        if (cat != null) showTasks(cat.getTasks()); else showTasks(getAllTasks());
         expandAll();
     }
 
@@ -143,10 +152,11 @@ public class MainFrame extends JFrame {
         JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
 
+    // Meniuri folosind acțiuni:
     private JMenu createFileMenu() {
         JMenu m = new JMenu("File");
-        m.add(new ImportAction (this));
-        m.add(new ExportAction (this));
+        m.add(new ImportAction(this));
+        m.add(new ExportAction(this));
         m.addSeparator();
         m.add(new DeleteFileAction(this));
         return m;
@@ -180,6 +190,7 @@ public class MainFrame extends JFrame {
         return m;
     }
 
+    // Utilitare interne:
     private void applyFilter() {
         String t = filterField.getText().trim().toLowerCase();
         if (t.isEmpty()) refreshTreeAll();
@@ -191,20 +202,23 @@ public class MainFrame extends JFrame {
         );
     }
     private void showTasks(List<Task> tasks) {
-        taskTableModel.setTasks(tasks);
+        taskTableModel.setTasks(tasks); // Actualizează tabelul cu lista dată
     }
     private List<Task> getAllTasks() {
+        // Colectează toate task-urile din toate categoriile
         return taskService.getAllRoots().stream()
             .flatMap(r->r.getCategories().stream())
             .flatMap(c->c.getTasks().stream())
             .toList();
     }
     private List<Task> getTasksFromRoot(RootGroup r) {
+        // Colectează task-urile dintr-un root
         return r.getCategories().stream()
             .flatMap(c->c.getTasks().stream())
             .toList();
     }
     
+    // Returnează root-ul selectat în arbore (sau null)
     public RootGroup getSelectedRoot() {
         TreePath p = categoryTree.getSelectionPath();
         if (p == null) return null;
@@ -212,6 +226,7 @@ public class MainFrame extends JFrame {
         return (o instanceof RootGroup) ? (RootGroup)o : null;
     }
 
+    // Returnează categoria selectată în arbore (sau null)
     public Category getSelectedCategory() {
         TreePath p = categoryTree.getSelectionPath();
         if (p == null) return null;
@@ -219,6 +234,7 @@ public class MainFrame extends JFrame {
         return (o instanceof Category) ? (Category)o : null;
     }
 
+    // Returnează task-ul selectat în arbore (sau null)
     public Task getSelectedTask() {
         TreePath p = categoryTree.getSelectionPath();
         if (p == null) return null;
@@ -226,6 +242,7 @@ public class MainFrame extends JFrame {
         return (o instanceof Task) ? (Task)o : null;
     }
     
+    // Expandează toate nodurile din arbore
     public void expandAll() {
         SwingUtilities.invokeLater(() -> {
             for (int i = 0; i < categoryTree.getRowCount(); i++) {
@@ -235,6 +252,6 @@ public class MainFrame extends JFrame {
     }
     
     public JTree getCategoryTree() {
-        return categoryTree;
+        return categoryTree; // Acces la arbore din exterior
     }
 }

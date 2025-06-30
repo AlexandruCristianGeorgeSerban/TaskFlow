@@ -1,0 +1,59 @@
+package com.taskflow.util;
+
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ * Utility class for common Calendar operations.
+ */
+public class CalendarUtil {
+
+    /**
+     * Returns a Calendar set to the provided Date.
+     */
+    public static Calendar fromDate(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal;
+    }
+
+    /**
+     * Adds days to the given Calendar and returns a new Calendar.
+     */
+    public static Calendar addDays(Calendar original, int days) {
+        Calendar cal = (Calendar) original.clone();
+        cal.add(Calendar.DAY_OF_MONTH, days);
+        return cal;
+    }
+
+    /**
+     * Checks if the given Calendar date is before today.
+     */
+    public static boolean isPast(Calendar date) {
+        Calendar today = Calendar.getInstance();
+        // clear time components for comparison
+        clearTime(today);
+        Calendar copy = (Calendar) date.clone();
+        clearTime(copy);
+        return copy.before(today);
+    }
+
+    /**
+     * Clears the time fields (hour, minute, second, millisecond) of the Calendar.
+     */
+    public static void clearTime(Calendar cal) {
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+    }
+
+    /**
+     * Returns today's date with time cleared.
+     */
+    public static Calendar today() {
+        Calendar cal = Calendar.getInstance();
+        clearTime(cal);
+        return cal;
+    }
+}

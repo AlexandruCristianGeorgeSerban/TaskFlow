@@ -1,0 +1,62 @@
+package com.taskflow.util;
+
+import java.io.File;
+import java.io.IOException;
+
+/**
+ * Utility class for basic file and directory operations.
+ */
+public class FileManager {
+
+    /**
+     * Creates a new file at the specified path.
+     * @param path the file path
+     * @return true if the file was created, false if it already exists
+     * @throws IOException if an I/O error occurs
+     */
+    public static boolean createFile(String path) throws IOException {
+        File file = new File(path);
+        return file.createNewFile();
+    }
+
+    /**
+     * Deletes the file or directory at the specified path.
+     * @param path the path to delete
+     * @return true if deletion was successful
+     */
+    public static boolean delete(String path) {
+        File file = new File(path);
+        return file.delete();
+    }
+
+    /**
+     * Checks if the specified path is a directory.
+     * @param path the path to check
+     * @return true if it's a directory
+     */
+    public static boolean isDirectory(String path) {
+        return new File(path).isDirectory();
+    }
+
+    /**
+     * Checks if the specified path is a regular file.
+     * @param path the path to check
+     * @return true if it's a file
+     */
+    public static boolean isFile(String path) {
+        return new File(path).isFile();
+    }
+
+    /**
+     * Lists files in the specified directory.
+     * @param dirPath the directory path
+     * @return array of Files, or null if dirPath is not a directory
+     */
+    public static File[] listFiles(String dirPath) {
+        File dir = new File(dirPath);
+        if (dir.isDirectory()) {
+            return dir.listFiles();
+        }
+        return null;
+    }
+}

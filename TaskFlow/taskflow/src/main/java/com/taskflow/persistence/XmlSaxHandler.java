@@ -13,15 +13,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+// Handler SAX care încarcă RootGroup-urile dintr-un fișier XML, inclusiv categoriile și task-urile lor.
 public class XmlSaxHandler extends DefaultHandler implements RootGroupPersistence {
-    private final List<RootGroup> roots = new ArrayList<>();
-    private RootGroup currentRoot;
-    private Category currentCategory;
-    private Task currentTask;
-    private StringBuilder content = new StringBuilder();
+    private final List<RootGroup> roots = new ArrayList<>(); // Lista de grupuri root încărcate
+    private RootGroup currentRoot; // Grupul root curent în procesare
+    private Category currentCategory; // Categoria curentă în procesare
+    private Task currentTask; // Task-ul curent în procesare
+    private StringBuilder content = new StringBuilder(); // Textul conținut între tag-uri
 
     @Override
     public List<RootGroup> loadRootGroups(File file) throws Exception {
+        // Parsează fișierul XML și populați lista roots
         SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
         parser.parse(file, this);
         return roots;
@@ -29,39 +31,49 @@ public class XmlSaxHandler extends DefaultHandler implements RootGroupPersistenc
 
     @Override
     public void saveRootGroups(List<RootGroup> roots, File file) throws Exception {
+        // Exportul prin SAX nu este suportat
         throw new UnsupportedOperationException("SAX export not supported");
     }
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes atts) {
-        content.setLength(0);
+        content.setLength(0); // Resetează buffer-ul de conținut
         switch (qName) {
             case "root":
+                // Creează un nou RootGroup și adaugă-l în lista roots
                 String rName = atts.getValue("name");
                 String rColor = atts.getValue("color");
                 currentRoot = new RootGroup(rName, rColor);
                 roots.add(currentRoot);
                 break;
             case "category":
+                // Creează o nouă categorie și adaug-o la grupul curent
                 String cName = atts.getValue("name");
                 String cColor = atts.getValue("color");
                 currentCategory = new Category(cName, cColor);
                 currentRoot.getCategories().add(currentCategory);
                 break;
             case "task":
-                String tId      = atts.getValue("id");
-                String tTitle   = atts.getValue("title");
-                boolean tComp   = Boolean.parseBoolean(atts.getValue("completed"));
-                currentTask     = new Task();
+                // Inițializează un nou Task cu atributele de bază
+                String tId    = atts.getValue("id");
+                String tTitle = atts.getValue("title");
+                boolean tComp = Boolean.parseBoolean(atts.getValue("completed"));
+                String tColor = atts.getValue("color"); 
+                currentTask = new Task();
                 currentTask.setId(tId);
                 currentTask.setTitle(tTitle);
                 currentTask.setCompleted(tComp);
+                if (tColor != null) {
+                    currentTask.setColorHex(tColor);
+                }
                 break;
+            // Pentru description și dueDate, conținutul e citit în characters()
         }
     }
 
     @Override
     public void characters(char[] ch, int start, int length) {
+        // Adaugă caracterele citite la buffer
         content.append(ch, start, length);
     }
 
@@ -69,22 +81,27 @@ public class XmlSaxHandler extends DefaultHandler implements RootGroupPersistenc
     public void endElement(String uri, String localName, String qName) {
         switch (qName) {
             case "description":
+                // Setează descrierea task-ului curent
                 currentTask.setDescription(content.toString().trim());
                 break;
             case "dueDate":
-                String[] p = content.toString().trim().split("-");
+                // Parsează data-limită și o setează în Task
+                String[] parts = content.toString().trim().split("-");
                 Calendar cal = Calendar.getInstance();
-                cal.set(Integer.parseInt(p[0]), Integer.parseInt(p[1]) - 1, Integer.parseInt(p[2]));
+                cal.set(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]) - 1, Integer.parseInt(parts[2]));
                 currentTask.setDueDate(cal);
                 break;
             case "task":
+                // Adaugă task-ul la categoria curentă și resetează currentTask
                 currentCategory.addTask(currentTask);
                 currentTask = null;
                 break;
             case "category":
+                // Golește referința la categoria curentă
                 currentCategory = null;
                 break;
             case "root":
+                // Golește referința la root-ul curent
                 currentRoot = null;
                 break;
         }
