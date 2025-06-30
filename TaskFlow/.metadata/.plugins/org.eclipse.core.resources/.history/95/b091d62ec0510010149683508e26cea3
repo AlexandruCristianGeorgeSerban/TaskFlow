@@ -1,0 +1,53 @@
+package com.taskflow.ui;
+
+import com.taskflow.model.RootGroup;
+import com.taskflow.model.Category;
+import com.taskflow.model.Task;
+
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
+import java.awt.*;
+
+/**
+ * Renderer care afișează o iconiță colorată (cerc) în funcție de tip și culoare.
+ */
+public class ColorTreeCellRenderer extends DefaultTreeCellRenderer {
+    private static final int ICON_SIZE = 12;
+
+    @Override
+    public Component getTreeCellRendererComponent(JTree tree, Object value,
+            boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
+        super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
+
+        String hex = "#000000";
+        Object obj = ((DefaultMutableTreeNode) value).getUserObject();
+        if (obj instanceof RootGroup) {
+            hex = ((RootGroup) obj).getColorHex();
+            setText(((RootGroup) obj).getName());
+        } else if (obj instanceof Category) {
+            hex = ((Category) obj).getColor();
+            setText(((Category) obj).getName());
+        } else if (obj instanceof Task) {
+            Task t = (Task) obj;
+            // poți prelua culoare de la Task sau folosi verde/roșu în funcție de completed
+            hex = t.isCompleted() ? "#00A000" : "#A00000";
+            setText(t.getTitle());
+        } else {
+            // root invizibil sau alte noduri
+            setText(obj.toString());
+        }
+
+        Icon icon = new Icon() {
+            @Override public void paintIcon(Component c, Graphics g, int x, int y) {
+                try { g.setColor(Color.decode(hex)); }
+                catch (Exception ex) { g.setColor(Color.BLACK); }
+                g.fillOval(x, y, ICON_SIZE, ICON_SIZE);
+            }
+            @Override public int getIconWidth()  { return ICON_SIZE; }
+            @Override public int getIconHeight() { return ICON_SIZE; }
+        };
+        setIcon(icon);
+        return this;
+    }
+}

@@ -1,0 +1,42 @@
+package com.taskflow.ui;
+import com.taskflow.model.RootGroup;
+import com.taskflow.model.Category;
+import com.taskflow.model.Task;
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
+import java.awt.*;
+
+public class ColorTreeCellRenderer extends DefaultTreeCellRenderer {
+	private static final long serialVersionUID = 1L;
+    private static final int SIZE = 12;
+    @Override
+    public Component getTreeCellRendererComponent(JTree tree, Object value,
+          boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
+        super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
+        Object obj = ((DefaultMutableTreeNode)value).getUserObject();
+        String hex = "#000000";
+        if (obj instanceof RootGroup) {
+            hex = ((RootGroup)obj).getColorHex();
+            setText(((RootGroup)obj).getName());
+        } else if (obj instanceof Category) {
+            hex = ((Category)obj).getColor();
+            setText(((Category)obj).getName());
+        } else if (obj instanceof Task) {
+            Task t = (Task)obj;
+            hex = t.isCompleted() ? "#00A000" : "#A00000";
+            setText(t.getTitle());
+        }
+        final String colorHex = hex;  
+        setIcon(new Icon() {
+            @Override public void paintIcon(Component c, Graphics g, int x, int y) {
+                try { g.setColor(Color.decode(colorHex)); }
+                catch(Exception ex){ g.setColor(Color.BLACK); }
+                g.fillOval(x,y,SIZE,SIZE);
+            }
+            @Override public int getIconWidth(){return SIZE;}
+            @Override public int getIconHeight(){return SIZE;}
+        });
+        return this;
+    }
+}

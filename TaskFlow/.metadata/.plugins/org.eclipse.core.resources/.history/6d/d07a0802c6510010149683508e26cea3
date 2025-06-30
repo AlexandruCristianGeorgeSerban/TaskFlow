@@ -1,0 +1,95 @@
+package com.taskflow.ui;
+
+import com.taskflow.model.RootGroup;
+import com.taskflow.model.Category;
+import com.taskflow.model.Task;
+
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
+import java.awt.*;
+
+/**
+ * Renderer care afișează forme colorate diferite pentru RootGroup, Category și Task.
+ */
+public class ColorTreeCellRenderer extends DefaultTreeCellRenderer {
+	private static final long serialVersionUID = 1L;
+    private static final int SIZE = 12;
+
+    @Override
+    public Component getTreeCellRendererComponent(JTree tree,
+            Object value, boolean selected, boolean expanded,
+            boolean leaf, int row, boolean hasFocus) {
+
+        super.getTreeCellRendererComponent(
+            tree, value, selected, expanded, leaf, row, hasFocus);
+
+        Object obj = ((DefaultMutableTreeNode) value).getUserObject();
+        String rawHex;
+        String label;
+
+        if (obj instanceof RootGroup) {
+            rawHex = ((RootGroup) obj).getColorHex();
+            label = ((RootGroup) obj).getName();
+        } else if (obj instanceof Category) {
+            rawHex = ((Category) obj).getColorHex();
+            label = ((Category) obj).getName();
+        } else if (obj instanceof Task) {
+            Task t = (Task) obj;
+            rawHex = t.getColorHex();               // presupunem că Task are acum colorHex
+            if (rawHex == null || rawHex.isBlank()) {
+                rawHex = t.isCompleted() ? "#00A000" : "#A00000";
+            }
+            label = t.getTitle();
+        } else {
+            // fallback (ar putea fi String-ul gol al invisibleRoot)
+            rawHex = "#000000";
+            label = obj.toString();
+        }
+
+        // Normalizează hex: elimină spații, asigură #
+        String colorHex = rawHex.trim();
+        if (!colorHex.startsWith("#")) {
+            colorHex = "#" + colorHex;
+        }
+        final Color shapeColor;
+        try {
+            shapeColor = Color.decode(colorHex);
+        } catch (NumberFormatException ex) {
+            shapeColor = Color.BLACK;
+        }
+
+        setText(label);
+
+        // Icon personalizat: în funcție de tip desenăm o formă
+        setIcon(new Icon() {
+            @Override public void paintIcon(Component c, Graphics g, int x, int y) {
+                g.setColor(shapeColor);
+                switch (obj.getClass().getSimpleName()) {
+                    case "RootGroup" -> {
+                        // pătrat
+                        g.fillRect(x, y, SIZE, SIZE);
+                    }
+                    case "Category" -> {
+                        // cerc
+                        g.fillOval(x, y, SIZE, SIZE);
+                    }
+                    case "Task" -> {
+                        // triunghi
+                        int[] xs = { x, x + SIZE/2, x + SIZE };
+                        int[] ys = { y + SIZE, y, y + SIZE };
+                        g.fillPolygon(xs, ys, 3);
+                    }
+                    default -> {
+                        // fallback: cerc mic
+                        g.fillOval(x+SIZE/4, y+SIZE/4, SIZE/2, SIZE/2);
+                    }
+                }
+            }
+            @Override public int getIconWidth()  { return SIZE; }
+            @Override public int getIconHeight() { return SIZE; }
+        });
+
+        return this;
+    }
+}

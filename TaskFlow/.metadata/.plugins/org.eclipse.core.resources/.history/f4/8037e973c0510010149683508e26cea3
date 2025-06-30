@@ -1,0 +1,32 @@
+package com.taskflow.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Represents a top-level root group which conține multiple categorii.
+ */
+public class RootGroup {
+    private String name;
+    private String colorHex;
+    private List<Category> categories = new ArrayList<>();
+
+    public RootGroup(String name, String colorHex) {
+        this.name = name;
+        this.colorHex = colorHex;
+    }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getColorHex() { return colorHex; }
+    public void setColorHex(String colorHex) { this.colorHex = colorHex; }
+
+    public List<Category> getCategories() { return categories; }
+    public void setCategories(List<Category> cats) { this.categories = cats; }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}

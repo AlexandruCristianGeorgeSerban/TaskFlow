@@ -1,0 +1,87 @@
+package com.taskflow.ui;
+
+import com.taskflow.model.Category;
+import com.taskflow.model.Task;
+
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+import com.taskflow.model.RootGroup;
+
+
+/**
+ * Tree model for displaying categories and their tasks in a JTree.
+ */
+public class CategoryTreeModel extends DefaultTreeModel {
+	private static final long serialVersionUID = 1L;
+	
+    public CategoryTreeModel(List<RootGroup> roots) {
+        super(new DefaultMutableTreeNode(""));            // invisible root
+        updateRoots(roots);
+    }
+
+    public void updateRoots(List<RootGroup> roots) {
+        DefaultMutableTreeNode invRoot = (DefaultMutableTreeNode) getRoot();
+        invRoot.removeAllChildren();
+        for (RootGroup rg : roots) {
+            DefaultMutableTreeNode rgNode = new DefaultMutableTreeNode(rg);
+            for (Category c : rg.getCategories()) {
+                DefaultMutableTreeNode cNode = new DefaultMutableTreeNode(c);
+                for (Task t : c.getTasks()) {
+                    cNode.add(new DefaultMutableTreeNode(t));
+                }
+                rgNode.add(cNode);
+            }
+            invRoot.add(rgNode);
+        }
+        nodeStructureChanged(invRoot);
+    }
+
+
+    /**
+     * Updates the tree with new categories.
+     */
+    public void updateCategories(List<Category> categories) {
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) getRoot();
+        root.removeAllChildren();
+        for (Category c : categories) {
+            DefaultMutableTreeNode catNode = new DefaultMutableTreeNode(c);
+            for (Task t : c.getTasks()) {
+                DefaultMutableTreeNode taskNode = new DefaultMutableTreeNode(t);
+                catNode.add(taskNode);
+            }
+            root.add(catNode);
+        }
+        nodeStructureChanged(root);
+    }
+
+    /**
+     * Extracts the list of Category objects from the tree model.
+     */
+    public List<Category> getCategories() {
+        List<Category> categories = new ArrayList<>();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) getRoot();
+        Enumeration<?> cats = root.children();
+        while (cats.hasMoreElements()) {
+            DefaultMutableTreeNode catNode = (DefaultMutableTreeNode) cats.nextElement();
+            Object userObj = catNode.getUserObject();
+            if (userObj instanceof Category) {
+                Category c = (Category) userObj;
+                // update tasks from child nodes in case of dynamic changes
+                c.getTasks().clear();
+                Enumeration<?> tasks = catNode.children();
+                while (tasks.hasMoreElements()) {
+                    DefaultMutableTreeNode taskNode = (DefaultMutableTreeNode) tasks.nextElement();
+                    Object taskObj = taskNode.getUserObject();
+                    if (taskObj instanceof Task) {
+                        c.addTask((Task) taskObj);
+                    }
+                }
+                categories.add(c);
+            }
+        }
+        return categories;
+    }
+}
