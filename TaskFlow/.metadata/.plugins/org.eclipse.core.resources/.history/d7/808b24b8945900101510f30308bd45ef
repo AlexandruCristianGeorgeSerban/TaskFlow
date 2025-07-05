@@ -1,0 +1,27 @@
+package com.taskflow.action;
+
+import com.taskflow.ui.MainFrame;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+
+public class SaveAction extends AbstractAction {
+	private static final long serialVersionUID = 1L;
+    private final MainFrame frame;
+
+    public SaveAction(MainFrame frame) {
+        super("Save");
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        File current = frame.getCurrentFile();
+        if (current != null) {
+            // suprascrie fișierul deja deschis
+            frame.saveDataToFile(current);
+        } else {
+            return;
+        }
+    }
+}

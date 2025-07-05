@@ -1,0 +1,146 @@
+package com.taskflow.action;
+
+import com.taskflow.model.Category;
+import com.taskflow.model.Task;
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class TaskDialogAction extends AbstractAction {
+    private final MainFrame frame;
+    private final boolean isNew;
+    private static final int FIELD_COLUMNS = 20;
+
+    public TaskDialogAction(MainFrame frame, boolean isNew) {
+        super(isNew ? "Add Task" : "Edit Task");
+        this.frame = frame;
+        this.isNew = isNew;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Category cat = frame.getSelectedCategory();
+        Task task   = frame.getSelectedTask();
+
+        // 1) Validări diferite pentru add vs edit
+        if (isNew) {
+            if (cat == null) {
+                JOptionPane.showMessageDialog(frame, "Please select a category first.");
+                return;
+            }
+        } else {
+            if (task == null) {
+                JOptionPane.showMessageDialog(frame, "Please select a task to edit.");
+                return;
+            }
+            // când editezi, categoria e preluată din task
+            cat = frame.getSelectedCategory();
+        }
+
+        // 2) Inițializări valori
+        String initTitle = isNew ? "" : task.getTitle();
+        String initDesc  = isNew ? "" : task.getDescription();
+        Calendar initCal = isNew ? Calendar.getInstance() : task.getDueDate();
+        String initDate  = new SimpleDateFormat("yyyy-MM-dd").format(initCal.getTime());
+        Color initColor  = isNew ? Color.RED : Color.decode(task.getColorHex());
+
+        // 3) Construire câmpuri
+        JTextField titleField = new JTextField(initTitle, FIELD_COLUMNS);
+        JTextArea  descArea   = new JTextArea(initDesc, 4, FIELD_COLUMNS);
+        JTextField dateField  = new JTextField(initDate, FIELD_COLUMNS);
+        setFontAll(titleField, descArea, dateField);
+
+        JLabel colorSwatch = new JLabel("      ");
+        colorSwatch.setOpaque(true);
+        colorSwatch.setBackground(initColor);
+        colorSwatch.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+        colorSwatch.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        colorSwatch.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                Color c = JColorChooser.showDialog(frame, "Choose color", colorSwatch.getBackground());
+                if (c != null) colorSwatch.setBackground(c);
+            }
+        });
+
+        // 4) Panel cu GridBagLayout
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints gc = new GridBagConstraints();
+        gc.insets = new Insets(4,4,4,4);
+        gc.anchor = GridBagConstraints.WEST;
+
+        gc.gridx=0; gc.gridy=0; panel.add(new JLabel("Title:"), gc);
+        gc.gridx=1;            panel.add(titleField, gc);
+
+        gc.gridx=0; gc.gridy=1; panel.add(new JLabel("Description:"), gc);
+        gc.gridx=1;            panel.add(new JScrollPane(descArea), gc);
+
+        gc.gridx=0; gc.gridy=2; panel.add(new JLabel("Due Date (yyyy-MM-dd or yyyyMMdd):"), gc);
+        gc.gridx=1;            panel.add(dateField, gc);
+
+        gc.gridx=0; gc.gridy=3; panel.add(new JLabel("Color:"), gc);
+        gc.gridx=1;            panel.add(colorSwatch, gc);
+
+        // 5) Afișăm dialogul
+        int ans = JOptionPane.showConfirmDialog(
+            frame, panel,
+            isNew ? "Add Task" : "Edit Task",
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.PLAIN_MESSAGE
+        );
+        if (ans != JOptionPane.OK_OPTION) return;
+
+        // 6) Citire și validare input
+        String title = titleField.getText().trim();
+        String desc  = descArea.getText().trim();
+        String dateS = dateField.getText().trim();
+        Calendar due = Calendar.getInstance();
+        try {
+            Date d;
+            if (dateS.contains("-")) {
+                d = new SimpleDateFormat("yyyy-MM-dd").parse(dateS);
+            } else {
+                d = new SimpleDateFormat("yyyyMMdd").parse(dateS);
+            }
+            due.setTime(d);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(frame,
+                "Invalid date format. Use yyyy-MM-dd or yyyyMMdd.",
+                "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String hex = String.format("#%02x%02x%02x",
+            colorSwatch.getBackground().getRed(),
+            colorSwatch.getBackground().getGreen(),
+            colorSwatch.getBackground().getBlue()
+        );
+
+        // 7) Adăugare sau editare
+        if (isNew) {
+            Task t = new Task(title, desc, due, false, hex);
+            frame.getTaskService().addTask(cat, t);
+        } else {
+            task.setTitle(title);
+            task.setDescription(desc);
+            task.setDueDate(due);
+            task.setColorHex(hex);
+            frame.getTaskService().updateTask(task);
+        }
+        frame.refreshAfterChange(cat);
+    }
+
+    private void setFontAll(JComponent... comps) {
+        for (JComponent c : comps) {
+            c.setFont(FIELD_FONT);
+        }
+    }
+}

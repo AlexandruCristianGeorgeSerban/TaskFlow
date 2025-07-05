@@ -1,0 +1,41 @@
+package com.taskflow.action;
+
+import com.taskflow.ui.MainFrame;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+
+public class SaveAction extends AbstractAction {
+	private static final long serialVersionUID = 1L;
+    private final MainFrame frame;
+
+    public SaveAction(MainFrame frame) {
+        super("Save");
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        File current = frame.getCurrentFile();
+        if (current != null) {
+            // suprascrie fișierul deja deschis
+            frame.saveDataToFile(current);
+        } else {
+            // dacă nu avem un fișier curent, deschide dialogul (Save As)
+            JFileChooser chooser = new JFileChooser();
+            File ld = frame.getLastDir();
+            if (ld != null) chooser.setCurrentDirectory(ld);
+            chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            int ans = chooser.showSaveDialog(frame);
+            if (ans != JFileChooser.APPROVE_OPTION) return;
+
+            File file = chooser.getSelectedFile();
+            if (!file.getName().toLowerCase().endsWith(".xml")) {
+                file = new File(file.getParentFile(), file.getName() + ".xml");
+            }
+            frame.setCurrentFile(file);
+            frame.setLastDir(file.getParentFile());
+            frame.saveDataToFile(file);
+        }
+    }
+}

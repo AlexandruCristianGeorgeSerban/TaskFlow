@@ -26,7 +26,7 @@ public class TaskFlowApp {
         TaskService taskService = new DefaultTaskService();
 
         // 3) Încărcăm root-urile din fișierul XML folosind SAX
-        String dataFilePath = "data"; // Calea fișierului de date
+        String dataFilePath = "src/test/resources/data.xml"; // Calea fișierului de date
         File dataFile = new File(dataFilePath);
         List<RootGroup> roots;
         if (dataFile.exists()) {
@@ -50,6 +50,13 @@ public class TaskFlowApp {
         // 5) Inițializăm și afișăm interfața grafică în firul Event Dispatch Thread
         SwingUtilities.invokeLater(() -> {
             MainFrame frame = new MainFrame(taskService);
+            
+         // Dacă dataFile a existat la start, setează-l ca last directory si current file
+            if (dataFile.exists()) {
+            	frame.setCurrentFile(dataFile);
+                frame.setLastDir(dataFile.getParentFile());
+            }
+
             frame.setVisible(true);
         });
     }

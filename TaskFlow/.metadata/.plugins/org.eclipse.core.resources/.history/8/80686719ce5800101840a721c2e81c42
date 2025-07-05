@@ -1,0 +1,96 @@
+package com.taskflow.action;
+
+import com.taskflow.model.Category;
+import com.taskflow.model.Task;
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class AddTaskAction extends AbstractAction {
+    private static final long serialVersionUID = 1L;
+    private final MainFrame frame;
+
+    public AddTaskAction(MainFrame frame) {
+        super("Add Task");
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Category cat = frame.getSelectedCategory();
+        if (cat == null) {
+            JOptionPane.showMessageDialog(frame, "Select a categorie first.", "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        // **1) Construim panel‑ul cu toate câmpurile**
+        JTextField titleField = new JTextField(20);
+        JTextArea  descArea   = new JTextArea(4, 20);
+        JTextField dateField  = new JTextField(10);
+        JButton    colorBtn   = new JButton("Alege culoare");
+        JLabel     colorLbl   = new JLabel("       ");
+        colorLbl.setOpaque(true);
+        colorLbl.setBackground(Color.RED);
+
+        colorBtn.addActionListener(ev -> {
+            Color c = JColorChooser.showDialog(frame, "Culoare task", colorLbl.getBackground());
+            if (c != null) colorLbl.setBackground(c);
+        });
+
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints gc = new GridBagConstraints();
+        gc.insets = new Insets(4,4,4,4);
+        gc.anchor = GridBagConstraints.WEST;
+
+        gc.gridx=0; gc.gridy=0; panel.add(new JLabel("Titlu:"), gc);
+        gc.gridx=1;            panel.add(titleField, gc);
+
+        gc.gridx=0; gc.gridy=1; panel.add(new JLabel("Descriere:"), gc);
+        gc.gridx=1;            panel.add(new JScrollPane(descArea), gc);
+
+        gc.gridx=0; gc.gridy=2; panel.add(new JLabel("Due date (yyyy-MM-dd):"), gc);
+        gc.gridx=1;            panel.add(dateField, gc);
+
+        gc.gridx=0; gc.gridy=3; panel.add(new JLabel("Culoare:"), gc);
+        gc.gridx=1;            panel.add(colorLbl, gc);
+        gc.gridx=2;            panel.add(colorBtn, gc);
+
+        // **2) Afișăm dialogul** cu OK/Cancel
+        int ans = JOptionPane.showConfirmDialog(
+            frame, panel,
+            "Add Task",
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.PLAIN_MESSAGE
+        );
+        if (ans != JOptionPane.OK_OPTION) return;
+
+        // **3) Preluăm și validăm valorile**
+        String title = titleField.getText().trim();
+        String desc  = descArea.getText().trim();
+        Calendar due;
+        try {
+            Date d = new SimpleDateFormat("yyyy-MM-dd")
+                         .parse(dateField.getText().trim());
+            due = Calendar.getInstance();
+            due.setTime(d);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(frame, "Format dată invalid");
+            return;
+        }
+        String hex = String.format("#%02x%02x%02x",
+            colorLbl.getBackground().getRed(),
+            colorLbl.getBackground().getGreen(),
+            colorLbl.getBackground().getBlue()
+        );
+
+        // **4) Creăm și adăugăm Task-ul**
+        Task t = new Task(title, desc, due, false, hex);
+        frame.getTaskService().addTask(cat, t);
+        frame.refreshAfterChange(cat);
+    }
+}

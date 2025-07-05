@@ -1,0 +1,55 @@
+package com.taskflow.action;
+
+import com.taskflow.model.RootGroup;
+import com.taskflow.persistence.RootGroupPersistence;
+import com.taskflow.persistence.XmlDomHandler;
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.util.List;
+
+// Acțiune pentru export XML a tuturor root‑urilor.
+public class ExportAction extends AbstractAction {
+	private static final long serialVersionUID = 1L;
+	private final MainFrame frame; // Fereastra principală a aplicației
+
+	public ExportAction(MainFrame frame) {
+		super("Export XML"); // Text afișat în UI pentru această acțiune
+		this.frame = frame;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// Deschide dialogul pentru salvarea fișierului
+		JFileChooser chooser = new JFileChooser();
+		// Setează directorul de start la lastDir, dacă există
+        File last = frame.getLastDir();
+        if (last != null) {
+            chooser.setCurrentDirectory(last);
+        }
+		if (chooser.showSaveDialog(frame) != JFileChooser.APPROVE_OPTION)
+			return; // Oprește dacă utilizatorul anulează
+		
+
+		File file = chooser.getSelectedFile(); // Fișierul ales pentru export
+
+		// Dacă nu are .xml la final, îl adaugăm
+		String path = file.getPath();
+		if (!path.toLowerCase().endsWith(".xml")) {
+		    file = new File(path + ".xml");
+		}
+		
+		try {
+			// 1) Preia lista de root-uri din serviciu
+			List<RootGroup> roots = frame.getTaskService().getAllRoots();
+			// 2) Scrie XML folosind un handler DOM
+			RootGroupPersistence saver = new XmlDomHandler();
+			saver.saveRootGroups(roots, file);
+		} catch (Exception ex) {
+			// Afișează eroarea dacă exportul eșuează
+			frame.showError(ex);
+		}
+	}
+}

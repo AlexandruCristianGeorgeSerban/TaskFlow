@@ -1,0 +1,113 @@
+package com.taskflow.action;
+
+import com.taskflow.model.Category;
+import com.taskflow.model.RootGroup;
+import com.taskflow.service.TaskService;
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class CategoryDialogAction extends AbstractAction {
+    private static final long serialVersionUID = 1L;
+    private final MainFrame frame;
+    private final TaskService svc;
+    private final boolean isNew;
+
+    public CategoryDialogAction(MainFrame frame, TaskService svc, boolean isNew) {
+        super(isNew ? "Add Category" : "Edit Category");
+        this.frame = frame;
+        this.svc   = svc;
+        this.isNew = isNew;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // 1) Determinăm root-ul și categoria
+        RootGroup rg = frame.getSelectedRoot();
+        Category cat = isNew ? null : frame.getSelectedCategory();
+        if (rg == null) {
+            JOptionPane.showMessageDialog(frame,
+                "Select a root first.",
+                "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        if (!isNew && cat == null) {
+            JOptionPane.showMessageDialog(frame,
+                "Select a category to edit.",
+                "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        // 2) Valori inițiale
+        String initName = cat == null ? "" : cat.getName();
+        Color  initColor= cat == null
+                         ? Color.BLUE
+                         : Color.decode(cat.getColor());
+
+        // 3) Construim câmpurile
+        JTextField nameField = new JTextField(initName, 20);
+        JLabel    colorSwatch= new JLabel();
+        colorSwatch.setOpaque(true);
+        colorSwatch.setBackground(initColor);
+        colorSwatch.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+        colorSwatch.setPreferredSize(new Dimension(40,24));
+        colorSwatch.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        colorSwatch.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                Color c = JColorChooser.showDialog(
+                    frame, "Choose category color", colorSwatch.getBackground());
+                if (c != null) colorSwatch.setBackground(c);
+            }
+        });
+
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints gc = new GridBagConstraints();
+        gc.insets = new Insets(4,4,4,4);
+        gc.anchor = GridBagConstraints.WEST;
+
+        gc.gridx=0; gc.gridy=0; panel.add(new JLabel("Name:"), gc);
+        gc.gridx=1;            panel.add(nameField, gc);
+
+        gc.gridx=0; gc.gridy=1; panel.add(new JLabel("Color:"), gc);
+        gc.gridx=1;            panel.add(colorSwatch, gc);
+
+        // 4) Loop de validare
+        while (true) {
+            int ans = JOptionPane.showConfirmDialog(
+                frame, panel,
+                isNew ? "Add Category" : "Edit Category",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE
+            );
+            if (ans != JOptionPane.OK_OPTION) {
+                return;
+            }
+
+            String name = nameField.getText().trim();
+            if (name.isEmpty()) {
+                JOptionPane.showMessageDialog(frame,
+                    "Name cannot be empty.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+                continue;
+            }
+
+            String hex = String.format("#%02x%02x%02x",
+                colorSwatch.getBackground().getRed(),
+                colorSwatch.getBackground().getGreen(),
+                colorSwatch.getBackground().getBlue()
+            );
+
+            if (isNew) {
+                svc.addCategory(rg, new Category(name, hex));
+            } else {
+                cat.setName(name);
+                cat.setColor(hex);
+                svc.updateCategory(cat);
+            }
+            frame.refreshTreeAll();
+            break;
+        }
+    }
+}

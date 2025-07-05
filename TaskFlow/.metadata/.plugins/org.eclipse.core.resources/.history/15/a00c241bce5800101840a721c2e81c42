@@ -1,0 +1,75 @@
+package com.taskflow.action;
+
+import com.taskflow.model.Category;
+import com.taskflow.model.RootGroup;
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+
+// Acțiune pentru adăugarea unei categorii într-un RootGroup selectat.
+public class AddCategoryAction extends AbstractAction {
+	private static final long serialVersionUID = 1L;
+    private final MainFrame frame; // Fereastra principală a aplicației
+
+    public AddCategoryAction(MainFrame frame) {
+        super("Add Category"); // Textul ce apare în UI pentru această acțiune
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        RootGroup rg = frame.getSelectedRoot(); // sau null la AddRoot
+        String initialName  = (rg == null) ? "" : rg.getName();
+        Color  initialColor = (rg == null)
+                             ? Color.BLACK
+                             : Color.decode(rg.getColorHex());
+
+        // construiesc panel
+        JTextField nameField = new JTextField(initialName, 20);
+        JButton    colorBtn  = new JButton("Alege culoare");
+        JLabel     colorLbl  = new JLabel("       ");
+        colorLbl.setOpaque(true);
+        colorLbl.setBackground(initialColor);
+
+        colorBtn.addActionListener(ev -> {
+            Color c = JColorChooser.showDialog(frame, "Culoare", colorLbl.getBackground());
+            if (c != null) colorLbl.setBackground(c);
+        });
+
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints gc = new GridBagConstraints();
+        gc.insets = new Insets(4,4,4,4);
+        gc.gridx = 0; gc.gridy = 0; panel.add(new JLabel("Nume:"), gc);
+        gc.gridx = 1;               panel.add(nameField, gc);
+        gc.gridx = 0; gc.gridy = 1; panel.add(new JLabel("Culoare:"), gc);
+        gc.gridx = 1;               panel.add(colorLbl, gc);
+        gc.gridx = 2;               panel.add(colorBtn, gc);
+
+        int ans = JOptionPane.showConfirmDialog(
+            frame, panel,
+            (rg == null ? "Add Root" : "Edit Root"),
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.PLAIN_MESSAGE
+        );
+        if (ans != JOptionPane.OK_OPTION) return;
+
+        String name = nameField.getText().trim();
+        String hex  = String.format("#%02x%02x%02x",
+            colorLbl.getBackground().getRed(),
+            colorLbl.getBackground().getGreen(),
+            colorLbl.getBackground().getBlue()
+        );
+        if (rg == null) {
+            frame.getTaskService().addRoot(new RootGroup(name, hex));
+        } else {
+            rg.setName(name);
+            rg.setColorHex(hex);
+            frame.getTaskService().updateRoot(rg);
+        }
+        frame.refreshTreeAll();
+    }
+
+}

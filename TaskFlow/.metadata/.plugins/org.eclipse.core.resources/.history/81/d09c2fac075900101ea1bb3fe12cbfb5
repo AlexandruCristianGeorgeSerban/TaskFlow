@@ -1,0 +1,30 @@
+package com.taskflow.action;
+
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+
+public class SaveAction extends AbstractAction {
+    private final MainFrame frame;
+    public SaveAction(MainFrame frame) {
+        super("Save…");
+        this.frame = frame;
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JFileChooser chooser = new JFileChooser();
+        File ld = frame.getLastDir();                // folosim getter-ul
+        if (ld != null) chooser.setCurrentDirectory(ld);
+        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (chooser.showSaveDialog(frame) == JFileChooser.APPROVE_OPTION) {
+            File f = chooser.getSelectedFile();
+            frame.setLastDir(f.getParentFile());     // folosim setter-ul
+            if (!f.getName().toLowerCase().endsWith(".xml")) {
+                f = new File(f.getAbsolutePath() + ".xml");
+            }
+            frame.saveDataToFile(f);
+        }
+    }
+}

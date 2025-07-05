@@ -20,22 +20,31 @@ public class DeleteFileAction extends AbstractAction {
 	public void actionPerformed(ActionEvent e) {
 		// Deschide dialogul pentru selectarea fișierelor sau directoarelor
 		JFileChooser chooser = new JFileChooser();
+		// Setează directorul de start la lastDir, dacă există
+        File last = frame.getLastDir();
+        if (last != null) {
+            chooser.setCurrentDirectory(last);
+        }
 		chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		// Dacă utilizatorul anulează dialogul, oprim execuția
 		if (chooser.showDialog(frame, "Delete") != JFileChooser.APPROVE_OPTION)
 			return;
 
-		File f = chooser.getSelectedFile(); // Fișierul/directorul selectat
-		if (!f.exists()) {
+		File file = chooser.getSelectedFile(); // Fișierul/directorul selectat
+		if (!file.exists()) {
 			// Afișează mesaj dacă nu există
-			JOptionPane.showMessageDialog(frame, "Not found: " + f, "Info", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(frame, "Not found: " + file, "Info", JOptionPane.INFORMATION_MESSAGE);
 		} else if (JOptionPane.YES_OPTION == JOptionPane.showConfirmDialog(
 			frame,
-			"Delete?\n" + f,
+			"Delete?\n" + file,
 			"Confirm",
 			JOptionPane.YES_NO_OPTION)) {
 			// Șterge recursiv și reîmprospătează arborele
-			frame.deleteRecursively(f);
+			frame.deleteRecursively(file);
+			
+			// Actualizează lastDir pentru următoarea operațiune
+	        frame.setLastDir(file.getParentFile());
+	        
 			frame.refreshTreeAll();
 		}
 	}

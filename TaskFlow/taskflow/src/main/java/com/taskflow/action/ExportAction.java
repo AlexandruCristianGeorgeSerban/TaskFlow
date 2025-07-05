@@ -24,11 +24,29 @@ public class ExportAction extends AbstractAction {
 	public void actionPerformed(ActionEvent e) {
 		// Deschide dialogul pentru salvarea fișierului
 		JFileChooser chooser = new JFileChooser();
+		// Setează directorul de start la lastDir, dacă există
+        File last = frame.getLastDir();
+        if (last != null) {
+            chooser.setCurrentDirectory(last);
+        }
 		if (chooser.showSaveDialog(frame) != JFileChooser.APPROVE_OPTION)
 			return; // Oprește dacă utilizatorul anulează
+		
 
 		File file = chooser.getSelectedFile(); // Fișierul ales pentru export
 
+		// Dacă nu are .xml la final, îl adaugăm
+		String path = file.getPath();
+		if (!path.toLowerCase().endsWith(".xml")) {
+		    file = new File(path + ".xml");
+		}
+		
+		// Salvează calea fișierului curent în frame pentru a putea fi reutilizată
+		frame.setCurrentFile(file);
+		
+		// Actualizează lastDir pentru următoarea operațiune
+        frame.setLastDir(file.getParentFile());
+        
 		try {
 			// 1) Preia lista de root-uri din serviciu
 			List<RootGroup> roots = frame.getTaskService().getAllRoots();

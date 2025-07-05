@@ -1,0 +1,27 @@
+package com.taskflow.action;
+
+import com.taskflow.ui.MainFrame;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+
+/** Salvează direct fișierul curent, fără dialog (dacă există). */
+public class SaveAction extends AbstractAction {
+    private final MainFrame frame;
+    public SaveCurrentAction(MainFrame frame) {
+        super("Save");
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        File current = frame.getCurrentFile();
+        if (current == null) {
+            // dacă nu avem fișier curent, cădem pe Save As
+            new SaveAction(frame).actionPerformed(e);
+        } else {
+            frame.saveDataToFile(current);
+        }
+    }
+}
