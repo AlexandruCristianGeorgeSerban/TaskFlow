@@ -203,6 +203,7 @@ public class MainFrame extends JFrame {
         m.addSeparator();
         m.add(new ImportAction(this));
         m.add(new ExportAction(this));
+        m.add(new ExportPdfAction(this));
         m.addSeparator();
         m.add(new DeleteFileAction(this));
         return m;

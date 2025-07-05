@@ -2213,3 +2213,467 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: start tag n
 2025-07-05 15:15:09,505 [Worker-28: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
 2025-07-05 15:15:09,645 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-07-05 15:15:09,653 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\test\resources to target\test-classes
+2025-07-05 15:15:43,245 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-07-05 15:16:14,664 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:16:14,674 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\test\resources to target\test-classes
+2025-07-05 15:16:29,163 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:16:29,167 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:16:35,233 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:16:35,236 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:16:55,550 [Worker-31: Building] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Could not read pom.xml
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:245)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:591)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:491)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:370)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:322)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:146)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:84)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:83)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:192)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.maven.model.io.ModelParseException: start tag not allowed in epilog but got d (position: END_TAG seen ...</properties>\r\n</project>\r\n\t\r\n<d... @21:3) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:96)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:74)
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:243)
+	... 24 common frames omitted
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: start tag not allowed in epilog but got d (position: END_TAG seen ...</properties>\r\n</project>\r\n\t\r\n<d... @21:3) 
+	at org.codehaus.plexus.util.xml.pull.MXParser.parseEpilog(MXParser.java:2028)
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextImpl(MXParser.java:1753)
+	at org.codehaus.plexus.util.xml.pull.MXParser.next(MXParser.java:1375)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:627)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:654)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:93)
+	... 26 common frames omitted
+2025-07-05 15:18:12,496 [Worker-6: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:18:12,593 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:18:12,598 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:18:13,960 [Worker-19: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:18:14,034 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:18:14,037 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:19:31,187 [Worker-33: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:19:31,417 [Worker-33: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.4.3/kernel-7.4.3.pom
+2025-07-05 15:19:31,419 [Worker-33: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.itextpdf:kernel:jar:7.4.3 is missing, no dependency information available
+2025-07-05 15:19:31,459 [Worker-33: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.4.3/layout-7.4.3.pom
+2025-07-05 15:19:31,461 [Worker-33: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.itextpdf:layout:jar:7.4.3 is missing, no dependency information available
+2025-07-05 15:19:31,500 [Worker-33: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.4.3/kernel-7.4.3.jar
+2025-07-05 15:19:31,539 [BasicRepositoryConnector-repo.maven.apache.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.4.3/layout-7.4.3.jar
+2025-07-05 15:19:31,623 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:19:31,626 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:19:32,808 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.4.3/kernel-7.4.3-sources.jar
+2025-07-05 15:19:32,814 [Worker-20: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for com.itextpdf:kernel:7.4.3
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.itextpdf:kernel:jar:sources:7.4.3
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2025-07-05 15:19:33,037 [Worker-20: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.4.3/layout-7.4.3-sources.jar
+2025-07-05 15:19:33,040 [Worker-20: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for com.itextpdf:layout:7.4.3
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.itextpdf:layout:jar:sources:7.4.3
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2025-07-05 15:20:08,956 [Worker-19: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:20:08,958 [Worker-19: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.itextpdf:kernel:jar:7.4.3 is missing, no dependency information available
+2025-07-05 15:20:08,960 [Worker-19: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.itextpdf:layout:jar:7.4.3 is missing, no dependency information available
+2025-07-05 15:20:09,038 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:20:09,040 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:20:10,209 [Worker-34: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.4.3/kernel-7.4.3-javadoc.jar
+2025-07-05 15:20:10,212 [Worker-34: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download javadoc for com.itextpdf:kernel:7.4.3
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.itextpdf:kernel:jar:javadoc:7.4.3
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:294)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2025-07-05 15:20:10,454 [Worker-34: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.4.3/layout-7.4.3-javadoc.jar
+2025-07-05 15:20:10,456 [Worker-34: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download javadoc for com.itextpdf:layout:7.4.3
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.itextpdf:layout:jar:javadoc:7.4.3
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:294)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2025-07-05 15:20:41,302 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013 [298])
+2025-07-05 15:20:41,303 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013
+2025-07-05 15:20:41,303 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\aopalliance-1.0.jar
+2025-07-05 15:20:41,303 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\guice-5.1.0.jar
+2025-07-05 15:20:41,304 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\httpclient-4.5.14.jar
+2025-07-05 15:20:41,304 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\httpcore-4.4.16.jar
+2025-07-05 15:20:41,304 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\jansi-2.4.1.jar
+2025-07-05 15:20:41,304 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\jcl-over-slf4j-1.7.36.jar
+2025-07-05 15:20:41,304 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-artifact-3.9.9.jar
+2025-07-05 15:20:41,304 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-builder-support-3.9.9.jar
+2025-07-05 15:20:41,304 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-compat-3.9.9.jar
+2025-07-05 15:20:41,304 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-core-3.9.9.jar
+2025-07-05 15:20:41,304 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-embedder-3.9.9.jar
+2025-07-05 15:20:41,304 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-model-3.9.9.jar
+2025-07-05 15:20:41,304 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-model-builder-3.9.9.jar
+2025-07-05 15:20:41,305 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-plugin-api-3.9.9.jar
+2025-07-05 15:20:41,305 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-repository-metadata-3.9.9.jar
+2025-07-05 15:20:41,306 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-api-1.9.22.jar
+2025-07-05 15:20:41,306 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-connector-basic-1.9.22.jar
+2025-07-05 15:20:41,306 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-impl-1.9.22.jar
+2025-07-05 15:20:41,306 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-named-locks-1.9.22.jar
+2025-07-05 15:20:41,306 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-provider-3.9.9.jar
+2025-07-05 15:20:41,307 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-spi-1.9.22.jar
+2025-07-05 15:20:41,307 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-file-1.9.22.jar
+2025-07-05 15:20:41,307 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-http-1.9.22.jar
+2025-07-05 15:20:41,307 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-wagon-1.9.22.jar
+2025-07-05 15:20:41,307 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-util-1.9.22.jar
+2025-07-05 15:20:41,307 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-settings-3.9.9.jar
+2025-07-05 15:20:41,308 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-settings-builder-3.9.9.jar
+2025-07-05 15:20:41,308 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-shared-utils-3.4.2.jar
+2025-07-05 15:20:41,308 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\org.eclipse.sisu.inject-0.9.0.M3.jar
+2025-07-05 15:20:41,309 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\org.eclipse.sisu.plexus-0.9.0.M3.jar
+2025-07-05 15:20:41,309 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-build-api-0.0.7.jar
+2025-07-05 15:20:41,309 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-build-api-1.2.0.jar
+2025-07-05 15:20:41,309 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-cipher-2.0.jar
+2025-07-05 15:20:41,309 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-classworlds-2.8.0.jar
+2025-07-05 15:20:41,309 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-component-annotations-2.1.0.jar
+2025-07-05 15:20:41,309 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-interpolation-1.27.jar
+2025-07-05 15:20:41,310 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-sec-dispatcher-2.0.jar
+2025-07-05 15:20:41,310 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-utils-3.5.1.jar
+2025-07-05 15:20:41,310 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-xml-3.0.1.jar
+2025-07-05 15:20:41,310 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-file-3.5.3.jar
+2025-07-05 15:20:41,310 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-http-3.5.3.jar
+2025-07-05 15:20:41,310 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-http-shared-3.5.3.jar
+2025-07-05 15:20:41,310 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-provider-api-3.5.3.jar
+2025-07-05 15:20:41,312 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.4.0.jre [12])
+2025-07-05 15:20:41,312 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\com.google.guava_33.4.0.jre.jar
+2025-07-05 15:20:41,312 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.17 [519])
+2025-07-05 15:20:41,312 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\slf4j.api_2.0.17.jar
+2025-07-05 15:20:41,312 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [24])
+2025-07-05 15:20:41,313 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\jakarta.inject.jakarta.inject-api_1.0.5.jar
+2025-07-05 15:20:41,313 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.annotation-api_1.3.5 [22])
+2025-07-05 15:20:41,313 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\jakarta.annotation-api_1.3.5.jar
+2025-07-05 15:20:41,313 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.9.0 [48])
+2025-07-05 15:20:41,313 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.apache.commons.cli_1.9.0.jar
+2025-07-05 15:20:41,313 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [49])
+2025-07-05 15:20:41,313 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.apache.commons.commons-codec_1.16.0.jar
+2025-07-05 15:20:41,313 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [13])
+2025-07-05 15:20:41,314 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\com.google.guava.failureaccess_1.0.2.jar
+2025-07-05 15:20:41,316 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "P:\Facultate\An2\Practica\TaskFlow\taskflow":
+2025-07-05 15:20:41,319 [Worker-4: Launching Executing verify in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always verify
+2025-07-05 15:20:48,438 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013 [298])
+2025-07-05 15:20:48,438 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013
+2025-07-05 15:20:48,439 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\aopalliance-1.0.jar
+2025-07-05 15:20:48,439 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\guice-5.1.0.jar
+2025-07-05 15:20:48,440 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\httpclient-4.5.14.jar
+2025-07-05 15:20:48,440 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\httpcore-4.4.16.jar
+2025-07-05 15:20:48,440 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\jansi-2.4.1.jar
+2025-07-05 15:20:48,440 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\jcl-over-slf4j-1.7.36.jar
+2025-07-05 15:20:48,440 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-artifact-3.9.9.jar
+2025-07-05 15:20:48,440 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-builder-support-3.9.9.jar
+2025-07-05 15:20:48,440 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-compat-3.9.9.jar
+2025-07-05 15:20:48,441 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-core-3.9.9.jar
+2025-07-05 15:20:48,441 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-embedder-3.9.9.jar
+2025-07-05 15:20:48,441 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-model-3.9.9.jar
+2025-07-05 15:20:48,441 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-model-builder-3.9.9.jar
+2025-07-05 15:20:48,441 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-plugin-api-3.9.9.jar
+2025-07-05 15:20:48,441 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-repository-metadata-3.9.9.jar
+2025-07-05 15:20:48,441 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-api-1.9.22.jar
+2025-07-05 15:20:48,442 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-connector-basic-1.9.22.jar
+2025-07-05 15:20:48,442 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-impl-1.9.22.jar
+2025-07-05 15:20:48,442 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-named-locks-1.9.22.jar
+2025-07-05 15:20:48,442 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-provider-3.9.9.jar
+2025-07-05 15:20:48,442 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-spi-1.9.22.jar
+2025-07-05 15:20:48,443 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-file-1.9.22.jar
+2025-07-05 15:20:48,443 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-http-1.9.22.jar
+2025-07-05 15:20:48,443 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-wagon-1.9.22.jar
+2025-07-05 15:20:48,443 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-util-1.9.22.jar
+2025-07-05 15:20:48,443 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-settings-3.9.9.jar
+2025-07-05 15:20:48,443 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-settings-builder-3.9.9.jar
+2025-07-05 15:20:48,444 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-shared-utils-3.4.2.jar
+2025-07-05 15:20:48,445 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\org.eclipse.sisu.inject-0.9.0.M3.jar
+2025-07-05 15:20:48,445 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\org.eclipse.sisu.plexus-0.9.0.M3.jar
+2025-07-05 15:20:48,445 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-build-api-0.0.7.jar
+2025-07-05 15:20:48,445 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-build-api-1.2.0.jar
+2025-07-05 15:20:48,446 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-cipher-2.0.jar
+2025-07-05 15:20:48,446 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-classworlds-2.8.0.jar
+2025-07-05 15:20:48,446 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-component-annotations-2.1.0.jar
+2025-07-05 15:20:48,446 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-interpolation-1.27.jar
+2025-07-05 15:20:48,446 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-sec-dispatcher-2.0.jar
+2025-07-05 15:20:48,446 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-utils-3.5.1.jar
+2025-07-05 15:20:48,446 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-xml-3.0.1.jar
+2025-07-05 15:20:48,447 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-file-3.5.3.jar
+2025-07-05 15:20:48,447 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-http-3.5.3.jar
+2025-07-05 15:20:48,447 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-http-shared-3.5.3.jar
+2025-07-05 15:20:48,447 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-provider-api-3.5.3.jar
+2025-07-05 15:20:48,447 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.4.0.jre [12])
+2025-07-05 15:20:48,447 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\com.google.guava_33.4.0.jre.jar
+2025-07-05 15:20:48,447 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.17 [519])
+2025-07-05 15:20:48,448 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\slf4j.api_2.0.17.jar
+2025-07-05 15:20:48,448 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [24])
+2025-07-05 15:20:48,449 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\jakarta.inject.jakarta.inject-api_1.0.5.jar
+2025-07-05 15:20:48,449 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.annotation-api_1.3.5 [22])
+2025-07-05 15:20:48,449 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\jakarta.annotation-api_1.3.5.jar
+2025-07-05 15:20:48,449 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.9.0 [48])
+2025-07-05 15:20:48,449 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.apache.commons.cli_1.9.0.jar
+2025-07-05 15:20:48,449 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [49])
+2025-07-05 15:20:48,450 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.apache.commons.commons-codec_1.16.0.jar
+2025-07-05 15:20:48,450 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [13])
+2025-07-05 15:20:48,450 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\com.google.guava.failureaccess_1.0.2.jar
+2025-07-05 15:20:48,451 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "P:\Facultate\An2\Practica\TaskFlow\taskflow":
+2025-07-05 15:20:48,451 [Worker-22: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always install
+2025-07-05 15:21:05,727 [Worker-26: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:21:05,729 [Worker-26: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.itextpdf:kernel:jar:7.4.3 is missing, no dependency information available
+2025-07-05 15:21:05,731 [Worker-26: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.itextpdf:layout:jar:7.4.3 is missing, no dependency information available
+2025-07-05 15:21:05,804 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:21:05,807 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:23:19,692 [Worker-5: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:23:19,843 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5.pom
+2025-07-05 15:23:19,856 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5.pom
+2025-07-05 15:23:19,896 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/root/7.2.5/root-7.2.5.pom
+2025-07-05 15:23:19,908 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/root/7.2.5/root-7.2.5.pom
+2025-07-05 15:23:19,949 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5.pom
+2025-07-05 15:23:19,954 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5.pom
+2025-07-05 15:23:19,994 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5.pom
+2025-07-05 15:23:19,998 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5.pom
+2025-07-05 15:23:20,038 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70.pom
+2025-07-05 15:23:20,043 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70.pom
+2025-07-05 15:23:20,084 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.pom
+2025-07-05 15:23:20,089 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.pom
+2025-07-05 15:23:20,130 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.pom
+2025-07-05 15:23:20,134 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.pom
+2025-07-05 15:23:20,175 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5.pom
+2025-07-05 15:23:20,179 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5.pom
+2025-07-05 15:23:20,224 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5.jar
+2025-07-05 15:23:20,857 [Worker-5: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5.jar
+2025-07-05 15:23:20,893 [BasicRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar
+2025-07-05 15:23:20,954 [BasicRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70.jar
+2025-07-05 15:23:20,956 [BasicRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.jar
+2025-07-05 15:23:20,966 [BasicRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5.jar
+2025-07-05 15:23:20,973 [BasicRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5.jar
+2025-07-05 15:23:21,014 [BasicRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5.jar
+2025-07-05 15:23:21,053 [BasicRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5.jar
+2025-07-05 15:23:21,158 [BasicRepositoryConnector-repo.maven.apache.org-1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.jar
+2025-07-05 15:23:21,314 [BasicRepositoryConnector-repo.maven.apache.org-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5.jar
+2025-07-05 15:23:21,361 [BasicRepositoryConnector-repo.maven.apache.org-1-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70.jar
+2025-07-05 15:23:21,395 [BasicRepositoryConnector-repo.maven.apache.org-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5.jar
+2025-07-05 15:23:23,841 [BasicRepositoryConnector-repo.maven.apache.org-1-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar
+2025-07-05 15:23:23,959 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:23:23,962 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:23:24,994 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5-sources.jar
+2025-07-05 15:23:25,403 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:23:25,408 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\test\resources to target\test-classes
+2025-07-05 15:23:25,630 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5-sources.jar
+2025-07-05 15:23:25,634 [Worker-37: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.itextpdf:kernel:7.2.5
+2025-07-05 15:23:25,729 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5-sources.jar
+2025-07-05 15:23:25,998 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5-sources.jar
+2025-07-05 15:23:26,002 [Worker-37: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.itextpdf:io:7.2.5
+2025-07-05 15:23:26,113 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5-sources.jar
+2025-07-05 15:23:26,182 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5-sources.jar
+2025-07-05 15:23:26,185 [Worker-37: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.itextpdf:commons:7.2.5
+2025-07-05 15:23:26,315 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70-sources.jar
+2025-07-05 15:23:26,685 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70-sources.jar
+2025-07-05 15:23:26,689 [Worker-37: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.bouncycastle:bcpkix-jdk15on:1.70
+2025-07-05 15:23:26,798 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70-sources.jar
+2025-07-05 15:23:27,012 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70-sources.jar
+2025-07-05 15:23:27,016 [Worker-37: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.bouncycastle:bcutil-jdk15on:1.70
+2025-07-05 15:23:27,103 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70-sources.jar
+2025-07-05 15:23:28,265 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70-sources.jar
+2025-07-05 15:23:28,268 [Worker-37: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.bouncycastle:bcprov-jdk15on:1.70
+2025-07-05 15:23:28,373 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36-sources.jar
+2025-07-05 15:23:28,412 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36-sources.jar
+2025-07-05 15:23:28,415 [Worker-37: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.slf4j:slf4j-api:1.7.36
+2025-07-05 15:23:28,507 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5-sources.jar
+2025-07-05 15:23:28,739 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5-sources.jar
+2025-07-05 15:23:28,743 [Worker-37: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.itextpdf:layout:7.2.5
+2025-07-05 15:24:30,844 [Worker-10: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:24:30,846 [Worker-10: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.itextpdf:kernel:jar:7.4.3 is missing, no dependency information available
+2025-07-05 15:24:30,847 [Worker-10: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.itextpdf:layout:jar:7.4.3 is missing, no dependency information available
+2025-07-05 15:24:30,924 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:24:30,928 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:25:08,215 [Worker-10: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:25:08,311 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:25:08,314 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:25:09,672 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:25:09,677 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\test\resources to target\test-classes
+2025-07-05 15:26:42,030 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:26:42,032 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:26:53,273 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:26:53,274 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:27:44,828 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:27:44,831 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:27:51,405 [Worker-19: Launching TaskFlowApp] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:27:51,407 [Worker-19: Launching TaskFlowApp] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:32:58,878 [Worker-34: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:32:58,978 [Worker-34: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.30/slf4j-simple-1.7.30.pom
+2025-07-05 15:32:58,982 [Worker-34: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.30/slf4j-simple-1.7.30.pom
+2025-07-05 15:32:59,014 [Worker-34: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-parent/1.7.30/slf4j-parent-1.7.30.pom
+2025-07-05 15:32:59,019 [Worker-34: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-parent/1.7.30/slf4j-parent-1.7.30.pom
+2025-07-05 15:32:59,051 [Worker-34: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.pom
+2025-07-05 15:32:59,056 [Worker-34: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.pom
+2025-07-05 15:32:59,101 [Worker-34: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.30/slf4j-simple-1.7.30.jar
+2025-07-05 15:32:59,109 [Worker-34: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.30/slf4j-simple-1.7.30.jar
+2025-07-05 15:32:59,193 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:32:59,196 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:33:00,260 [Worker-30: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.30/slf4j-simple-1.7.30-sources.jar
+2025-07-05 15:33:00,271 [Worker-30: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.30/slf4j-simple-1.7.30-sources.jar
+2025-07-05 15:33:00,275 [Worker-30: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.slf4j:slf4j-simple:1.7.30
+2025-07-05 15:33:00,553 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:33:00,558 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\test\resources to target\test-classes
+2025-07-05 15:33:20,572 [Worker-33: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:33:20,671 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:33:20,673 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:35:57,731 [Worker-7: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:35:57,887 [Worker-7: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.pom
+2025-07-05 15:35:57,895 [Worker-7: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.pom
+2025-07-05 15:35:57,944 [Worker-7: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar
+2025-07-05 15:35:57,950 [Worker-7: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar
+2025-07-05 15:35:58,033 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:35:58,036 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:35:59,115 [Worker-30: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36-sources.jar
+2025-07-05 15:35:59,127 [Worker-30: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36-sources.jar
+2025-07-05 15:35:59,131 [Worker-30: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.slf4j:slf4j-simple:1.7.36
+2025-07-05 15:35:59,364 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:35:59,369 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\test\resources to target\test-classes
+2025-07-05 15:36:02,979 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013 [298])
+2025-07-05 15:36:02,979 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013
+2025-07-05 15:36:02,980 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\aopalliance-1.0.jar
+2025-07-05 15:36:02,980 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\guice-5.1.0.jar
+2025-07-05 15:36:02,980 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\httpclient-4.5.14.jar
+2025-07-05 15:36:02,981 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\httpcore-4.4.16.jar
+2025-07-05 15:36:02,981 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\jansi-2.4.1.jar
+2025-07-05 15:36:02,982 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\jcl-over-slf4j-1.7.36.jar
+2025-07-05 15:36:02,982 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-artifact-3.9.9.jar
+2025-07-05 15:36:02,982 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-builder-support-3.9.9.jar
+2025-07-05 15:36:02,982 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-compat-3.9.9.jar
+2025-07-05 15:36:02,982 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-core-3.9.9.jar
+2025-07-05 15:36:02,982 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-embedder-3.9.9.jar
+2025-07-05 15:36:02,983 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-model-3.9.9.jar
+2025-07-05 15:36:02,983 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-model-builder-3.9.9.jar
+2025-07-05 15:36:02,984 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-plugin-api-3.9.9.jar
+2025-07-05 15:36:02,984 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-repository-metadata-3.9.9.jar
+2025-07-05 15:36:02,984 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-api-1.9.22.jar
+2025-07-05 15:36:02,984 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-connector-basic-1.9.22.jar
+2025-07-05 15:36:02,985 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-impl-1.9.22.jar
+2025-07-05 15:36:02,985 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-named-locks-1.9.22.jar
+2025-07-05 15:36:02,985 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-provider-3.9.9.jar
+2025-07-05 15:36:02,985 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-spi-1.9.22.jar
+2025-07-05 15:36:02,986 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-file-1.9.22.jar
+2025-07-05 15:36:02,986 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-http-1.9.22.jar
+2025-07-05 15:36:02,986 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-wagon-1.9.22.jar
+2025-07-05 15:36:02,986 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-util-1.9.22.jar
+2025-07-05 15:36:02,986 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-settings-3.9.9.jar
+2025-07-05 15:36:02,986 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-settings-builder-3.9.9.jar
+2025-07-05 15:36:02,987 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-shared-utils-3.4.2.jar
+2025-07-05 15:36:02,987 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\org.eclipse.sisu.inject-0.9.0.M3.jar
+2025-07-05 15:36:02,987 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\org.eclipse.sisu.plexus-0.9.0.M3.jar
+2025-07-05 15:36:02,987 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-build-api-0.0.7.jar
+2025-07-05 15:36:02,987 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-build-api-1.2.0.jar
+2025-07-05 15:36:02,988 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-cipher-2.0.jar
+2025-07-05 15:36:02,988 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-classworlds-2.8.0.jar
+2025-07-05 15:36:02,988 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-component-annotations-2.1.0.jar
+2025-07-05 15:36:02,988 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-interpolation-1.27.jar
+2025-07-05 15:36:02,988 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-sec-dispatcher-2.0.jar
+2025-07-05 15:36:02,988 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-utils-3.5.1.jar
+2025-07-05 15:36:02,988 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-xml-3.0.1.jar
+2025-07-05 15:36:02,989 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-file-3.5.3.jar
+2025-07-05 15:36:02,989 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-http-3.5.3.jar
+2025-07-05 15:36:02,989 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-http-shared-3.5.3.jar
+2025-07-05 15:36:02,989 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-provider-api-3.5.3.jar
+2025-07-05 15:36:02,989 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.4.0.jre [12])
+2025-07-05 15:36:02,990 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\com.google.guava_33.4.0.jre.jar
+2025-07-05 15:36:02,990 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.17 [519])
+2025-07-05 15:36:02,990 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\slf4j.api_2.0.17.jar
+2025-07-05 15:36:02,990 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [24])
+2025-07-05 15:36:02,991 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\jakarta.inject.jakarta.inject-api_1.0.5.jar
+2025-07-05 15:36:02,991 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.annotation-api_1.3.5 [22])
+2025-07-05 15:36:02,991 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\jakarta.annotation-api_1.3.5.jar
+2025-07-05 15:36:02,991 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.9.0 [48])
+2025-07-05 15:36:02,991 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.apache.commons.cli_1.9.0.jar
+2025-07-05 15:36:02,992 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [49])
+2025-07-05 15:36:02,992 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\org.apache.commons.commons-codec_1.16.0.jar
+2025-07-05 15:36:02,992 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [13])
+2025-07-05 15:36:02,992 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\MasterAlexS\.p2\pool\plugins\com.google.guava.failureaccess_1.0.2.jar
+2025-07-05 15:36:02,993 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "P:\Facultate\An2\Practica\TaskFlow\taskflow":
+2025-07-05 15:36:02,993 [Worker-10: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always install
+2025-07-05 15:37:56,693 [Worker-7: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.taskflow:taskflow:2-PROIECT @ P:\Facultate\An2\Practica\TaskFlow\taskflow\pom.xml.
+2025-07-05 15:37:56,828 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-05 15:37:56,832 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:40:08,800 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:40:08,803 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:46:37,336 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:46:37,337 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:47:10,756 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:47:10,758 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:48:02,184 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:48:02,186 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:48:45,859 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-07-05 15:48:45,863 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:49:28,804 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2025-07-05 15:49:28,806 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:51:16,851 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2025-07-05 15:51:16,853 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:51:46,895 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2025-07-05 15:51:46,897 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 15:56:05,501 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2025-07-05 15:56:05,502 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes

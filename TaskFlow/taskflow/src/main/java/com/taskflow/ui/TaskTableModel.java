@@ -65,4 +65,10 @@ public class TaskTableModel extends AbstractTableModel {
         this.tasks = tasks;
         fireTableDataChanged();
     }
+    
+ // Returnează lista curentă de task-uri afișate în tabel
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
 }
