@@ -13,6 +13,7 @@ TaskFlow este o aplicatie desktop scrisa in Java care permite utilizatorilor sa 
 - **Filtrare** in timp real a task-urilor in tabel
 - **Planificare** in calendar, cu validare pentru date in trecut
 - **Export/Import** date in format XML (DOM sau SAX)
+- **Export în PDF** al task-urilor afișate, cu structură ierarhică (root, categorie, task)
 - **Drag & Drop** in arbore pentru reordonare si mutare
 - **Interfata grafica** moderna bazata pe Java Swing
 
@@ -25,6 +26,7 @@ TaskFlow este o aplicatie desktop scrisa in Java care permite utilizatorilor sa 
 - **Limbaj de programare:** Java
 - **GUI:** Swing (JFrame, JTable, JTree, JFileChooser, JColorChooser)
 - **Persistenta:** XML (DOM & SAX) prin implementari `XmlDomHandler`, `XmlSaxHandler`
+- **Export PDF:** [iText 7](https://itextpdf.com/) pentru generarea de rapoarte PDF cu suport Unicode
 - **Structuri date:** `List`, `Calendar`, `UUID`
 
 ## Structura proiectului
