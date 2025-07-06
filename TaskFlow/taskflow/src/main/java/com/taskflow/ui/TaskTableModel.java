@@ -38,15 +38,15 @@ public class TaskTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Task t = tasks.get(rowIndex); // Task-ul pentru rândul dat
+        Task task = tasks.get(rowIndex); // Task-ul pentru rândul dat
         switch (columnIndex) {
-            case 0: return t.getTitle();
-            case 1: return t.getDescription(); // Descrierea task-ului
+            case 0: return task.getTitle();
+            case 1: return task.getDescription(); // Descrierea task-ului
             case 2:
                 // Formatează data-limită ca text
                 return new SimpleDateFormat("yyyy-MM-dd")
-                         .format(t.getDueDate().getTime());
-            case 3: return t.isCompleted(); // Checkbox pentru finalizare
+                         .format(task.getDueDate().getTime());
+            case 3: return task.isCompleted(); // Checkbox pentru finalizare
             default: return null;
         }
     }

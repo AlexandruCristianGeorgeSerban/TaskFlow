@@ -82,9 +82,9 @@ public class CategoryDialogAction extends AbstractAction {
         colorSwatch.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent me) {
                 // La click, afișează JColorChooser pentru alegerea culorii
-                Color c = JColorChooser.showDialog(
+                Color color = JColorChooser.showDialog(
                     frame, "Choose category color", colorSwatch.getBackground());
-                if (c != null) colorSwatch.setBackground(c);
+                if (color != null) colorSwatch.setBackground(color);
             }
         });
 

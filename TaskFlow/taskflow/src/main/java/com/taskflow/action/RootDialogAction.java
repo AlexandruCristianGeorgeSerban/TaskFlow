@@ -60,9 +60,9 @@ public class RootDialogAction extends AbstractAction {
         colorSwatch.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent me) {
                 // Afișează JColorChooser la click
-                Color c = JColorChooser.showDialog(
+                Color color = JColorChooser.showDialog(
                     frame, "Choose root color", colorSwatch.getBackground());
-                if (c != null) colorSwatch.setBackground(c);
+                if (color != null) colorSwatch.setBackground(color);
             }
         });
 

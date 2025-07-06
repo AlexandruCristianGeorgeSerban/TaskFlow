@@ -48,29 +48,29 @@ public class XmlDomHandler implements RootGroupPersistence {
             rootsElem.appendChild(rootElem);
 
             // Iterăm prin categorii
-            for (Category c : rg.getCategories()) {
+            for (Category cat : rg.getCategories()) {
                 Element catElem = doc.createElement("category");
-                catElem.setAttribute("name", c.getName());
-                catElem.setAttribute("color", c.getColor());
+                catElem.setAttribute("name", cat.getName());
+                catElem.setAttribute("color", cat.getColor());
                 rootElem.appendChild(catElem);
 
                 // Iterăm prin task-uri
-                for (Task t : c.getTasks()) {
+                for (Task task : cat.getTasks()) {
                     Element taskElem = doc.createElement("task");
-                    taskElem.setAttribute("id", t.getId());
-                    taskElem.setAttribute("title", t.getTitle());
-                    taskElem.setAttribute("completed", Boolean.toString(t.isCompleted()));
-                    taskElem.setAttribute("color", t.getColorHex());
+                    taskElem.setAttribute("id", task.getId());
+                    taskElem.setAttribute("title", task.getTitle());
+                    taskElem.setAttribute("completed", Boolean.toString(task.isCompleted()));
+                    taskElem.setAttribute("color", task.getColorHex());
                     catElem.appendChild(taskElem);
 
                     // Descrierea task-ului
                     Element desc = doc.createElement("description");
-                    desc.setTextContent(t.getDescription());
+                    desc.setTextContent(task.getDescription());
                     taskElem.appendChild(desc);
 
                     // Data-limită a task-ului
                     Element due = doc.createElement("dueDate");
-                    Calendar cal = t.getDueDate();
+                    Calendar cal = task.getDueDate();
                     due.setTextContent(dateFmt.format(cal.getTime()));
                     taskElem.appendChild(due);
                 }

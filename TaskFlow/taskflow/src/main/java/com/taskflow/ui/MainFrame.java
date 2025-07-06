@@ -86,8 +86,8 @@ public class MainFrame extends JFrame {
                 if (!e.isPopupTrigger()) return;
                 TreePath path = categoryTree.getPathForLocation(e.getX(), e.getY());
                 if (path != null) {
-                    Object o = ((DefaultMutableTreeNode)path.getLastPathComponent()).getUserObject();
-                    if (o instanceof RootGroup) {
+                    Object obj = ((DefaultMutableTreeNode)path.getLastPathComponent()).getUserObject();
+                    if (obj instanceof RootGroup) {
                         categoryTree.setSelectionPath(path);
                         rootPopup.show(categoryTree, e.getX(), e.getY()); // Meniu pentru root selectat
                     }
@@ -108,8 +108,8 @@ public class MainFrame extends JFrame {
                 if (!e.isPopupTrigger()) return;
                 TreePath path = categoryTree.getPathForLocation(e.getX(), e.getY());
                 if (path != null) {
-                    Object o = ((DefaultMutableTreeNode)path.getLastPathComponent()).getUserObject();
-                    if (o instanceof Category) {
+                    Object obj = ((DefaultMutableTreeNode)path.getLastPathComponent()).getUserObject();
+                    if (obj instanceof Category) {
                         categoryTree.setSelectionPath(path);
                         catPopup.show(categoryTree, e.getX(), e.getY()); // Meniu pentru categoria selectată
                     }
@@ -130,8 +130,8 @@ public class MainFrame extends JFrame {
                 if (!e.isPopupTrigger()) return;
                 TreePath path = categoryTree.getPathForLocation(e.getX(), e.getY());
                 if (path != null) {
-                    Object o = ((DefaultMutableTreeNode)path.getLastPathComponent()).getUserObject();
-                    if (o instanceof Task) {
+                    Object obj = ((DefaultMutableTreeNode)path.getLastPathComponent()).getUserObject();
+                    if (obj instanceof Task) {
                         categoryTree.setSelectionPath(path);
                         taskPopup.show(categoryTree, e.getX(), e.getY()); // Meniu pentru task selectat
                     }
@@ -175,21 +175,21 @@ public class MainFrame extends JFrame {
         
      // Selectarea din arbore filtrează tabelul
         categoryTree.addTreeSelectionListener(e -> {
-            TreePath p = e.getNewLeadSelectionPath();
-            if (p==null) return;
-            Object o = ((DefaultMutableTreeNode)p.getLastPathComponent()).getUserObject();
-            if      (o instanceof RootGroup) showTasks(getTasksFromRoot((RootGroup)o));
-            else if (o instanceof Category ) showTasks(((Category)o).getTasks());
+            TreePath path = e.getNewLeadSelectionPath();
+            if (path==null) return;
+            Object obj = ((DefaultMutableTreeNode)path.getLastPathComponent()).getUserObject();
+            if      (obj instanceof RootGroup) showTasks(getTasksFromRoot((RootGroup)obj));
+            else if (obj instanceof Category ) showTasks(((Category)obj).getTasks());
         });
 
         // Dublu click pe task în arbore: afișează doar acel task
         categoryTree.addMouseListener(new java.awt.event.MouseAdapter(){
             public void mouseClicked(java.awt.event.MouseEvent e){
                 if (e.getClickCount()==2){
-                    TreePath p = categoryTree.getPathForLocation(e.getX(),e.getY());
-                    if (p!=null){
-                        Object o = ((DefaultMutableTreeNode)p.getLastPathComponent()).getUserObject();
-                        if (o instanceof Task) showTasks(List.of((Task)o));
+                    TreePath path = categoryTree.getPathForLocation(e.getX(),e.getY());
+                    if (path!=null){
+                        Object obj = ((DefaultMutableTreeNode)path.getLastPathComponent()).getUserObject();
+                        if (obj instanceof Task) showTasks(List.of((Task)obj));
                     }
                 }
             }
@@ -326,26 +326,26 @@ public class MainFrame extends JFrame {
     
     public RootGroup getSelectedRoot() {
         // Obține root-ul selectat în arbore sau null
-        TreePath p = categoryTree.getSelectionPath();
-        if (p == null) return null;
-        Object o = ((DefaultMutableTreeNode)p.getLastPathComponent()).getUserObject();
-        return (o instanceof RootGroup) ? (RootGroup)o : null;
+        TreePath path = categoryTree.getSelectionPath();
+        if (path == null) return null;
+        Object obj = ((DefaultMutableTreeNode)path.getLastPathComponent()).getUserObject();
+        return (obj instanceof RootGroup) ? (RootGroup)obj : null;
     }
 
     public Category getSelectedCategory() {
         // Obține categoria selectată în arbore sau null
-        TreePath p = categoryTree.getSelectionPath();
-        if (p == null) return null;
-        Object o = ((DefaultMutableTreeNode)p.getLastPathComponent()).getUserObject();
-        return (o instanceof Category) ? (Category)o : null;
+        TreePath path = categoryTree.getSelectionPath();
+        if (path == null) return null;
+        Object obj = ((DefaultMutableTreeNode)path.getLastPathComponent()).getUserObject();
+        return (obj instanceof Category) ? (Category)obj : null;
     }
 
     public Task getSelectedTask() {
         // Obține task-ul selectat în arbore sau null
-        TreePath p = categoryTree.getSelectionPath();
-        if (p == null) return null;
-        Object o = ((DefaultMutableTreeNode)p.getLastPathComponent()).getUserObject();
-        return (o instanceof Task) ? (Task)o : null;
+        TreePath path = categoryTree.getSelectionPath();
+        if (path == null) return null;
+        Object obj = ((DefaultMutableTreeNode)path.getLastPathComponent()).getUserObject();
+        return (obj instanceof Task) ? (Task)obj : null;
     }
 
     public void expandAll() {

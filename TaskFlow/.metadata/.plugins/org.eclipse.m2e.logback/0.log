@@ -2677,3 +2677,412 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact com.itextpdf:
 2025-07-05 15:51:46,897 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
 2025-07-05 15:56:05,501 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
 2025-07-05 15:56:05,502 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-05 16:08:09,341 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
+2025-07-05 16:08:09,343 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+
+	Configuration values for static components:
+
+		background-executor.all-tasks-monitoring.enabled=\
+			true
+		background-executor.all-tasks-monitoring.interval=\
+			30000
+		background-executor.all-tasks-monitoring.logger.enabled=\
+			false
+		background-executor.all-tasks-monitoring.minimum-elapsed-time-to-consider-a-task-as-probable-dead-locked=\
+			300000
+		background-executor.all-tasks-monitoring.probable-dead-locked-tasks-handling.policy=\
+			log only
+		background-executor.queued-task-executor[0].name=\
+			Low priority tasks
+		background-executor.queued-task-executor[0].priority=\
+			1
+		background-executor.queued-task-executor[1].name=\
+			Normal priority tasks
+		background-executor.queued-task-executor[1].priority=\
+			5
+		background-executor.queued-task-executor[2].name=\
+			High priority tasks
+		background-executor.queued-task-executor[2].priority=\
+			10
+		background-executor.task-creation-tracking.enabled=\
+			${background-executor.all-tasks-monitoring.enabled}
+		banner.additonal-informations=\
+			${Implementation-Title} ${Implementation-Version}
+		banner.additonal-informations.retrieve-from-manifest-file-with-implementation-title=\
+			Burningwave Core
+		banner.file=\
+			org/burningwave/banner.bwb
+		banner.hide=\
+			true
+		buffer-handler.default-allocation-mode=\
+			ByteBuffer::allocateDirect
+		buffer-handler.default-buffer-size=\
+			1024
+		group-name-for-named-elements=\
+			Burningwave
+		iterable-object-helper.default-values-separator=\
+			;
+		iterable-object-helper.parallel-iteration.applicability.default-minimum-collection-size=\
+			2
+		iterable-object-helper.parallel-iteration.applicability.max-runtime-thread-count-threshold=\
+			autodetect
+		iterable-object-helper.parallel-iteration.applicability.output-collection-enabled-types=\
+			java.util.concurrent.ConcurrentHashMap$CollectionView;\
+			java.util.Collections$SynchronizedCollection;\
+			java.util.concurrent.CopyOnWriteArrayList;\
+			java.util.concurrent.CopyOnWriteArraySet;\
+			java.util.concurrent.BlockingQueue;\
+			java.util.concurrent.ConcurrentSkipListSet;\
+			java.util.concurrent.ConcurrentSkipListMap$EntrySet;\
+			java.util.concurrent.ConcurrentSkipListMap$KeySet;\
+			java.util.concurrent.ConcurrentSkipListMap$Values;
+		jvm.driver.init=\
+			false
+		managed-logger.repository=\
+			autodetect
+		managed-logger.repository.enabled=\
+			true
+		managed-logger.repository.logging.warn.disabled-for=\
+			org.burningwave.core.assembler.ComponentContainer$ClassLoader;\
+			org.burningwave.core.classes.MemoryClassLoader;\
+			org.burningwave.core.classes.PathScannerClassLoader;
+		modules.export-all-to-all=\
+			true
+		resource-releaser.enabled=\
+			true
+		synchronizer.all-threads-monitoring.enabled=\
+			false
+		synchronizer.all-threads-monitoring.interval=\
+			90000
+		thread-supplier.default-daemon-flag-value=\
+			true
+		thread-supplier.default-thread-priority=\
+			5
+		thread-supplier.max-detached-thread-count=\
+			${thread-supplier.max-poolable-thread-count}
+		thread-supplier.max-detached-thread-count.elapsed-time-threshold-from-last-increase-for-gradual-decreasing-to-initial-value=\
+			30000
+		thread-supplier.max-detached-thread-count.increasing-step=\
+			autodetect
+		thread-supplier.max-poolable-thread-count=\
+			autodetect
+		thread-supplier.poolable-thread-request-timeout=\
+			6000
+
+
+2025-07-05 16:08:09,345 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
+2025-07-05 16:08:09,346 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
+2025-07-05 16:08:09,349 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
+2025-07-05 16:08:09,370 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.1103143 seconds
+2025-07-05 16:08:12,284 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-07-05 16:08:14,338 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5.pom
+2025-07-05 16:08:14,392 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5.pom
+2025-07-05 16:08:14,451 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/root/7.2.5/root-7.2.5.pom
+2025-07-05 16:08:14,517 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/root/7.2.5/root-7.2.5.pom
+2025-07-05 16:08:14,571 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5.pom
+2025-07-05 16:08:14,577 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5.pom
+2025-07-05 16:08:14,625 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5.pom
+2025-07-05 16:08:14,634 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5.pom
+2025-07-05 16:08:14,698 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70.pom
+2025-07-05 16:08:14,704 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70.pom
+2025-07-05 16:08:14,751 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.pom
+2025-07-05 16:08:14,757 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.pom
+2025-07-05 16:08:14,814 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.pom
+2025-07-05 16:08:14,821 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.pom
+2025-07-05 16:08:14,866 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5.pom
+2025-07-05 16:08:14,872 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5.pom
+2025-07-05 16:08:14,931 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.pom
+2025-07-05 16:08:14,957 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.pom
+2025-07-05 16:08:15,049 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5.jar
+2025-07-05 16:08:15,247 [Worker-10: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5.jar
+2025-07-05 16:08:15,293 [BasicRepositoryConnector-repo.maven.apache.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5.jar
+2025-07-05 16:08:15,321 [BasicRepositoryConnector-repo.maven.apache.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5.jar
+2025-07-05 16:08:15,360 [BasicRepositoryConnector-repo.maven.apache.org-0-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.jar
+2025-07-05 16:08:15,360 [BasicRepositoryConnector-repo.maven.apache.org-0-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar
+2025-07-05 16:08:15,361 [BasicRepositoryConnector-repo.maven.apache.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5.jar
+2025-07-05 16:08:15,371 [BasicRepositoryConnector-repo.maven.apache.org-0-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70.jar
+2025-07-05 16:08:15,371 [BasicRepositoryConnector-repo.maven.apache.org-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5.jar
+2025-07-05 16:08:15,389 [BasicRepositoryConnector-repo.maven.apache.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5.jar
+2025-07-05 16:08:15,414 [BasicRepositoryConnector-repo.maven.apache.org-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5.jar
+2025-07-05 16:08:15,429 [BasicRepositoryConnector-repo.maven.apache.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar
+2025-07-05 16:08:15,440 [BasicRepositoryConnector-repo.maven.apache.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar
+2025-07-05 16:08:15,459 [BasicRepositoryConnector-repo.maven.apache.org-0-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.jar
+2025-07-05 16:08:15,504 [BasicRepositoryConnector-repo.maven.apache.org-0-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70.jar
+2025-07-05 16:08:15,649 [BasicRepositoryConnector-repo.maven.apache.org-0-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar
+2025-07-05 16:08:38,274 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5-sources.jar
+2025-07-05 16:08:38,422 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/kernel/7.2.5/kernel-7.2.5-sources.jar
+2025-07-05 16:08:38,426 [Worker-16: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.itextpdf:kernel:7.2.5
+2025-07-05 16:08:38,557 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5-sources.jar
+2025-07-05 16:08:38,726 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/io/7.2.5/io-7.2.5-sources.jar
+2025-07-05 16:08:38,729 [Worker-16: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.itextpdf:io:7.2.5
+2025-07-05 16:08:38,825 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5-sources.jar
+2025-07-05 16:08:38,869 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/commons/7.2.5/commons-7.2.5-sources.jar
+2025-07-05 16:08:38,874 [Worker-16: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.itextpdf:commons:7.2.5
+2025-07-05 16:08:38,968 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70-sources.jar
+2025-07-05 16:08:39,078 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70-sources.jar
+2025-07-05 16:08:39,083 [Worker-16: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.bouncycastle:bcpkix-jdk15on:1.70
+2025-07-05 16:08:39,174 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70-sources.jar
+2025-07-05 16:08:39,261 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70-sources.jar
+2025-07-05 16:08:39,266 [Worker-16: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.bouncycastle:bcutil-jdk15on:1.70
+2025-07-05 16:08:39,382 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70-sources.jar
+2025-07-05 16:08:39,631 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70-sources.jar
+2025-07-05 16:08:39,635 [Worker-16: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.bouncycastle:bcprov-jdk15on:1.70
+2025-07-05 16:08:39,729 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36-sources.jar
+2025-07-05 16:08:39,768 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36-sources.jar
+2025-07-05 16:08:39,771 [Worker-16: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.slf4j:slf4j-api:1.7.36
+2025-07-05 16:08:39,934 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5-sources.jar
+2025-07-05 16:08:40,073 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/layout/7.2.5/layout-7.2.5-sources.jar
+2025-07-05 16:08:40,078 [Worker-16: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.itextpdf:layout:7.2.5
+2025-07-05 16:08:40,214 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36-sources.jar
+2025-07-05 16:08:40,221 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36-sources.jar
+2025-07-05 16:08:40,228 [Worker-16: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.slf4j:slf4j-simple:1.7.36
+2025-07-05 16:08:41,370 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2025-07-05 16:08:41,382 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\test\resources to target\test-classes
+2025-07-05 16:08:51,584 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013 [298])
+2025-07-05 16:08:51,586 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013
+2025-07-05 16:08:51,586 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\aopalliance-1.0.jar
+2025-07-05 16:08:51,586 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\guice-5.1.0.jar
+2025-07-05 16:08:51,586 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\httpclient-4.5.14.jar
+2025-07-05 16:08:51,586 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\httpcore-4.4.16.jar
+2025-07-05 16:08:51,587 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\jansi-2.4.1.jar
+2025-07-05 16:08:51,587 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\jcl-over-slf4j-1.7.36.jar
+2025-07-05 16:08:51,587 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-artifact-3.9.9.jar
+2025-07-05 16:08:51,587 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-builder-support-3.9.9.jar
+2025-07-05 16:08:51,587 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-compat-3.9.9.jar
+2025-07-05 16:08:51,587 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-core-3.9.9.jar
+2025-07-05 16:08:51,587 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-embedder-3.9.9.jar
+2025-07-05 16:08:51,588 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-model-3.9.9.jar
+2025-07-05 16:08:51,588 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-model-builder-3.9.9.jar
+2025-07-05 16:08:51,588 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-plugin-api-3.9.9.jar
+2025-07-05 16:08:51,588 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-repository-metadata-3.9.9.jar
+2025-07-05 16:08:51,588 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-api-1.9.22.jar
+2025-07-05 16:08:51,589 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-connector-basic-1.9.22.jar
+2025-07-05 16:08:51,589 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-impl-1.9.22.jar
+2025-07-05 16:08:51,589 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-named-locks-1.9.22.jar
+2025-07-05 16:08:51,589 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-provider-3.9.9.jar
+2025-07-05 16:08:51,590 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-spi-1.9.22.jar
+2025-07-05 16:08:51,590 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-file-1.9.22.jar
+2025-07-05 16:08:51,590 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-http-1.9.22.jar
+2025-07-05 16:08:51,591 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-transport-wagon-1.9.22.jar
+2025-07-05 16:08:51,591 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-resolver-util-1.9.22.jar
+2025-07-05 16:08:51,591 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-settings-3.9.9.jar
+2025-07-05 16:08:51,591 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-settings-builder-3.9.9.jar
+2025-07-05 16:08:51,592 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\maven-shared-utils-3.4.2.jar
+2025-07-05 16:08:51,592 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\org.eclipse.sisu.inject-0.9.0.M3.jar
+2025-07-05 16:08:51,592 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\org.eclipse.sisu.plexus-0.9.0.M3.jar
+2025-07-05 16:08:51,592 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-build-api-0.0.7.jar
+2025-07-05 16:08:51,593 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-build-api-1.2.0.jar
+2025-07-05 16:08:51,593 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-cipher-2.0.jar
+2025-07-05 16:08:51,593 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-classworlds-2.8.0.jar
+2025-07-05 16:08:51,593 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-component-annotations-2.1.0.jar
+2025-07-05 16:08:51,594 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-interpolation-1.27.jar
+2025-07-05 16:08:51,594 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-sec-dispatcher-2.0.jar
+2025-07-05 16:08:51,594 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-utils-3.5.1.jar
+2025-07-05 16:08:51,594 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\plexus-xml-3.0.1.jar
+2025-07-05 16:08:51,594 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-file-3.5.3.jar
+2025-07-05 16:08:51,595 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-http-3.5.3.jar
+2025-07-05 16:08:51,595 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-http-shared-3.5.3.jar
+2025-07-05 16:08:51,595 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.900.20250220-2013\jars\wagon-provider-api-3.5.3.jar
+2025-07-05 16:08:51,597 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.4.0.jre [12])
+2025-07-05 16:08:51,597 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\com.google.guava_33.4.0.jre.jar
+2025-07-05 16:08:51,597 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.17 [619])
+2025-07-05 16:08:51,598 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\slf4j.api_2.0.17.jar
+2025-07-05 16:08:51,598 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [24])
+2025-07-05 16:08:51,598 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\jakarta.inject.jakarta.inject-api_1.0.5.jar
+2025-07-05 16:08:51,598 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.annotation-api_1.3.5 [22])
+2025-07-05 16:08:51,599 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\jakarta.annotation-api_1.3.5.jar
+2025-07-05 16:08:51,599 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.9.0 [48])
+2025-07-05 16:08:51,599 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.apache.commons.cli_1.9.0.jar
+2025-07-05 16:08:51,599 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [49])
+2025-07-05 16:08:51,600 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\org.apache.commons.commons-codec_1.16.0.jar
+2025-07-05 16:08:51,600 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [13])
+2025-07-05 16:08:51,600 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\Alexandru\.p2\pool\plugins\com.google.guava.failureaccess_1.0.2.jar
+2025-07-05 16:08:51,603 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "P:\Facultate\An2\Practica\TaskFlow\taskflow":
+2025-07-05 16:08:51,604 [Worker-9: Launching Executing install in P__Facultate_An2_Practica_TaskFlow_taskflow] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always install
+2025-07-05 16:09:25,930 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:391) - ... Waiting for all tasks ending
+2025-07-05 16:09:25,932 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:397) - Closing all component containers
+2025-07-05 16:09:25,933 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:403) - Closing FileSystemHelper
+2025-07-05 16:09:25,934 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:409) - ... Waiting for all tasks ending before shutting down the BackgroundExecutor
+2025-07-05 16:09:25,934 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:414) - Shutting down BackgroundExecutor
+2025-07-05 16:09:25,935 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
+2025-07-05 16:09:25,935 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
+2025-07-05 16:09:25,936 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
+2025-07-06 13:11:58,481 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-07-06 13:16:28,281 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2025-07-06 13:16:28,287 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\test\resources to target\test-classes
+2025-07-06 13:18:04,217 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:18:04,219 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:18:13,840 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:18:13,841 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:18:53,624 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:18:53,625 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:19:00,906 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:19:00,907 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:19:10,415 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:19:10,417 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:19:16,642 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:19:16,643 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:19:25,029 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:19:25,031 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:19:32,617 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:19:32,619 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:19:39,657 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:19:39,659 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:19:46,193 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:19:46,194 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:20:41,676 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:20:41,678 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:20:48,607 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:20:48,608 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:21:20,935 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:21:20,936 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:21:29,506 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:21:29,507 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:22:20,621 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:22:20,622 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:22:40,551 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:22:40,553 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:22:50,699 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:22:50,700 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:23:22,251 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:23:22,253 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:23:31,393 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:23:31,394 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:23:40,076 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:23:40,077 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:23:49,024 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:23:49,025 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:24:40,653 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:24:40,654 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:24:50,390 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:24:50,392 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:24:58,983 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:24:58,984 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:25:06,400 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:25:06,401 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:25:13,998 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:25:13,999 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:25:21,788 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:25:21,790 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:25:52,205 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:25:52,206 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:28:33,384 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:28:33,386 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:29:46,800 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:29:46,801 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:30:45,099 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:30:45,100 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:31:00,768 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:31:00,769 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:35:57,266 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-07-06 13:35:57,268 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:38:17,330 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
+2025-07-06 13:38:17,333 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+
+	Configuration values for static components:
+
+		background-executor.all-tasks-monitoring.enabled=\
+			true
+		background-executor.all-tasks-monitoring.interval=\
+			30000
+		background-executor.all-tasks-monitoring.logger.enabled=\
+			false
+		background-executor.all-tasks-monitoring.minimum-elapsed-time-to-consider-a-task-as-probable-dead-locked=\
+			300000
+		background-executor.all-tasks-monitoring.probable-dead-locked-tasks-handling.policy=\
+			log only
+		background-executor.queued-task-executor[0].name=\
+			Low priority tasks
+		background-executor.queued-task-executor[0].priority=\
+			1
+		background-executor.queued-task-executor[1].name=\
+			Normal priority tasks
+		background-executor.queued-task-executor[1].priority=\
+			5
+		background-executor.queued-task-executor[2].name=\
+			High priority tasks
+		background-executor.queued-task-executor[2].priority=\
+			10
+		background-executor.task-creation-tracking.enabled=\
+			${background-executor.all-tasks-monitoring.enabled}
+		banner.additonal-informations=\
+			${Implementation-Title} ${Implementation-Version}
+		banner.additonal-informations.retrieve-from-manifest-file-with-implementation-title=\
+			Burningwave Core
+		banner.file=\
+			org/burningwave/banner.bwb
+		banner.hide=\
+			true
+		buffer-handler.default-allocation-mode=\
+			ByteBuffer::allocateDirect
+		buffer-handler.default-buffer-size=\
+			1024
+		group-name-for-named-elements=\
+			Burningwave
+		iterable-object-helper.default-values-separator=\
+			;
+		iterable-object-helper.parallel-iteration.applicability.default-minimum-collection-size=\
+			2
+		iterable-object-helper.parallel-iteration.applicability.max-runtime-thread-count-threshold=\
+			autodetect
+		iterable-object-helper.parallel-iteration.applicability.output-collection-enabled-types=\
+			java.util.concurrent.ConcurrentHashMap$CollectionView;\
+			java.util.Collections$SynchronizedCollection;\
+			java.util.concurrent.CopyOnWriteArrayList;\
+			java.util.concurrent.CopyOnWriteArraySet;\
+			java.util.concurrent.BlockingQueue;\
+			java.util.concurrent.ConcurrentSkipListSet;\
+			java.util.concurrent.ConcurrentSkipListMap$EntrySet;\
+			java.util.concurrent.ConcurrentSkipListMap$KeySet;\
+			java.util.concurrent.ConcurrentSkipListMap$Values;
+		jvm.driver.init=\
+			false
+		managed-logger.repository=\
+			autodetect
+		managed-logger.repository.enabled=\
+			true
+		managed-logger.repository.logging.warn.disabled-for=\
+			org.burningwave.core.assembler.ComponentContainer$ClassLoader;\
+			org.burningwave.core.classes.MemoryClassLoader;\
+			org.burningwave.core.classes.PathScannerClassLoader;
+		modules.export-all-to-all=\
+			true
+		resource-releaser.enabled=\
+			true
+		synchronizer.all-threads-monitoring.enabled=\
+			false
+		synchronizer.all-threads-monitoring.interval=\
+			90000
+		thread-supplier.default-daemon-flag-value=\
+			true
+		thread-supplier.default-thread-priority=\
+			5
+		thread-supplier.max-detached-thread-count=\
+			${thread-supplier.max-poolable-thread-count}
+		thread-supplier.max-detached-thread-count.elapsed-time-threshold-from-last-increase-for-gradual-decreasing-to-initial-value=\
+			30000
+		thread-supplier.max-detached-thread-count.increasing-step=\
+			autodetect
+		thread-supplier.max-poolable-thread-count=\
+			autodetect
+		thread-supplier.poolable-thread-request-timeout=\
+			6000
+
+
+2025-07-06 13:38:17,336 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
+2025-07-06 13:38:17,337 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
+2025-07-06 13:38:17,341 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
+2025-07-06 13:38:17,367 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.1291322 seconds
+2025-07-06 13:38:21,231 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-07-06 13:38:25,492 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2025-07-06 13:38:25,598 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\test\resources to target\test-classes
+2025-07-06 13:43:13,575 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2025-07-06 13:43:13,578 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-07-06 13:46:05,134 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:391) - ... Waiting for all tasks ending
+2025-07-06 13:46:05,136 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:397) - Closing all component containers
+2025-07-06 13:46:05,137 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:403) - Closing FileSystemHelper
+2025-07-06 13:46:05,139 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:409) - ... Waiting for all tasks ending before shutting down the BackgroundExecutor
+2025-07-06 13:46:05,139 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:414) - Shutting down BackgroundExecutor
+2025-07-06 13:46:05,139 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
+2025-07-06 13:46:05,139 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
+2025-07-06 13:46:05,141 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier

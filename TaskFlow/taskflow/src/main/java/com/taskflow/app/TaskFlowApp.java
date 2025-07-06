@@ -55,6 +55,7 @@ public class TaskFlowApp {
             if (dataFile.exists()) {
             	frame.setCurrentFile(dataFile);
                 frame.setLastDir(dataFile.getParentFile());
+                frame.refreshTreeAll();
             }
 
             frame.setVisible(true);

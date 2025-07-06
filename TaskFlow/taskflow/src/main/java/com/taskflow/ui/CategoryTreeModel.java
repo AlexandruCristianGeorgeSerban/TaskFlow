@@ -24,10 +24,10 @@ public class CategoryTreeModel extends DefaultTreeModel {
 
 		for (RootGroup rg : roots) {
 			DefaultMutableTreeNode rgNode = new DefaultMutableTreeNode(rg); // Nod pentru fiecare root
-			for (Category c : rg.getCategories()) {
-				DefaultMutableTreeNode cNode = new DefaultMutableTreeNode(c); // Nod categorie
-				for (Task t : c.getTasks()) {
-					cNode.add(new DefaultMutableTreeNode(t)); // Nod task
+			for (Category cat : rg.getCategories()) {
+				DefaultMutableTreeNode cNode = new DefaultMutableTreeNode(cat); // Nod categorie
+				for (Task task : cat.getTasks()) {
+					cNode.add(new DefaultMutableTreeNode(task)); // Nod task
 				}
 				rgNode.add(cNode);
 			}

@@ -22,7 +22,7 @@ public class ResetOrderAction extends AbstractAction {
 		TableRowSorter<?> sorter = (TableRowSorter<?>) frame.getTaskTable().getRowSorter();
 		sorter.setSortKeys(null);
 
-		// 2) Reactualizează modelul tabelei cu lista originală de task-uri
-		frame.getTaskTableModel().setTasks(frame.getMasterTasks());
+		// 2) Reîmprospătează arborele și tabelul cu toate task-urile actuale
+        frame.refreshTreeAll();
 	}
 }

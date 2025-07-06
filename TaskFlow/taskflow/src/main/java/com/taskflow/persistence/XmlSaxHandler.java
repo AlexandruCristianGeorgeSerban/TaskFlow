@@ -41,30 +41,30 @@ public class XmlSaxHandler extends DefaultHandler implements RootGroupPersistenc
         switch (qName) {
             case "root":
                 // Creează un nou RootGroup și adaugă-l în lista roots
-                String rName = atts.getValue("name");
-                String rColor = atts.getValue("color");
-                currentRoot = new RootGroup(rName, rColor);
+                String rootName = atts.getValue("name");
+                String rootColor = atts.getValue("color");
+                currentRoot = new RootGroup(rootName, rootColor);
                 roots.add(currentRoot);
                 break;
             case "category":
                 // Creează o nouă categorie și adaug-o la grupul curent
-                String cName = atts.getValue("name");
-                String cColor = atts.getValue("color");
-                currentCategory = new Category(cName, cColor);
+                String catName = atts.getValue("name");
+                String catColor = atts.getValue("color");
+                currentCategory = new Category(catName, catColor);
                 currentRoot.getCategories().add(currentCategory);
                 break;
             case "task":
                 // Inițializează un nou Task cu atributele de bază
-                String tId    = atts.getValue("id");
-                String tTitle = atts.getValue("title");
-                boolean tComp = Boolean.parseBoolean(atts.getValue("completed"));
-                String tColor = atts.getValue("color"); 
+                String taskId    = atts.getValue("id");
+                String taskTitle = atts.getValue("title");
+                boolean taskComp = Boolean.parseBoolean(atts.getValue("completed"));
+                String taskColor = atts.getValue("color"); 
                 currentTask = new Task();
-                currentTask.setId(tId);
-                currentTask.setTitle(tTitle);
-                currentTask.setCompleted(tComp);
-                if (tColor != null) {
-                    currentTask.setColorHex(tColor);
+                currentTask.setId(taskId);
+                currentTask.setTitle(taskTitle);
+                currentTask.setCompleted(taskComp);
+                if (taskColor != null) {
+                    currentTask.setColorHex(taskColor);
                 }
                 break;
             // Pentru description și dueDate, conținutul e citit în characters()

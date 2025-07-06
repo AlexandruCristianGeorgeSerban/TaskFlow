@@ -104,9 +104,9 @@ public class TaskDialogAction extends AbstractAction {
             @Override
             public void mouseClicked(MouseEvent me) {
                 // La click, afișăm dialogul pentru alegerea culorii
-                Color c = JColorChooser.showDialog(
+                Color color = JColorChooser.showDialog(
                     frame, "Choose task color", colorSwatch.getBackground());
-                if (c != null) colorSwatch.setBackground(c);
+                if (color != null) colorSwatch.setBackground(color);
             }
         });
 
@@ -148,15 +148,15 @@ public class TaskDialogAction extends AbstractAction {
             String in    = dateField.getText().trim();
             Calendar due = Calendar.getInstance();
             try {
-                Date d;
+                Date date;
                 if (in.contains("-")) {
                     // Parsăm data în formatul cu cratime
-                    d = new SimpleDateFormat("yyyy-MM-dd").parse(in);
+                    date = new SimpleDateFormat("yyyy-MM-dd").parse(in);
                 } else {
                     // Parsăm data în formatul compact
-                    d = new SimpleDateFormat("yyyyMMdd").parse(in);
+                    date = new SimpleDateFormat("yyyyMMdd").parse(in);
                 }
-                due.setTime(d);
+                due.setTime(date);
             } catch (ParseException ex) {
                 // Dacă data nu este validă, afișăm eroare și rămânem în loop
                 JOptionPane.showMessageDialog(frame,

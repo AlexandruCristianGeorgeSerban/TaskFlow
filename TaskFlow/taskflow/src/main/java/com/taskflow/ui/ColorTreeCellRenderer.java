@@ -28,13 +28,13 @@ public class ColorTreeCellRenderer extends DefaultTreeCellRenderer {
             hex = rg.getColorHex(); // Culoarea root-ului
             setText(rg.getName());
         } else if (obj instanceof Category) {
-            Category c = (Category) obj;
-            hex = c.getColor(); // Culoarea categoriei
-            setText(c.getName());
+            Category cat = (Category) obj;
+            hex = cat.getColor(); // Culoarea categoriei
+            setText(cat.getName());
         } else if (obj instanceof Task) {
-            Task t = (Task) obj;
-            hex = t.getColorHex(); // Culoarea task-ului
-            setText(t.getTitle());
+            Task task = (Task) obj;
+            hex = task.getColorHex(); // Culoarea task-ului
+            setText(task.getTitle());
         }
 
         // Normalizează formatul hex

@@ -18,12 +18,12 @@ public class ToggleCompletedAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Task t = frame.getSelectedTask(); // Task-ul selectat
-		if (t == null)
+		Task task = frame.getSelectedTask(); // Task-ul selectat
+		if (task == null)
 			return; // Oprește dacă nu există selecție
 
-		t.setCompleted(!t.isCompleted()); // Inversează starea de finalizare
-		frame.getTaskService().updateTask(t); // Salvează modificarea
+		task.setCompleted(!task.isCompleted()); // Inversează starea de finalizare
+		frame.getTaskService().updateTask(task); // Salvează modificarea
 		// Reîmprospătează UI-ul pentru categoria curentă
 		frame.refreshAfterChange(frame.getSelectedCategory());
 	}
