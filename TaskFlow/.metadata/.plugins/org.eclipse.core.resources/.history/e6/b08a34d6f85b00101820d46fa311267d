@@ -1,0 +1,140 @@
+package com.taskflow.action;
+
+import com.taskflow.model.Task;
+import com.taskflow.ui.MainFrame;
+import com.taskflow.util.PropertiesManager;
+
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Text;
+import com.itextpdf.io.font.PdfEncodings;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.util.List;
+
+// Exportă lista curentă de task-uri într-un fișier PDF folosind iText.
+public class ExportPdfAction extends AbstractAction {
+    private static final long serialVersionUID = 1L;
+    private final MainFrame frame;
+
+    public ExportPdfAction(MainFrame frame) {
+        super("Export PDF"); // Textul afișat în meniul aplicației
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Deschide dialogul pentru salvarea fișierului PDF
+        JFileChooser chooser = new JFileChooser();
+        File ld = frame.getLastDir(); // Directorul folosit ultima dată
+        if (ld != null) chooser.setCurrentDirectory(ld);
+
+        // Dacă utilizatorul nu alege un fișier, ieșim
+        if (chooser.showSaveDialog(frame) != JFileChooser.APPROVE_OPTION) return;
+
+        // Preluăm fișierul ales
+        File file = chooser.getSelectedFile();
+        // Dacă extensia nu este .pdf, o adăugăm
+        if (!file.getName().toLowerCase().endsWith(".pdf")) {
+            file = new File(file.getParentFile(), file.getName() + ".pdf");
+        }
+
+        // Setează noul director ca fiind ultimul folosit
+        frame.setLastDir(file.getParentFile());
+
+        // Obține lista de task-uri afișate în tabel (poate fi filtrată)
+        List<Task> tasks = frame.getTaskTableModel().getTasks();
+
+        try (
+            // Inițializează infrastructura iText
+            PdfWriter writer = new PdfWriter(file);
+            PdfDocument pdf = new PdfDocument(writer);
+            Document doc = new Document(pdf)
+        ) {
+            // Încarcă fontul cu suport pentru caractere Unicode (ex: diacritice) din config
+        	// Încarcă fontul Unicode din config sau folosește default dacă nu se poate
+        	String fontPath = PropertiesManager.get("pdf.font", "").trim();
+        	PdfFont font;
+        	if (fontPath.isEmpty()) {
+        	    // nu e setat în config
+        	    System.err.println("Config missing 'pdf.font'; using default font.");
+        	    font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
+        	} else {
+        	    try {
+        	        File f = new File(fontPath);
+        	        if (!f.exists()) {
+        	            throw new RuntimeException("Font file not found: " + fontPath);
+        	        }
+        	        font = PdfFontFactory.createFont(fontPath, PdfEncodings.IDENTITY_H);
+        	    } catch (Exception ex) {
+        	        // eroare la încărcarea fontului personalizat
+        	        System.err.println("Failed to load custom font '" + fontPath + "': " + ex.getMessage());
+        	        System.err.println("Falling back to default font.");
+        	        font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
+        	    }
+        	}
+        	doc.setFont(font); // Aplică fontul întregului document PDF
+
+            // Titlul documentului
+            doc.add(new Paragraph("TaskFlow Report")
+                .setBold()
+                .setFontSize(16)
+            );
+
+            // Linie albă între titlu și conținut
+            doc.add(new Paragraph(" "));
+
+            // Iterează prin toate root-urile
+            for (var root : frame.getTaskService().getAllRoots()) {
+                // Adaugă numele root-ului
+                doc.add(new Paragraph("Root: " + root.getName())
+                    .setBold()
+                    .setFontSize(13)
+                    .setMarginTop(10)
+                    .setMarginBottom(4)
+                );
+
+                // Iterează prin categoriile root-ului
+                for (var cat : root.getCategories()) {
+                    doc.add(new Paragraph("Category: " + cat.getName())
+                        .setItalic()
+                        .setMarginLeft(10)
+                        .setMarginBottom(2)
+                    );
+
+                    // Iterează prin task-urile categoriei
+                    for (Task task : cat.getTasks()) {
+                        // Dacă task-ul nu este în lista filtrată, îl sărim
+                        if (!tasks.contains(task)) continue;
+
+                        // Creează textul pentru fiecare task
+                        String status = task.isCompleted() ? "[x]" : "[ ]";
+                        String due = String.format("%1$tY-%1$tm-%1$td", task.getDueDate().getTime());
+
+                        Paragraph p = new Paragraph()
+                            .add(new Text("   " + status + " ").setBold())       // Checkbox
+                            .add(new Text(task.getTitle()))                         // Titlu task
+                            .add(new Text(" (due " + due + ")").setItalic())     // Deadline
+                            .setMarginLeft(20);
+                        doc.add(p); // Adaugă task-ul în document
+                    }
+                }
+            }
+
+            // Mesaj de confirmare la final
+            JOptionPane.showMessageDialog(frame,
+                "PDF saved successfully:\n" + file.getAbsolutePath(),
+                "Export PDF", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception ex) {
+            // Afișează eroarea în caz de eșec
+            frame.showError(ex);
+        }
+    }
+}

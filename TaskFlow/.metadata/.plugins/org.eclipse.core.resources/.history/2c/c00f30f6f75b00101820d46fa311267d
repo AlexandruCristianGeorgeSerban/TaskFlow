@@ -1,0 +1,13 @@
+# Proprietăți de configurare pentru TaskFlow
+
+# Clasă Look & Feel pentru interfața Swing
+# Pentru look & feel implicit al sistemului
+ui.lookAndFeel=SYSTEM
+# Sau pentru Nimbus:
+# ui.lookAndFeel=javax.swing.plaf.nimbus.NimbusLookAndFeel
+
+# Calea către fișierul XML cu date (relativ la directorul de lucru)
+data.file=src/test/resources/data.xml
+
+# Calea către fontul Unicode (TTF)
+pdf.font=src/main/resources/fonts/DejaVuSans.ttf

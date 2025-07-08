@@ -1,7 +1,0 @@
-# Proprietăți de configurare pentru TaskFlow
-
-# Clasă Look & Feel pentru interfața Swing
-ui.lookAndFeel=javax.swing.plaf.nimbus.NimbusLookAndFeel
-
-# Calea către fișierul XML cu date (relativ la directorul de lucru)
-data.file=data

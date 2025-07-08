@@ -6,54 +6,67 @@ import com.taskflow.persistence.XmlSaxHandler;
 import com.taskflow.service.DefaultTaskService;
 import com.taskflow.service.TaskService;
 import com.taskflow.ui.MainFrame;
+import com.taskflow.util.PropertiesManager;
 
 import javax.swing.*;
 import java.io.File;
 import java.util.Collections;
 import java.util.List;
 
-// Punctul de intrare în aplicația TaskFlow.
+/**
+ * Punctul de intrare în aplicația TaskFlow.
+ * Încarcă Look & Feel și calea fișierului de date din config.properties,
+ * Inițializează serviciul și interfața grafică.
+ */
 public class TaskFlowApp {
     public static void main(String[] args) {
-        // 1) Setăm Look and Feel-ul sistemului
-        try {
-            UIManager.setLookAndFeel(
-                UIManager.getSystemLookAndFeelClassName()
-            );
-        } catch (Exception ignored) {}
+        // 1) Setăm Look and Feel-ul din config
+    	String lf = PropertiesManager.get("ui.lookAndFeel", "SYSTEM");
+    	try {
+    	    if ("SYSTEM".equalsIgnoreCase(lf.trim())) {
+    	        // tema nativă a OS-ului
+    	        UIManager.setLookAndFeel(
+    	            UIManager.getSystemLookAndFeelClassName()
+    	        );
+    	    } else {
+    	        // orice clasă LookAndFeel specificată în config
+    	        UIManager.setLookAndFeel(lf);
+    	    }
+    	} catch (Exception ignored) {}
 
         // 2) Creăm și inițializăm serviciul de task-uri
         TaskService taskService = new DefaultTaskService();
 
-        // 3) Încărcăm root-urile din fișierul XML folosind SAX
-        String dataFilePath = "src/test/resources/data.xml"; // Calea fișierului de date
+        // 3) Obține calea către fișierul de date din config.properties (implicit data.xml)
+        String dataFilePath = PropertiesManager.get("data.file", "data.xml");
         File dataFile = new File(dataFilePath);
+
+        // 4) Încarcă root-urile din fișierul XML cu SAX, dacă există
         List<RootGroup> roots;
         if (dataFile.exists()) {
             try {
-                RootGroupPersistence loader = new XmlSaxHandler(); // Handler SAX pentru XML
+                RootGroupPersistence loader = new XmlSaxHandler();
                 roots = loader.loadRootGroups(dataFile);
             } catch (Exception ex) {
-                // Afișăm eroarea la încărcare și inițializăm lista goală
-                System.err.println("Failed to load roots: " + ex.getMessage());
+                System.err.println("Eroare la încărcarea root-urilor: " + ex.getMessage());
                 roots = Collections.emptyList();
             }
         } else {
-            roots = Collections.emptyList(); // Nu există fișierul, lista rămâne goală
+            roots = Collections.emptyList(); // fișier inexistent
         }
 
-        // 4) Adăugăm toate root-urile în serviciu
+        // 5) Adaugă root-urile încărcate în serviciu
         for (RootGroup rg : roots) {
             taskService.addRoot(rg);
         }
 
-        // 5) Inițializăm și afișăm interfața grafică în firul Event Dispatch Thread
+        // 6) Deschide interfața grafică în Event Dispatch Thread
         SwingUtilities.invokeLater(() -> {
             MainFrame frame = new MainFrame(taskService);
-            
-         // Dacă dataFile a existat la start, setează-l ca last directory si current file
+
+            // Dacă am încărcat un fișier existent, reține-l ca currentFile și lastDir
             if (dataFile.exists()) {
-            	frame.setCurrentFile(dataFile);
+                frame.setCurrentFile(dataFile);
                 frame.setLastDir(dataFile.getParentFile());
                 frame.refreshTreeAll();
             }

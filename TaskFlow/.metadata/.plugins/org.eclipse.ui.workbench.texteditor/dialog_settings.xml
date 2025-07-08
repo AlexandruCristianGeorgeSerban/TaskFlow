@@ -4,6 +4,7 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="false"/>
 		<list key="findhistory">
+			<item value="file"/>
 			<item value="dataFilePath"/>
 			<item value="data.xml"/>
 			<item value="data.file"/>
@@ -18,7 +19,6 @@
 			<item value="categorytree.setcellrenderer"/>
 			<item value="categorytree.add"/>
 			<item value="categorytree"/>
-			<item value="tasktablemodel"/>
 		</list>
 	</section>
 </section>

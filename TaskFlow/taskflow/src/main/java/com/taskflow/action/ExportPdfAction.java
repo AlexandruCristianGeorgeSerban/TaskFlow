@@ -2,6 +2,7 @@ package com.taskflow.action;
 
 import com.taskflow.model.Task;
 import com.taskflow.ui.MainFrame;
+import com.taskflow.util.PropertiesManager;
 
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -11,6 +12,7 @@ import com.itextpdf.layout.element.Text;
 import com.itextpdf.io.font.PdfEncodings;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.io.font.constants.StandardFonts;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -56,12 +58,47 @@ public class ExportPdfAction extends AbstractAction {
             PdfDocument pdf = new PdfDocument(writer);
             Document doc = new Document(pdf)
         ) {
-            // Încarcă fontul cu suport pentru caractere Unicode (ex: diacritice)
-            PdfFont font = PdfFontFactory.createFont(
-                "src/main/resources/fonts/DejaVuSans.ttf",
-                PdfEncodings.IDENTITY_H
-            );
-            doc.setFont(font); // Aplică fontul întregului document PDF
+        	// Încarcă fontul Unicode din config sau folosește default dacă nu se poate
+        	String fontPath = PropertiesManager.get("pdf.font", "").trim();
+        	PdfFont font;
+        	if (fontPath.isEmpty()) {
+        	    // Niciun font configurat
+        	    JOptionPane.showMessageDialog(
+        	        frame,
+        	        "No custom PDF font defined in config.properties.\n" +
+        	        "Falling back to default font.",
+        	        "Font Warning",
+        	        JOptionPane.WARNING_MESSAGE
+        	    );
+        	    font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
+        	} else {
+        	    File fontFile = new File(fontPath);
+        	    if (!fontFile.exists()) {
+        	    	// Font-ul configurat nu a fost găsit
+        	        JOptionPane.showMessageDialog(
+        	            frame,
+        	            "Font file not found:\n" + fontPath + "\n" +
+        	            "Falling back to default font.",
+        	            "Font Warning",
+        	            JOptionPane.WARNING_MESSAGE
+        	        );
+        	        font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
+        	    } else {
+        	        try {
+        	            font = PdfFontFactory.createFont(fontPath, PdfEncodings.IDENTITY_H);
+        	        } catch (Exception ex) {
+        	            JOptionPane.showMessageDialog(
+        	                frame,
+        	                "Failed to load custom font:\n" + ex.getMessage() + "\n" +
+        	                "Falling back to default font.",
+        	                "Font Warning",
+        	                JOptionPane.WARNING_MESSAGE
+        	            );
+        	            font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
+        	        }
+        	    }
+        	}
+        	doc.setFont(font); // Aplică fontul întregului document PDF
 
             // Titlul documentului
             doc.add(new Paragraph("TaskFlow Report")
@@ -91,27 +128,27 @@ public class ExportPdfAction extends AbstractAction {
                     );
 
                     // Iterează prin task-urile categoriei
-                    for (Task t : cat.getTasks()) {
+                    for (Task task : cat.getTasks()) {
                         // Dacă task-ul nu este în lista filtrată, îl sărim
-                        if (!tasks.contains(t)) continue;
+                        if (!tasks.contains(task)) continue;
 
                         // Creează textul pentru fiecare task
-                        String status = t.isCompleted() ? "[x]" : "[ ]";
-                        String due = String.format("%1$tY-%1$tm-%1$td", t.getDueDate().getTime());
+                        String status = task.isCompleted() ? "[x]" : "[ ]";
+                        String due = String.format("%1$tY-%1$tm-%1$td", task.getDueDate().getTime());
 
-                        Paragraph p = new Paragraph()
+                        Paragraph paragraph = new Paragraph()
                             .add(new Text("   " + status + " ").setBold())       // Checkbox
-                            .add(new Text(t.getTitle()))                         // Titlu task
+                            .add(new Text(task.getTitle()))                         // Titlu task
                             .add(new Text(" (due " + due + ")").setItalic())     // Deadline
                             .setMarginLeft(20);
-                        doc.add(p); // Adaugă task-ul în document
+                        doc.add(paragraph); // Adaugă task-ul în document
                     }
                 }
             }
 
             // Mesaj de confirmare la final
             JOptionPane.showMessageDialog(frame,
-                "PDF salvat cu succes:\n" + file.getAbsolutePath(),
+                "PDF saved successfully:\n" + file.getAbsolutePath(),
                 "Export PDF", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (Exception ex) {
